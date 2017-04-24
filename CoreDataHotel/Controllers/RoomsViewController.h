@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RoomsViewController.h
 //  CoreDataHotel
 //
 //  Created by Jake Romer on 4/24/17.
@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface RoomsViewController : UIViewController
 @end

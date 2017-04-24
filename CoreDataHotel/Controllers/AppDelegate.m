@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "HotelViewController.h"
 
 @interface AppDelegate ()
 @property(strong, nonatomic) UINavigationController *navController;
-@property(strong, nonatomic) ViewController *viewController;
+@property(strong, nonatomic) HotelViewController *hotelVC;
 @end
 
 @implementation AppDelegate
@@ -23,8 +23,8 @@
 
 - (void) setupRootViewController {
   self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
-  self.viewController = [[ViewController alloc] init];
-  self.navController = [[UINavigationController alloc] initWithRootViewController: self.viewController];
+  self.hotelVC = [[HotelViewController alloc] init];
+  self.navController = [[UINavigationController alloc] initWithRootViewController: self.hotelVC];
 
   self.window.rootViewController = self.navController;
   [self.window makeKeyAndVisible];
