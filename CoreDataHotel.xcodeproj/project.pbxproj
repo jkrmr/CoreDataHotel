@@ -10,7 +10,6 @@
 		1BC3E22E1EAE5CC500797571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E22D1EAE5CC500797571 /* main.m */; };
 		1BC3E2311EAE5CC500797571 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2301EAE5CC500797571 /* AppDelegate.m */; };
 		1BC3E2341EAE5CC500797571 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2331EAE5CC500797571 /* ViewController.m */; };
-		1BC3E2371EAE5CC500797571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC3E2351EAE5CC500797571 /* Main.storyboard */; };
 		1BC3E23A1EAE5CC500797571 /* CoreDataHotel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2381EAE5CC500797571 /* CoreDataHotel.xcdatamodeld */; };
 		1BC3E23C1EAE5CC500797571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BC3E23B1EAE5CC500797571 /* Assets.xcassets */; };
 		1BC3E23F1EAE5CC500797571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC3E23D1EAE5CC500797571 /* LaunchScreen.storyboard */; };
@@ -38,11 +37,10 @@
 /* Begin PBXFileReference section */
 		1BC3E2291EAE5CC500797571 /* CoreDataHotel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataHotel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC3E22D1EAE5CC500797571 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1BC3E22F1EAE5CC500797571 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1BC3E2301EAE5CC500797571 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1BC3E2321EAE5CC500797571 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1BC3E2331EAE5CC500797571 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1BC3E2361EAE5CC500797571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1BC3E22F1EAE5CC500797571 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Controllers/AppDelegate.h; sourceTree = "<group>"; };
+		1BC3E2301EAE5CC500797571 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Controllers/AppDelegate.m; sourceTree = "<group>"; };
+		1BC3E2321EAE5CC500797571 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controllers/ViewController.h; sourceTree = "<group>"; };
+		1BC3E2331EAE5CC500797571 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controllers/ViewController.m; sourceTree = "<group>"; };
 		1BC3E2391EAE5CC500797571 /* CoreDataHotel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataHotel.xcdatamodel; sourceTree = "<group>"; };
 		1BC3E23B1EAE5CC500797571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BC3E23E1EAE5CC500797571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,16 +101,15 @@
 		1BC3E22B1EAE5CC500797571 /* CoreDataHotel */ = {
 			isa = PBXGroup;
 			children = (
-				1BC3E22F1EAE5CC500797571 /* AppDelegate.h */,
-				1BC3E2301EAE5CC500797571 /* AppDelegate.m */,
-				1BC3E2321EAE5CC500797571 /* ViewController.h */,
-				1BC3E2331EAE5CC500797571 /* ViewController.m */,
-				1BC3E2351EAE5CC500797571 /* Main.storyboard */,
+				1BC3E2621EAE621200797571 /* Models */,
+				1BC3E2631EAE621800797571 /* Views */,
+				1BC3E2641EAE621F00797571 /* Controllers */,
+				1BC3E2651EAE622E00797571 /* Extensions */,
+				1BC3E22C1EAE5CC500797571 /* Supporting Files */,
 				1BC3E23B1EAE5CC500797571 /* Assets.xcassets */,
 				1BC3E23D1EAE5CC500797571 /* LaunchScreen.storyboard */,
 				1BC3E2401EAE5CC500797571 /* Info.plist */,
 				1BC3E2381EAE5CC500797571 /* CoreDataHotel.xcdatamodeld */,
-				1BC3E22C1EAE5CC500797571 /* Supporting Files */,
 			);
 			path = CoreDataHotel;
 			sourceTree = "<group>";
@@ -141,6 +138,38 @@
 				1BC3E2561EAE5CC600797571 /* Info.plist */,
 			);
 			path = CoreDataHotelUITests;
+			sourceTree = "<group>";
+		};
+		1BC3E2621EAE621200797571 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1BC3E2631EAE621800797571 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1BC3E2641EAE621F00797571 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1BC3E22F1EAE5CC500797571 /* AppDelegate.h */,
+				1BC3E2301EAE5CC500797571 /* AppDelegate.m */,
+				1BC3E2321EAE5CC500797571 /* ViewController.h */,
+				1BC3E2331EAE5CC500797571 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1BC3E2651EAE622E00797571 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +283,6 @@
 			files = (
 				1BC3E23F1EAE5CC500797571 /* LaunchScreen.storyboard in Resources */,
 				1BC3E23C1EAE5CC500797571 /* Assets.xcassets in Resources */,
-				1BC3E2371EAE5CC500797571 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,14 +346,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1BC3E2351EAE5CC500797571 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1BC3E2361EAE5CC500797571 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1BC3E23D1EAE5CC500797571 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
