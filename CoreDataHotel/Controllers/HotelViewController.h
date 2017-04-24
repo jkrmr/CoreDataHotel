@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RoomsViewController.h"
+#import "AutoLayout.h"
 
 @interface HotelViewController : UIViewController
 @end
