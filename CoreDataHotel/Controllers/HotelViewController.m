@@ -9,49 +9,54 @@
 #import "HotelViewController.h"
 
 @interface HotelViewController ()
+@property (strong, nonatomic) NSArray *allHotels;
+@property (strong, nonatomic) UITableView *tableView;
 @end
 
 @implementation HotelViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-  self.view.backgroundColor = [UIColor whiteColor];
-  [self setupLayout];
-}
-
-- (void) setupLayout {
-  UIButton *browseButton = [self createButtonWithTitle:@"Browse"];
-  [AutoLayout leadingConstraintFromView:browseButton toView:self.view];
-  [AutoLayout trailingConstraintFromView:browseButton toView:self.view];
-
-  browseButton.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0.75 alpha:1];
-  [AutoLayout equalHeightConstraintFromView:browseButton toView:self.view withMultiplier:0.33];
   
-  [browseButton addTarget:self
-                   action:@selector(browseButtonWasPressed)
-         forControlEvents:UIControlEventTouchUpInside];
-
-//  UIButton *bookButton = [self createButtonWithTitle:@"Book"];
-//  [AutoLayout leadingConstraintFromView:bookButton toView:self.view];
-//  [AutoLayout trailingConstraintFromView:bookButton toView:self.view];
-//
-//  UIButton *lookupButton = [self createButtonWithTitle:@"Look up"];
-//  [AutoLayout leadingConstraintFromView:lookupButton toView:self.view];
-//  [AutoLayout trailingConstraintFromView:lookupButton toView:self.view];
+  self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+  [self.view addSubview:self.tableView];
+  self.tableView.dataSource = self;
+  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+  self.view.backgroundColor = [UIColor whiteColor];
 }
 
-- (void) browseButtonWasPressed {
-  NSLog(@"selected");
+// MARK: Core Data fetching
+- (NSArray*) allHotels {
+  if (!_allHotels) { _allHotels = [self hotelsFromCoreData]; }
+  return _allHotels;
 }
 
-- (UIButton*) createButtonWithTitle:(NSString*)title {
-  UIButton *button = [[UIButton alloc] init];
-  [button setTitle:title forState:UIControlStateNormal];
-  [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-  [button setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [self.view addSubview:button];
-  return button;
+- (NSArray*) hotelsFromCoreData {
+  AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+  NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
+  NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
+  
+  NSError *fetchError;
+  NSArray *hotels = [context executeFetchRequest:req error:&fetchError];
+  
+  if (fetchError) {
+    NSLog(@"there was a problem fetching hotels list from core data");
+  } else {
+    NSLog(@"loaded hotels from core data");
+  }
+
+  return hotels;
+}
+
+// MARK: TableViewDataSource Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return self.allHotels.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+
+  Hotel *selectedHotel = self.allHotels[indexPath.row];
+  cell.textLabel.text = selectedHotel.name;
+  return cell;
 }
 @end

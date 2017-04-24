@@ -18,7 +18,7 @@
                                            toView:(UIView*)superView
                                     withAttribute:(NSLayoutAttribute)attribute;
 
-+ (NSArray *) fullScreenConstraintWithVFLFForView:(UIView*)view;
++ (NSArray*) fullScreenConstraintWithVFLFForView:(UIView*)view;
 
 + (NSLayoutConstraint*) equalHeightConstraintFromView:(UIView*)view
                                                toView:(UIView*)otherView

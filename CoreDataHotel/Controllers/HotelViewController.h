@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RoomsViewController.h"
+#import "AppDelegate.h"
 #import "AutoLayout.h"
+#import "Hotel+CoreDataClass.h"
+#import "Hotel+CoreDataProperties.h"
+#import "RoomsViewController.h"
 
-@interface HotelViewController : UIViewController
+@interface HotelViewController : UIViewController<UITableViewDataSource>
 @end

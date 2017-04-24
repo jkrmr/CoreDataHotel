@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44322B1EAE908500E6D0EF /* RoomsViewController.m */; };
 		1B4432481EAE9D7700E6D0EF /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B4432471EAE9D7700E6D0EF /* hotels.json */; };
+		1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44324A1EAEA54600E6D0EF /* HomeViewController.m */; };
 		1BC3E22E1EAE5CC500797571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E22D1EAE5CC500797571 /* main.m */; };
 		1BC3E2311EAE5CC500797571 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2301EAE5CC500797571 /* AppDelegate.m */; };
 		1BC3E2341EAE5CC500797571 /* HotelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2331EAE5CC500797571 /* HotelViewController.m */; };
@@ -41,6 +42,8 @@
 		1B44322A1EAE908500E6D0EF /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomsViewController.h; path = Controllers/RoomsViewController.h; sourceTree = "<group>"; };
 		1B44322B1EAE908500E6D0EF /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomsViewController.m; path = Controllers/RoomsViewController.m; sourceTree = "<group>"; };
 		1B4432471EAE9D7700E6D0EF /* hotels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hotels.json; sourceTree = "<group>"; };
+		1B4432491EAEA54600E6D0EF /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Controllers/HomeViewController.h; sourceTree = "<group>"; };
+		1B44324A1EAEA54600E6D0EF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Controllers/HomeViewController.m; sourceTree = "<group>"; };
 		1BC3E2291EAE5CC500797571 /* CoreDataHotel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataHotel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC3E22D1EAE5CC500797571 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1BC3E22F1EAE5CC500797571 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Controllers/AppDelegate.h; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 			children = (
 				1BC3E22F1EAE5CC500797571 /* AppDelegate.h */,
 				1BC3E2301EAE5CC500797571 /* AppDelegate.m */,
+				1B4432491EAEA54600E6D0EF /* HomeViewController.h */,
+				1B44324A1EAEA54600E6D0EF /* HomeViewController.m */,
 				1BC3E2321EAE5CC500797571 /* HotelViewController.h */,
 				1BC3E2331EAE5CC500797571 /* HotelViewController.m */,
 				1B44322A1EAE908500E6D0EF /* RoomsViewController.h */,
@@ -326,6 +331,7 @@
 				1BC3E2311EAE5CC500797571 /* AppDelegate.m in Sources */,
 				1BC3E22E1EAE5CC500797571 /* main.m in Sources */,
 				1BC3E2681EAE6D2A00797571 /* AutoLayout.m in Sources */,
+				1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */,
 				1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
