@@ -29,10 +29,13 @@
   // TEMP
   AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
   NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
-  NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
+  NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:@"Room"];
+  NSPredicate *noReservationOnRequestedInterval =
+  [NSPredicate predicateWithFormat:@"SUBQUERY(reservations, $r, $r.startDate > %@ OR $r.endDate < %@).@count == 0", self.requestedStartDate, self.requestedEndDate];
+  [req setPredicate:noReservationOnRequestedInterval];
   
   NSError *fetchError;
-  NSArray *hotels = [context executeFetchRequest:req error:&fetchError];
+  NSArray *fetchedRooms = [context executeFetchRequest:req error:&fetchError];
   
   if (fetchError) {
     NSLog(@"there was a problem fetching hotels list from core data");
@@ -40,8 +43,8 @@
     NSLog(@"loaded hotels from core data");
   }
 
-  self.hotelCount = [NSNumber numberWithUnsignedInteger:hotels.count];
-  self.rooms = [[[hotels firstObject] rooms] allObjects];
+  self.hotelCount = [NSNumber numberWithUnsignedInteger:fetchedRooms.count];
+  self.rooms = fetchedRooms;
 }
 
 // MARK: UITableViewDataSource methods

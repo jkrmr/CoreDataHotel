@@ -14,6 +14,6 @@
 #import "AppDelegate.h"
 
 @interface RoomAvailabilityViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) NSDate *startDate;
-@property (strong, nonatomic) NSDate *endDate;
+@property (strong, nonatomic) NSDate *requestedStartDate;
+@property (strong, nonatomic) NSDate *requestedEndDate;
 @end
