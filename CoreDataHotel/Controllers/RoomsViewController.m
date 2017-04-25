@@ -15,15 +15,17 @@
 @implementation RoomsViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  self.view.backgroundColor = [UIColor whiteColor];
 
   self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
   [self.view addSubview:self.tableView];
-  self.view.backgroundColor = [UIColor whiteColor];
 }
 
+// MARK: TableViewDataSource Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return self.rooms.count;
 }
@@ -35,6 +37,9 @@
   return cell;
 }
 
+// MARK: TableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  Room *selectedRoom = self.rooms[indexPath.row];
+  NSLog(@"Selected Room #%i", selectedRoom.number);
 }
 @end

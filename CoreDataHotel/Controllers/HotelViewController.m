@@ -17,12 +17,13 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+  self.view.backgroundColor = [UIColor whiteColor];
+  
   self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
   [self.view addSubview:self.tableView];
-  self.view.backgroundColor = [UIColor whiteColor];
 }
 
 // MARK: Core Data fetching
@@ -63,8 +64,6 @@
 
 // MARK: TableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"selected row at %i", (int)indexPath.row);
-
   RoomsViewController *roomsVC = [[RoomsViewController alloc] init];
   Hotel *selectedHotel = self.allHotels[indexPath.row];
   roomsVC.hotel = selectedHotel;
