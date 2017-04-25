@@ -61,14 +61,14 @@
                                                     inManagedObjectContext: self.persistentContainer.viewContext];
     newHotel.name = hotel[@"name"];
     newHotel.location = hotel[@"location"];
-    newHotel.stars = (NSInteger)hotel[@"stars"];
+    newHotel.stars = [hotel[@"stars"] integerValue];
     
     for (NSDictionary *room in hotel[@"rooms"]) {
       Room *newRoom = [NSEntityDescription insertNewObjectForEntityForName: @"Room"
                                                     inManagedObjectContext: self.persistentContainer.viewContext];
-      newRoom.number = (NSInteger)room[@"number"];
-      newRoom.beds = (NSInteger)room[@"beds"];
-      newRoom.rate = (NSInteger)room[@"rate"];
+      newRoom.number = [room[@"number"] integerValue];
+      newRoom.beds = [room[@"beds"] integerValue];
+      newRoom.rate = [room[@"rate"] integerValue];
       newRoom.hotel = newHotel;
     }
   }
