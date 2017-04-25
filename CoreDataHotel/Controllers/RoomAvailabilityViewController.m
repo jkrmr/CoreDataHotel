@@ -1,38 +1,31 @@
 //
-//  HotelsViewController.m
+//  RoomAvailabilityViewController.m
 //  CoreDataHotel
 //
-//  Created by Jake Romer on 4/24/17.
+//  Created by Jake Romer on 4/25/17.
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import "HotelsViewController.h"
+#import "RoomAvailabilityViewController.h"
 
-@interface HotelsViewController ()
-@property (strong, nonatomic) NSArray *hotels;
+@interface RoomAvailabilityViewController ()
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSNumber *hotelCount;
 @end
 
-@implementation HotelsViewController
+@implementation RoomAvailabilityViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
-  
   self.view.backgroundColor = [UIColor whiteColor];
-  
+
+//  self.tableView = [[UITableView alloc] init];
   self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
   [self.view addSubview:self.tableView];
-  self.tableView.dataSource = self;
   self.tableView.delegate = self;
-}
+  self.tableView.dataSource = self;
 
-// MARK: Core Data fetching
-- (NSArray*) hotels {
-  if (!_hotels) { _hotels = [self hotelsFromCoreData]; }
-  return _hotels;
-}
-
-- (NSArray*) hotelsFromCoreData {
+  // TEMP
   AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
   NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
   NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
@@ -46,37 +39,29 @@
     NSLog(@"loaded hotels from core data");
   }
 
-  return hotels;
+  self.hotelCount = [NSNumber numberWithUnsignedInteger:hotels.count];
+  self.rooms = [[[hotels firstObject] rooms] allObjects];
 }
 
-// MARK: TableViewDataSource Methods
+// MARK: UITableViewDataSource methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  return 1; //[self.hotelCount integerValue];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.hotels.count;
+  return self.rooms.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-
-  Hotel *selectedHotel = self.hotels[indexPath.row];
-  cell.textLabel.text = selectedHotel.name;
+  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"
+                                                               forIndexPath:indexPath];
+  Room *selectedRoom = self.rooms[indexPath.row];
+  cell.textLabel.text = [NSString stringWithFormat:@"%@: Room %i", selectedRoom.hotel.name, selectedRoom.number];
   return cell;
 }
 
-// MARK: TableViewDelegate Methods
+// MARK: UITableViewDelegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  RoomsViewController *roomsVC = [[RoomsViewController alloc] init];
-  Hotel *selectedHotel = self.hotels[indexPath.row];
-  roomsVC.hotel = selectedHotel;
-
-  NSMutableArray *hotelRooms = [NSMutableArray array];
-
-  if (selectedHotel.rooms) {
-    for (Room *room in selectedHotel.rooms) {
-      [hotelRooms addObject:room];
-    }
-  }
-  roomsVC.rooms = hotelRooms;
-  
-  [self.navigationController pushViewController:roomsVC animated:YES];
+  NSLog(@"selected a room");
 }
 @end

@@ -70,6 +70,7 @@
 }
 
 - (void) submitButtonWasPressed {
-  NSLog(@"submit button was pressed");
+  RoomAvailabilityViewController *roomAvailabilityVC = [[RoomAvailabilityViewController alloc] init];
+  [self.navigationController pushViewController:roomAvailabilityVC animated:YES];
 }
 @end
