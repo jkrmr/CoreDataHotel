@@ -28,6 +28,7 @@
   [[[self.startDate trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
   [[[self.startDate topAnchor] constraintEqualToAnchor:[self.view topAnchor]] setActive:YES];
   [[[self.startDate heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.5] setActive:YES];
+  [self.startDate addTarget:self action:@selector(startDateWasSelected:) forControlEvents:UIControlEventValueChanged];
 
   // set up end date picker
   self.endDate = [[UIDatePicker alloc] init];
@@ -39,5 +40,15 @@
   [[[self.endDate trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
   [[[self.endDate bottomAnchor] constraintEqualToAnchor:[self.view bottomAnchor]] setActive:YES];
   [[[self.endDate heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.5] setActive:YES];
+}
+
+- (void) startDateWasSelected:(id*)sender {
+  NSDate *start = self.startDate.date;
+  NSDate *end = self.endDate.date;
+  self.endDate.minimumDate = self.startDate.date;
+
+  if ([start compare:end] != NSOrderedDescending) {
+    self.endDate.date = self.startDate.date;
+  }
 }
 @end
