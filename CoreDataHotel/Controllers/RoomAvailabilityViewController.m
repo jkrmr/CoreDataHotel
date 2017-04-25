@@ -31,7 +31,8 @@
   NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
   NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:@"Room"];
   NSPredicate *noReservationOnRequestedInterval =
-  [NSPredicate predicateWithFormat:@"SUBQUERY(reservations, $r, $r.startDate > %@ OR $r.endDate < %@).@count == 0", self.requestedStartDate, self.requestedEndDate];
+  [NSPredicate predicateWithFormat:@"SUBQUERY(reservations, $r, $r.startDate < %@ AND $r.endDate > %@).@count == 0", self.requestedEndDate, self.requestedStartDate];
+  // startDate <= requestedEndDate AND endDate >= requestedStartDate
   [req setPredicate:noReservationOnRequestedInterval];
   
   NSError *fetchError;
