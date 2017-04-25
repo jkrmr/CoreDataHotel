@@ -1,19 +1,19 @@
 //
-//  HotelViewController.m
+//  HotelsViewController.m
 //  CoreDataHotel
 //
 //  Created by Jake Romer on 4/24/17.
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import "HotelViewController.h"
+#import "HotelsViewController.h"
 
-@interface HotelViewController ()
-@property (strong, nonatomic) NSArray *allHotels;
+@interface HotelsViewController ()
+@property (strong, nonatomic) NSArray *hotels;
 @property (strong, nonatomic) UITableView *tableView;
 @end
 
-@implementation HotelViewController
+@implementation HotelsViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
   
@@ -27,9 +27,9 @@
 }
 
 // MARK: Core Data fetching
-- (NSArray*) allHotels {
-  if (!_allHotels) { _allHotels = [self hotelsFromCoreData]; }
-  return _allHotels;
+- (NSArray*) hotels {
+  if (!_hotels) { _hotels = [self hotelsFromCoreData]; }
+  return _hotels;
 }
 
 - (NSArray*) hotelsFromCoreData {
@@ -51,13 +51,13 @@
 
 // MARK: TableViewDataSource Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.allHotels.count;
+  return self.hotels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
 
-  Hotel *selectedHotel = self.allHotels[indexPath.row];
+  Hotel *selectedHotel = self.hotels[indexPath.row];
   cell.textLabel.text = selectedHotel.name;
   return cell;
 }
@@ -65,7 +65,7 @@
 // MARK: TableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   RoomsViewController *roomsVC = [[RoomsViewController alloc] init];
-  Hotel *selectedHotel = self.allHotels[indexPath.row];
+  Hotel *selectedHotel = self.hotels[indexPath.row];
   roomsVC.hotel = selectedHotel;
 
   NSMutableArray *hotelRooms = [NSMutableArray array];
@@ -79,5 +79,4 @@
   
   [self.navigationController pushViewController:roomsVC animated:YES];
 }
-
 @end

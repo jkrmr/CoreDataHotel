@@ -1,5 +1,5 @@
 //
-//  HotelViewController.h
+//  HotelsViewController.h
 //  CoreDataHotel
 //
 //  Created by Jake Romer on 4/24/17.
@@ -13,5 +13,5 @@
 #import "Hotel+CoreDataProperties.h"
 #import "RoomsViewController.h"
 
-@interface HotelViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface HotelsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @end

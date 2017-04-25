@@ -12,7 +12,7 @@
 		1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44324A1EAEA54600E6D0EF /* HomeViewController.m */; };
 		1BC3E22E1EAE5CC500797571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E22D1EAE5CC500797571 /* main.m */; };
 		1BC3E2311EAE5CC500797571 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2301EAE5CC500797571 /* AppDelegate.m */; };
-		1BC3E2341EAE5CC500797571 /* HotelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2331EAE5CC500797571 /* HotelViewController.m */; };
+		1BC3E2341EAE5CC500797571 /* HotelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2331EAE5CC500797571 /* HotelsViewController.m */; };
 		1BC3E23A1EAE5CC500797571 /* CoreDataHotel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2381EAE5CC500797571 /* CoreDataHotel.xcdatamodeld */; };
 		1BC3E23C1EAE5CC500797571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BC3E23B1EAE5CC500797571 /* Assets.xcassets */; };
 		1BC3E23F1EAE5CC500797571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC3E23D1EAE5CC500797571 /* LaunchScreen.storyboard */; };
@@ -48,8 +48,8 @@
 		1BC3E22D1EAE5CC500797571 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1BC3E22F1EAE5CC500797571 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Controllers/AppDelegate.h; sourceTree = "<group>"; };
 		1BC3E2301EAE5CC500797571 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Controllers/AppDelegate.m; sourceTree = "<group>"; };
-		1BC3E2321EAE5CC500797571 /* HotelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HotelViewController.h; path = Controllers/HotelViewController.h; sourceTree = "<group>"; };
-		1BC3E2331EAE5CC500797571 /* HotelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HotelViewController.m; path = Controllers/HotelViewController.m; sourceTree = "<group>"; };
+		1BC3E2321EAE5CC500797571 /* HotelsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HotelsViewController.h; path = Controllers/HotelsViewController.h; sourceTree = "<group>"; };
+		1BC3E2331EAE5CC500797571 /* HotelsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HotelsViewController.m; path = Controllers/HotelsViewController.m; sourceTree = "<group>"; };
 		1BC3E2391EAE5CC500797571 /* CoreDataHotel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataHotel.xcdatamodel; sourceTree = "<group>"; };
 		1BC3E23B1EAE5CC500797571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BC3E23E1EAE5CC500797571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -175,8 +175,8 @@
 				1BC3E2301EAE5CC500797571 /* AppDelegate.m */,
 				1B4432491EAEA54600E6D0EF /* HomeViewController.h */,
 				1B44324A1EAEA54600E6D0EF /* HomeViewController.m */,
-				1BC3E2321EAE5CC500797571 /* HotelViewController.h */,
-				1BC3E2331EAE5CC500797571 /* HotelViewController.m */,
+				1BC3E2321EAE5CC500797571 /* HotelsViewController.h */,
+				1BC3E2331EAE5CC500797571 /* HotelsViewController.m */,
 				1B44322A1EAE908500E6D0EF /* RoomsViewController.h */,
 				1B44322B1EAE908500E6D0EF /* RoomsViewController.m */,
 			);
@@ -326,7 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BC3E2341EAE5CC500797571 /* HotelViewController.m in Sources */,
+				1BC3E2341EAE5CC500797571 /* HotelsViewController.m in Sources */,
 				1BC3E23A1EAE5CC500797571 /* CoreDataHotel.xcdatamodeld in Sources */,
 				1BC3E2311EAE5CC500797571 /* AppDelegate.m in Sources */,
 				1BC3E22E1EAE5CC500797571 /* main.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AutoLayout.h"
-#import "HotelViewController.h"
+#import "HotelsViewController.h"
 
 @interface HomeViewController : UIViewController
 @end
