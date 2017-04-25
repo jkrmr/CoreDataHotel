@@ -12,7 +12,7 @@
 #import "Room+CoreDataClass.h"
 #import "Room+CoreDataProperties.h"
 
-@interface RoomsViewController : UIViewController
+@interface RoomsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) Hotel* hotel;
 @property (strong, nonatomic) NSArray* rooms;
 @end

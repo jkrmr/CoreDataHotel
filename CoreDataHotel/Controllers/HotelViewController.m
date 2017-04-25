@@ -18,10 +18,10 @@
   [super viewDidLoad];
   
   self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-  [self.view addSubview:self.tableView];
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+  [self.view addSubview:self.tableView];
   self.view.backgroundColor = [UIColor whiteColor];
 }
 
