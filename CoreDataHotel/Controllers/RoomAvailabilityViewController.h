@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "BookViewController.h"
 #import "Hotel+CoreDataClass.h"
 #import "Hotel+CoreDataProperties.h"
 #import "Room+CoreDataClass.h"
 #import "Room+CoreDataProperties.h"
-#import "AppDelegate.h"
 
 @interface RoomAvailabilityViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSDate *requestedStartDate;

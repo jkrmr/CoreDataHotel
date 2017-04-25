@@ -66,6 +66,8 @@
 
 // MARK: UITableViewDelegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"selected a room");
+  BookViewController *bookVC = [[BookViewController alloc] init];
+  bookVC.requestedRoom = self.rooms[indexPath.row];
+  [self.navigationController pushViewController:bookVC animated:YES];
 }
 @end

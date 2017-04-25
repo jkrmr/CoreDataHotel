@@ -82,8 +82,8 @@
 
 - (void) submitButtonWasPressed {
   RoomAvailabilityViewController *roomAvailabilityVC = [[RoomAvailabilityViewController alloc] init];
-  roomAvailabilityVC.startDate = self.startDate.date;
-  roomAvailabilityVC.endDate = self.endDate.date;
+  roomAvailabilityVC.requestedStartDate = self.startDate.date;
+  roomAvailabilityVC.requestedEndDate = self.endDate.date;
   [self.navigationController pushViewController:roomAvailabilityVC animated:YES];
 }
 @end
