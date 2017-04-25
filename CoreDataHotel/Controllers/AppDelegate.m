@@ -7,45 +7,95 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeViewController.h"
+#import "Hotel+CoreDataClass.h"
+#import "Hotel+CoreDataProperties.h"
+#import "Room+CoreDataClass.h"
+#import "Room+CoreDataProperties.h"
 
 @interface AppDelegate ()
-
+@property(strong, nonatomic) UINavigationController *navController;
+@property(strong, nonatomic) HomeViewController *homeVC;
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Override point for customization after application launch.
+  [self setupRootViewController];
+  [self generateTestData];
   return YES;
 }
 
+- (void) setupRootViewController {
+  self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+  self.homeVC = [[HomeViewController alloc] init];
+  self.navController = [[UINavigationController alloc] initWithRootViewController: self.homeVC];
+
+  self.window.rootViewController = self.navController;
+  [self.window makeKeyAndVisible];
+}
+
+- (void) generateTestData {
+  NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName: @"Hotel"];
+  NSError *error;
+  NSInteger count = [self.persistentContainer.viewContext countForFetchRequest: req error: &error];
+  if (error) {
+    NSLog(@"%@", error.localizedDescription);
+  }
+  
+  // If hotels have already been persisted, return early.
+  if (count > 0) { return; }
+
+  NSString *path = [[NSBundle mainBundle] pathForResource: @"hotels" ofType: @"json"];
+  NSData *jsonData = [NSData dataWithContentsOfFile: path];
+  NSError *jsonError;
+  NSDictionary *dict = [NSJSONSerialization JSONObjectWithData: jsonData
+                                                       options: NSJSONReadingMutableContainers
+                                                         error: &jsonError];
+  if (jsonError) {
+    NSLog(@"%@", jsonError.localizedDescription);
+  }
+  
+  for (NSDictionary *hotel in dict[@"Hotels"]) {
+    Hotel *newHotel = [NSEntityDescription insertNewObjectForEntityForName: @"Hotel"
+                                                    inManagedObjectContext: self.persistentContainer.viewContext];
+    newHotel.name = hotel[@"name"];
+    newHotel.location = hotel[@"location"];
+    newHotel.stars = [hotel[@"stars"] integerValue];
+    
+    for (NSDictionary *room in hotel[@"rooms"]) {
+      Room *newRoom = [NSEntityDescription insertNewObjectForEntityForName: @"Room"
+                                                    inManagedObjectContext: self.persistentContainer.viewContext];
+      newRoom.number = [room[@"number"] integerValue];
+      newRoom.beds = [room[@"beds"] integerValue];
+      newRoom.rate = [room[@"rate"] integerValue];
+      newRoom.hotel = newHotel;
+    }
+  }
+  
+  NSError *saveError;
+  [self.persistentContainer.viewContext save: &saveError];
+  
+  if (saveError) {
+    NSLog(@"Error saving to core data");
+  } else {
+    NSLog(@"Saved to core data");
+  }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-  // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-  // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
-
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-  // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
-
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-  // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
-
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-  // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
-
 - (void)applicationWillTerminate:(UIApplication *)application {
-  // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-  // Saves changes in the application's managed object context before the application terminates.
   [self saveContext];
 }
 

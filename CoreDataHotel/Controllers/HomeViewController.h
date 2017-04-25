@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HomeViewController.h
 //  CoreDataHotel
 //
 //  Created by Jake Romer on 4/24/17.
@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AutoLayout.h"
+#import "HotelsViewController.h"
 
-@interface ViewController : UIViewController
-
-
+@interface HomeViewController : UIViewController
 @end
-
