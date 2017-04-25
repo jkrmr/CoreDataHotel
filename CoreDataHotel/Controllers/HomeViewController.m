@@ -49,6 +49,7 @@
 
 - (UIButton*) createButtonWithTitle:(NSString*)title andColor:(UIColor*)color action:(SEL)selector{
   UIButton *button = [[UIButton alloc] init];
+  button.translatesAutoresizingMaskIntoConstraints = NO;
   [button setTitle:title forState:UIControlStateNormal];
   [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
   [button setTranslatesAutoresizingMaskIntoConstraints:NO];
