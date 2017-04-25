@@ -9,8 +9,9 @@
 #import "RoomAvailabilityViewController.h"
 
 @interface RoomAvailabilityViewController ()
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSArray *rooms;
 @property (strong, nonatomic) NSNumber *hotelCount;
+@property (strong, nonatomic) UITableView *tableView;
 @end
 
 @implementation RoomAvailabilityViewController
