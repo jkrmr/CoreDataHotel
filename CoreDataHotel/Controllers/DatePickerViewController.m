@@ -11,11 +11,13 @@
 @interface DatePickerViewController ()
 @property (strong, nonatomic) UIDatePicker *startDate;
 @property (strong, nonatomic) UIDatePicker *endDate;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @end
 
 @implementation DatePickerViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.dateFormatter = [[NSDateFormatter alloc] init];
   self.view.backgroundColor = [UIColor whiteColor];
 
   // set up start date picker
