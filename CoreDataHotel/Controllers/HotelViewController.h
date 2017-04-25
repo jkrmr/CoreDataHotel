@@ -13,5 +13,5 @@
 #import "Hotel+CoreDataProperties.h"
 #import "RoomsViewController.h"
 
-@interface HotelViewController : UIViewController<UITableViewDataSource>
+@interface HotelViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @end

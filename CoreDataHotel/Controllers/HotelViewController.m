@@ -20,6 +20,7 @@
   self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
   [self.view addSubview:self.tableView];
   self.tableView.dataSource = self;
+  self.tableView.delegate = self;
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
   self.view.backgroundColor = [UIColor whiteColor];
 }
@@ -59,4 +60,25 @@
   cell.textLabel.text = selectedHotel.name;
   return cell;
 }
+
+// MARK: TableViewDelegate Methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  NSLog(@"selected row at %i", (int)indexPath.row);
+
+  RoomsViewController *roomsVC = [[RoomsViewController alloc] init];
+  Hotel *selectedHotel = self.allHotels[indexPath.row];
+  roomsVC.hotel = selectedHotel;
+
+  NSMutableArray *hotelRooms = [NSMutableArray array];
+
+  if (selectedHotel.rooms) {
+    for (Room *room in selectedHotel.rooms) {
+      [hotelRooms addObject:room];
+    }
+  }
+  roomsVC.rooms = hotelRooms;
+  
+  [self.navigationController pushViewController:roomsVC animated:YES];
+}
+
 @end

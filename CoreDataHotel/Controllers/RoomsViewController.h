@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Hotel+CoreDataClass.h"
+#import "Hotel+CoreDataProperties.h"
+#import "Room+CoreDataClass.h"
+#import "Room+CoreDataProperties.h"
 
 @interface RoomsViewController : UIViewController
+@property (strong, nonatomic) Hotel* hotel;
+@property (strong, nonatomic) NSArray* rooms;
 @end
