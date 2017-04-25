@@ -35,7 +35,7 @@
 
   // set up end date picker
   self.endDate = [[UIDatePicker alloc] init];
-  self.endDate.minimumDate = [[NSDate alloc] init];
+  self.endDate.minimumDate = [self addADaytoDate:self.startDate.date];
   self.endDate.datePickerMode = UIDatePickerModeDate;
   [self.view addSubview:self.endDate];
   self.endDate.translatesAutoresizingMaskIntoConstraints = NO;
@@ -62,11 +62,22 @@
 - (void) startDateWasSelected {
   NSDate *start = self.startDate.date;
   NSDate *end = self.endDate.date;
-  self.endDate.minimumDate = self.startDate.date;
+  NSDate *newEndDate = [self addADaytoDate:start];
+  self.endDate.minimumDate = newEndDate;
 
+  // if decrementing start date from a previously selected position, reset end date
   if ([start compare:end] != NSOrderedDescending) {
-    self.endDate.date = self.startDate.date;
+    self.endDate.date = newEndDate;
   }
+}
+
+- (NSDate*) addADaytoDate:(NSDate*) date {
+  // add a day to the start date
+  NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+  NSDateComponents *offset = [[NSDateComponents alloc] init];
+  [offset setDay:1];
+  NSDate *newDate = [gregorian dateByAddingComponents:offset toDate:date options:0];
+  return newDate;
 }
 
 - (void) submitButtonWasPressed {
