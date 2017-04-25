@@ -23,10 +23,18 @@
   UIButton *browseButton = [self createButtonWithTitle:@"Browse"
                                               andColor:[UIColor whiteColor]
                                                 action:@selector(browseButtonWasPressed)];
+  [[[browseButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
+  [[[browseButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
+  [[[browseButton topAnchor] constraintEqualToAnchor:[self.view topAnchor]] setActive:YES];
+  [[[browseButton heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.3] setActive:YES];
 
   UIButton *bookButton = [self createButtonWithTitle:@"Book"
                                             andColor:[UIColor whiteColor]
                                               action:@selector(bookButtonWasPressed)];
+  [[[bookButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
+  [[[bookButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
+  [[[bookButton bottomAnchor] constraintEqualToAnchor:[self.view bottomAnchor]] setActive:YES];
+  [[[bookButton heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.3] setActive:YES];
 }
 
 - (void) browseButtonWasPressed {
