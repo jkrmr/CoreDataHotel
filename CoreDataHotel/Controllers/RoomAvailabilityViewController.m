@@ -99,6 +99,8 @@
   [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
   BookViewController *bookVC = [[BookViewController alloc] init];
   bookVC.requestedRoom = self.rooms[indexPath.section][indexPath.row];
+  bookVC.requestedStartDate = self.requestedStartDate;
+  bookVC.requestedEndDate = self.requestedEndDate;
   [self presentViewController:bookVC animated:YES completion:nil];
 }
 @end

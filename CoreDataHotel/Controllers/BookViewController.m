@@ -91,11 +91,27 @@
   [[[cancelButton heightAnchor] constraintEqualToConstant:100] setActive:YES];
 }
 
-- (void) confirmButtonWasPressed {
+- (void) cancelButtonWasPressed {
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void) cancelButtonWasPressed {
+- (void) confirmButtonWasPressed {
+  AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+  NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
+  
+  Guest *newGuest = [[Guest alloc] initWithContext:context];
+  newGuest.firstName = self.firstName.text;
+  newGuest.lastName = self.lastName.text;
+  newGuest.emailAddress = self.emailAddress.text;
+  
+  Reservation *newReservation = [[Reservation alloc] initWithContext:context];
+  newReservation.startDate = self.requestedStartDate;
+  newReservation.endDate = self.requestedEndDate;
+  newReservation.room = self.requestedRoom;
+  [newReservation.guests setByAddingObject:newGuest];
+
+  [appDelegate saveContext];
+  
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

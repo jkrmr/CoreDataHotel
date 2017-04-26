@@ -24,6 +24,7 @@
 		1BDAB1611EAFB0E5005244BF /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDAB1601EAFB0E5005244BF /* DatePickerViewController.m */; };
 		1BDAB1641EAFC7F3005244BF /* RoomAvailabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDAB1631EAFC7F3005244BF /* RoomAvailabilityViewController.m */; };
 		1BF71D671EB05A38009CCCBC /* RoomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */; };
+		1BF71D6B1EB063FB009CCCBC /* Reservation+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		1BDAB1631EAFC7F3005244BF /* RoomAvailabilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomAvailabilityViewController.m; path = Controllers/RoomAvailabilityViewController.m; sourceTree = "<group>"; };
 		1BF71D651EB05A38009CCCBC /* RoomDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomDetailViewController.h; path = Controllers/RoomDetailViewController.h; sourceTree = "<group>"; };
 		1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailViewController.m; path = Controllers/RoomDetailViewController.m; sourceTree = "<group>"; };
+		1BF71D691EB063FB009CCCBC /* Reservation+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Reservation+Description.h"; path = "Models/Reservation+Description.h"; sourceTree = "<group>"; };
+		1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Reservation+Description.m"; path = "Models/Reservation+Description.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 				1BC3E2671EAE6D2A00797571 /* AutoLayout.m */,
 				1BCE29261EB05658005EB011 /* Room+ComparisonUtils.h */,
 				1BCE29271EB05658005EB011 /* Room+ComparisonUtils.m */,
+				1BF71D691EB063FB009CCCBC /* Reservation+Description.h */,
+				1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BDAB1611EAFB0E5005244BF /* DatePickerViewController.m in Sources */,
+				1BF71D6B1EB063FB009CCCBC /* Reservation+Description.m in Sources */,
 				1BC3E2341EAE5CC500797571 /* HotelsViewController.m in Sources */,
 				1BC3E23A1EAE5CC500797571 /* CoreDataHotel.xcdatamodeld in Sources */,
 				1BC3E2311EAE5CC500797571 /* AppDelegate.m in Sources */,
