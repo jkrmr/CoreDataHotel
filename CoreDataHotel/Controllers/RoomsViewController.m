@@ -18,11 +18,16 @@
   
   self.view.backgroundColor = [UIColor whiteColor];
 
-  self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-  self.tableView.dataSource = self;
-  self.tableView.delegate = self;
+  [self setTableView:[[UITableView alloc] init]];
+  [self.tableView setDataSource:self];
+  [self.tableView setDelegate:self];
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
   [self.view addSubview:self.tableView];
+  [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [[[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]] setActive:YES];
+  [[[self.tableView bottomAnchor] constraintEqualToAnchor:[self.view bottomAnchor]] setActive:YES];
+  [[[self.tableView leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
+  [[[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
 }
 
 // MARK: TableViewDataSource Methods
@@ -39,6 +44,7 @@
 
 // MARK: TableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
   Room *selectedRoom = self.rooms[indexPath.row];
   NSLog(@"Selected Room #%i", selectedRoom.number);
 }
