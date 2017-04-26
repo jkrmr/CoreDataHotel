@@ -16,7 +16,7 @@
 		1BC3E23A1EAE5CC500797571 /* CoreDataHotel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2381EAE5CC500797571 /* CoreDataHotel.xcdatamodeld */; };
 		1BC3E23C1EAE5CC500797571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BC3E23B1EAE5CC500797571 /* Assets.xcassets */; };
 		1BC3E23F1EAE5CC500797571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC3E23D1EAE5CC500797571 /* LaunchScreen.storyboard */; };
-		1BC3E24A1EAE5CC600797571 /* CoreDataHotelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2491EAE5CC600797571 /* CoreDataHotelTests.m */; };
+		1BC3E24A1EAE5CC600797571 /* Room+ComparisonUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2491EAE5CC600797571 /* Room+ComparisonUtilsTests.m */; };
 		1BC3E2551EAE5CC600797571 /* CoreDataHotelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2541EAE5CC600797571 /* CoreDataHotelUITests.m */; };
 		1BCE29281EB05658005EB011 /* Room+ComparisonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCE29271EB05658005EB011 /* Room+ComparisonUtils.m */; };
 		1BD6E7271EAFD59D00C7A922 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD6E7261EAFD59D00C7A922 /* BookViewController.m */; };
@@ -61,7 +61,7 @@
 		1BC3E23E1EAE5CC500797571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BC3E2401EAE5CC500797571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BC3E2451EAE5CC600797571 /* CoreDataHotelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataHotelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BC3E2491EAE5CC600797571 /* CoreDataHotelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHotelTests.m; sourceTree = "<group>"; };
+		1BC3E2491EAE5CC600797571 /* Room+ComparisonUtilsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Room+ComparisonUtilsTests.m"; sourceTree = "<group>"; };
 		1BC3E24B1EAE5CC600797571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BC3E2501EAE5CC600797571 /* CoreDataHotelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataHotelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC3E2541EAE5CC600797571 /* CoreDataHotelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHotelUITests.m; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		1BC3E2481EAE5CC600797571 /* CoreDataHotelTests */ = {
 			isa = PBXGroup;
 			children = (
-				1BC3E2491EAE5CC600797571 /* CoreDataHotelTests.m */,
+				1BC3E2491EAE5CC600797571 /* Room+ComparisonUtilsTests.m */,
 				1BC3E24B1EAE5CC600797571 /* Info.plist */,
 			);
 			path = CoreDataHotelTests;
@@ -376,7 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BC3E24A1EAE5CC600797571 /* CoreDataHotelTests.m in Sources */,
+				1BC3E24A1EAE5CC600797571 /* Room+ComparisonUtilsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
