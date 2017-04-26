@@ -63,5 +63,39 @@
   [[[email leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor] constant:10] setActive:YES];
   [[[email trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor] constant:-10] setActive:YES];
   [[[email heightAnchor] constraintEqualToConstant:40] setActive:YES];
+
+  UIButton *confirmButton = [[UIButton alloc] init];
+  confirmButton.translatesAutoresizingMaskIntoConstraints = NO;
+  [confirmButton setTitle:@"Confirm" forState:UIControlStateNormal];
+  [confirmButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  [confirmButton setBackgroundColor:[UIColor colorWithRed:0.2 green:0.56 blue:0.2 alpha:1.0]];
+  [confirmButton addTarget:self action:@selector(confirmButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:confirmButton];
+  [[[confirmButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
+  [[[confirmButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
+  [[[confirmButton bottomAnchor] constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]] setActive:YES];
+  [[[confirmButton heightAnchor] constraintEqualToConstant:100] setActive:YES];
+
+  UIButton *cancelButton = [[UIButton alloc] init];
+  cancelButton.translatesAutoresizingMaskIntoConstraints = NO;
+  [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+  [cancelButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  [cancelButton setBackgroundColor:[UIColor redColor]];
+  [cancelButton addTarget:self action:@selector(cancelButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:cancelButton];
+  [[[cancelButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
+  [[[cancelButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
+  [[[cancelButton bottomAnchor] constraintEqualToAnchor:[confirmButton topAnchor]] setActive:YES];
+  [[[cancelButton heightAnchor] constraintEqualToConstant:100] setActive:YES];
+}
+
+- (void) confirmButtonWasPressed {
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) cancelButtonWasPressed {
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
