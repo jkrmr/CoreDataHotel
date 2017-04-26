@@ -12,32 +12,38 @@
 @end
 
 @implementation HomeViewController
-
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.view.backgroundColor = [UIColor whiteColor];
+  [self.view setBackgroundColor:[UIColor whiteColor]];
   [self setupLayout];
 }
 
 - (void) setupLayout {
-  UIButton *browseButton = [self createButtonWithTitle:@"Browse"];
-  [self.view addSubview:browseButton];
-  browseButton.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0.75 alpha:1];
-  [AutoLayout leadingConstraintFromView:browseButton toView:self.view];
-  [AutoLayout trailingConstraintFromView:browseButton toView:self.view];
-  [AutoLayout equalHeightConstraintFromView:browseButton toView:self.view withMultiplier:0.33];
+  UIButton *bookButton = [[UIButton alloc] init];
+  bookButton.translatesAutoresizingMaskIntoConstraints = NO;
+  [bookButton setTitle:@"Book" forState:UIControlStateNormal];
+  [bookButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+  [bookButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [bookButton setBackgroundColor:[UIColor whiteColor]];
+  [bookButton addTarget:self action:@selector(bookButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:bookButton];
+  [[[bookButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
+  [[[bookButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
+  [[[bookButton bottomAnchor] constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]] setActive:YES];
+  [[[bookButton heightAnchor] constraintEqualToConstant:100] setActive:YES];
   
-  [browseButton addTarget:self
-                   action:@selector(browseButtonWasPressed)
-         forControlEvents:UIControlEventTouchUpInside];
-
-//  UIButton *bookButton = [self createButtonWithTitle:@"Book"];
-//  [AutoLayout leadingConstraintFromView:bookButton toView:self.view];
-//  [AutoLayout trailingConstraintFromView:bookButton toView:self.view];
-//
-//  UIButton *lookupButton = [self createButtonWithTitle:@"Look up"];
-//  [AutoLayout leadingConstraintFromView:lookupButton toView:self.view];
-//  [AutoLayout trailingConstraintFromView:lookupButton toView:self.view];
+  UIButton *browseButton = [[UIButton alloc] init];
+  browseButton.translatesAutoresizingMaskIntoConstraints = NO;
+  [browseButton setTitle:@"Browse" forState:UIControlStateNormal];
+  [browseButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+  [browseButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [browseButton setBackgroundColor:[UIColor whiteColor]];
+  [browseButton addTarget:self action:@selector(browseButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:browseButton];
+  [[[browseButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
+  [[[browseButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
+  [[[browseButton bottomAnchor] constraintEqualToAnchor:[bookButton topAnchor]] setActive:YES];
+  [[[browseButton heightAnchor] constraintEqualToConstant:100] setActive:YES];
 }
 
 - (void) browseButtonWasPressed {
@@ -45,11 +51,8 @@
   [[self navigationController] pushViewController:hotelsVC animated:YES];
 }
 
-- (UIButton*) createButtonWithTitle:(NSString*)title {
-  UIButton *button = [[UIButton alloc] init];
-  [button setTitle:title forState:UIControlStateNormal];
-  [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-  [button setTranslatesAutoresizingMaskIntoConstraints:NO];
-  return button;
+- (void) bookButtonWasPressed {
+  DatePickerViewController *datePickerVC = [[DatePickerViewController alloc] init];
+  [[self navigationController] pushViewController:datePickerVC animated:YES];
 }
 @end

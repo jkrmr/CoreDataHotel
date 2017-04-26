@@ -1,26 +1,29 @@
 //
-//  RoomsViewController.m
+//  RoomDetailViewController.m
 //  CoreDataHotel
 //
-//  Created by Jake Romer on 4/24/17.
+//  Created by Jake Romer on 4/25/17.
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import "RoomsViewController.h"
+#import "RoomDetailViewController.h"
 
-@interface RoomsViewController ()
+@interface RoomDetailViewController ()
+@property (strong, nonatomic) NSArray *reservations;
 @property (strong, nonatomic) UITableView *tableView;
 @end
 
-@implementation RoomsViewController
+@implementation RoomDetailViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor whiteColor]];
 
+  self.reservations = [self.room.reservations allObjects];
+  
   [self setTableView:[[UITableView alloc] init]];
+  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
   [self.tableView setDataSource:self];
   [self.tableView setDelegate:self];
-  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
   [self.view addSubview:self.tableView];
   [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
   [[[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]] setActive:YES];
@@ -29,24 +32,20 @@
   [[[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
 }
 
-// MARK: TableViewDataSource Methods
+// MARK: UITableViewDataSource Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.rooms.count;
+  return self.reservations.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-  Room *selectedRoom = self.rooms[indexPath.row];
-  cell.textLabel.text = [NSString stringWithFormat:@"Room %i", selectedRoom.number];
+  Reservation *selectedReservation = self.reservations[indexPath.row];
+  cell.textLabel.text = selectedReservation.description;
   return cell;
 }
 
-// MARK: TableViewDelegate Methods
+// MARK: UITableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-  Room *selectedRoom = self.rooms[indexPath.row];
-  RoomDetailViewController *roomDetailVC = [[RoomDetailViewController alloc] init];
-  roomDetailVC.room = selectedRoom;
-  [self.navigationController pushViewController:roomDetailVC animated:YES];
+  NSLog(@"selected a reservation");
 }
 @end

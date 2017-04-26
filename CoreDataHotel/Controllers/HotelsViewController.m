@@ -16,14 +16,18 @@
 @implementation HotelsViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
+  [self.view setBackgroundColor:[UIColor whiteColor]];
   
-  self.view.backgroundColor = [UIColor whiteColor];
-  
-  self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-  self.tableView.dataSource = self;
-  self.tableView.delegate = self;
+  [self setTableView:[[UITableView alloc] init]];
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+  [self.tableView setDataSource:self];
+  [self.tableView setDelegate:self];
   [self.view addSubview:self.tableView];
+  [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [[[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]] setActive:YES];
+  [[[self.tableView bottomAnchor] constraintEqualToAnchor:[self.view bottomAnchor]] setActive:YES];
+  [[[self.tableView leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
+  [[[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
 }
 
 // MARK: Core Data fetching
@@ -39,14 +43,12 @@
   
   NSError *fetchError;
   NSArray *hotels = [context executeFetchRequest:req error:&fetchError];
-  
+
   if (fetchError) {
-    NSLog(@"there was a problem fetching hotels list from core data");
-  } else {
-    NSLog(@"loaded hotels from core data");
+    NSLog(@"HotelsVC: There was a problem fetching hotels list from core data");
   }
 
-  return hotels;
+  return [hotels sortedArrayUsingSelector:@selector(compare:)];
 }
 
 // MARK: TableViewDataSource Methods
@@ -64,19 +66,11 @@
 
 // MARK: TableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
   RoomsViewController *roomsVC = [[RoomsViewController alloc] init];
   Hotel *selectedHotel = self.hotels[indexPath.row];
   roomsVC.hotel = selectedHotel;
-
-  NSMutableArray *hotelRooms = [NSMutableArray array];
-
-  if (selectedHotel.rooms) {
-    for (Room *room in selectedHotel.rooms) {
-      [hotelRooms addObject:room];
-    }
-  }
-  roomsVC.rooms = hotelRooms;
-  
+  roomsVC.rooms = [[selectedHotel.rooms allObjects] sortedArrayUsingSelector:@selector(compare:)];
   [self.navigationController pushViewController:roomsVC animated:YES];
 }
 @end

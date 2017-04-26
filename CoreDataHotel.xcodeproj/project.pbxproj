@@ -18,7 +18,13 @@
 		1BC3E23F1EAE5CC500797571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC3E23D1EAE5CC500797571 /* LaunchScreen.storyboard */; };
 		1BC3E24A1EAE5CC600797571 /* CoreDataHotelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2491EAE5CC600797571 /* CoreDataHotelTests.m */; };
 		1BC3E2551EAE5CC600797571 /* CoreDataHotelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2541EAE5CC600797571 /* CoreDataHotelUITests.m */; };
-		1BC3E2681EAE6D2A00797571 /* AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2671EAE6D2A00797571 /* AutoLayout.m */; };
+		1BCE29281EB05658005EB011 /* Room+ComparisonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCE29271EB05658005EB011 /* Room+ComparisonUtils.m */; };
+		1BD6E7271EAFD59D00C7A922 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD6E7261EAFD59D00C7A922 /* BookViewController.m */; };
+		1BDAB1611EAFB0E5005244BF /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDAB1601EAFB0E5005244BF /* DatePickerViewController.m */; };
+		1BDAB1641EAFC7F3005244BF /* RoomAvailabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDAB1631EAFC7F3005244BF /* RoomAvailabilityViewController.m */; };
+		1BF71D671EB05A38009CCCBC /* RoomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */; };
+		1BF71D6B1EB063FB009CCCBC /* Reservation+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */; };
+		1BF71D6E1EB0661D009CCCBC /* Hotel+ComparisonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6D1EB0661D009CCCBC /* Hotel+ComparisonUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +66,20 @@
 		1BC3E2501EAE5CC600797571 /* CoreDataHotelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataHotelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC3E2541EAE5CC600797571 /* CoreDataHotelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHotelUITests.m; sourceTree = "<group>"; };
 		1BC3E2561EAE5CC600797571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BC3E2661EAE6D2A00797571 /* AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoLayout.h; path = Models/AutoLayout.h; sourceTree = "<group>"; };
-		1BC3E2671EAE6D2A00797571 /* AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoLayout.m; path = Models/AutoLayout.m; sourceTree = "<group>"; };
+		1BCE29261EB05658005EB011 /* Room+ComparisonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Room+ComparisonUtils.h"; path = "Models/Room+ComparisonUtils.h"; sourceTree = "<group>"; };
+		1BCE29271EB05658005EB011 /* Room+ComparisonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Room+ComparisonUtils.m"; path = "Models/Room+ComparisonUtils.m"; sourceTree = "<group>"; };
+		1BD6E7251EAFD59D00C7A922 /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookViewController.h; path = Controllers/BookViewController.h; sourceTree = "<group>"; };
+		1BD6E7261EAFD59D00C7A922 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookViewController.m; path = Controllers/BookViewController.m; sourceTree = "<group>"; };
+		1BDAB15F1EAFB0E5005244BF /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerViewController.h; path = Controllers/DatePickerViewController.h; sourceTree = "<group>"; };
+		1BDAB1601EAFB0E5005244BF /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerViewController.m; path = Controllers/DatePickerViewController.m; sourceTree = "<group>"; };
+		1BDAB1621EAFC7F3005244BF /* RoomAvailabilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomAvailabilityViewController.h; path = Controllers/RoomAvailabilityViewController.h; sourceTree = "<group>"; };
+		1BDAB1631EAFC7F3005244BF /* RoomAvailabilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomAvailabilityViewController.m; path = Controllers/RoomAvailabilityViewController.m; sourceTree = "<group>"; };
+		1BF71D651EB05A38009CCCBC /* RoomDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomDetailViewController.h; path = Controllers/RoomDetailViewController.h; sourceTree = "<group>"; };
+		1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailViewController.m; path = Controllers/RoomDetailViewController.m; sourceTree = "<group>"; };
+		1BF71D691EB063FB009CCCBC /* Reservation+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Reservation+Description.h"; path = "Models/Reservation+Description.h"; sourceTree = "<group>"; };
+		1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Reservation+Description.m"; path = "Models/Reservation+Description.m"; sourceTree = "<group>"; };
+		1BF71D6C1EB0661D009CCCBC /* Hotel+ComparisonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hotel+ComparisonUtils.h"; path = "Models/Hotel+ComparisonUtils.h"; sourceTree = "<group>"; };
+		1BF71D6D1EB0661D009CCCBC /* Hotel+ComparisonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Hotel+ComparisonUtils.m"; path = "Models/Hotel+ComparisonUtils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +173,12 @@
 		1BC3E2621EAE621200797571 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1BC3E2661EAE6D2A00797571 /* AutoLayout.h */,
-				1BC3E2671EAE6D2A00797571 /* AutoLayout.m */,
+				1BCE29261EB05658005EB011 /* Room+ComparisonUtils.h */,
+				1BCE29271EB05658005EB011 /* Room+ComparisonUtils.m */,
+				1BF71D691EB063FB009CCCBC /* Reservation+Description.h */,
+				1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */,
+				1BF71D6C1EB0661D009CCCBC /* Hotel+ComparisonUtils.h */,
+				1BF71D6D1EB0661D009CCCBC /* Hotel+ComparisonUtils.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -179,6 +201,14 @@
 				1BC3E2331EAE5CC500797571 /* HotelsViewController.m */,
 				1B44322A1EAE908500E6D0EF /* RoomsViewController.h */,
 				1B44322B1EAE908500E6D0EF /* RoomsViewController.m */,
+				1BF71D651EB05A38009CCCBC /* RoomDetailViewController.h */,
+				1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */,
+				1BDAB15F1EAFB0E5005244BF /* DatePickerViewController.h */,
+				1BDAB1601EAFB0E5005244BF /* DatePickerViewController.m */,
+				1BDAB1621EAFC7F3005244BF /* RoomAvailabilityViewController.h */,
+				1BDAB1631EAFC7F3005244BF /* RoomAvailabilityViewController.m */,
+				1BD6E7251EAFD59D00C7A922 /* BookViewController.h */,
+				1BD6E7261EAFD59D00C7A922 /* BookViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -326,13 +356,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BDAB1611EAFB0E5005244BF /* DatePickerViewController.m in Sources */,
+				1BF71D6B1EB063FB009CCCBC /* Reservation+Description.m in Sources */,
 				1BC3E2341EAE5CC500797571 /* HotelsViewController.m in Sources */,
 				1BC3E23A1EAE5CC500797571 /* CoreDataHotel.xcdatamodeld in Sources */,
 				1BC3E2311EAE5CC500797571 /* AppDelegate.m in Sources */,
 				1BC3E22E1EAE5CC500797571 /* main.m in Sources */,
-				1BC3E2681EAE6D2A00797571 /* AutoLayout.m in Sources */,
+				1BD6E7271EAFD59D00C7A922 /* BookViewController.m in Sources */,
+				1BF71D671EB05A38009CCCBC /* RoomDetailViewController.m in Sources */,
+				1BCE29281EB05658005EB011 /* Room+ComparisonUtils.m in Sources */,
 				1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */,
+				1BF71D6E1EB0661D009CCCBC /* Hotel+ComparisonUtils.m in Sources */,
 				1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */,
+				1BDAB1641EAFC7F3005244BF /* RoomAvailabilityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
