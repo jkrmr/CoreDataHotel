@@ -32,8 +32,8 @@
   [[[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
   
   NSArray *availableRooms = [self availableRooms];
-  NSMutableDictionary *hotelsToRooms = [[NSMutableDictionary alloc] init];
   
+  NSMutableDictionary *hotelsToRooms = [[NSMutableDictionary alloc] init];
   for (Room *room in availableRooms) {
     if (hotelsToRooms[room.hotel.name] == nil) {
       hotelsToRooms[room.hotel.name] = [NSMutableArray array];
@@ -42,8 +42,13 @@
     }
   }
 
+  NSMutableArray *sortedRooms = [NSMutableArray array];
+  for (NSArray *rooms in [hotelsToRooms allValues]) {
+    [sortedRooms addObject:[rooms sortedArrayUsingSelector:@selector(compare:)]];
+  }
+
   self.hotelNames = [hotelsToRooms allKeys];
-  self.rooms =  [hotelsToRooms allValues];
+  self.rooms = sortedRooms;
 }
 
 - (NSArray*) availableRooms {
