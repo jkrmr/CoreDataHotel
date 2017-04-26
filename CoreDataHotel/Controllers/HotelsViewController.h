@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "AutoLayout.h"
 #import "Hotel+CoreDataClass.h"
 #import "Hotel+CoreDataProperties.h"
 #import "Room+ComparisonUtils.h"
