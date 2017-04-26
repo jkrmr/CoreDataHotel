@@ -27,11 +27,11 @@
   [bookButton setBackgroundColor:[UIColor whiteColor]];
   [bookButton addTarget:self action:@selector(bookButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:bookButton];
-  [[[bookButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
-  [[[bookButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
-  [[[bookButton bottomAnchor] constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]] setActive:YES];
-  [[[bookButton heightAnchor] constraintEqualToConstant:100] setActive:YES];
-  
+  NSLayoutConstraint *bookL = [[bookButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]];
+  NSLayoutConstraint *bookT = [[bookButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]];
+  NSLayoutConstraint *bookB = [[bookButton bottomAnchor] constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]];
+  NSLayoutConstraint *bookH = [[bookButton heightAnchor] constraintEqualToConstant:100];
+
   UIButton *browseButton = [[UIButton alloc] init];
   browseButton.translatesAutoresizingMaskIntoConstraints = NO;
   [browseButton setTitle:@"Browse" forState:UIControlStateNormal];
@@ -40,10 +40,12 @@
   [browseButton setBackgroundColor:[UIColor whiteColor]];
   [browseButton addTarget:self action:@selector(browseButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:browseButton];
-  [[[browseButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
-  [[[browseButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
-  [[[browseButton bottomAnchor] constraintEqualToAnchor:[bookButton topAnchor]] setActive:YES];
-  [[[browseButton heightAnchor] constraintEqualToConstant:100] setActive:YES];
+  NSLayoutConstraint *browseL = [[browseButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]];
+  NSLayoutConstraint *browseT = [[browseButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]];
+  NSLayoutConstraint *browseB = [[browseButton bottomAnchor] constraintEqualToAnchor:[bookButton topAnchor]];
+  NSLayoutConstraint *browseH = [[browseButton heightAnchor] constraintEqualToConstant:100];
+  
+  [NSLayoutConstraint activateConstraints:@[bookL, bookT, bookB, bookH, browseL, browseT, browseB, browseH]];
 }
 
 - (void) browseButtonWasPressed {

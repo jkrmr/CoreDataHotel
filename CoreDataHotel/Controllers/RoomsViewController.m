@@ -23,10 +23,11 @@
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
   [self.view addSubview:self.tableView];
   [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [[[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]] setActive:YES];
-  [[[self.tableView bottomAnchor] constraintEqualToAnchor:[self.view bottomAnchor]] setActive:YES];
-  [[[self.tableView leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
-  [[[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
+  NSLayoutConstraint *tvT = [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]];
+  NSLayoutConstraint *tvB = [[self.tableView bottomAnchor] constraintEqualToAnchor:[self.view bottomAnchor]];
+  NSLayoutConstraint *tvL = [[self.tableView leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]];
+  NSLayoutConstraint *tvR = [[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]];
+  [NSLayoutConstraint activateConstraints:@[tvT, tvB, tvL, tvR]];
 }
 
 // MARK: TableViewDataSource Methods

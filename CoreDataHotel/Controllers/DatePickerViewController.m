@@ -19,44 +19,48 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor whiteColor]];
-  self.dateFormatter = [[NSDateFormatter alloc] init];
+  [self setDateFormatter:[[NSDateFormatter alloc] init]];
 
   // set up start date picker
-  self.startDate = [[UIDatePicker alloc] init];
-  self.startDate.datePickerMode = UIDatePickerModeDate;
-  self.startDate.minimumDate = [[NSDate alloc] init];
-  [self.view addSubview:self.startDate];
-  self.startDate.translatesAutoresizingMaskIntoConstraints = NO;
-  [[[self.startDate leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
-  [[[self.startDate trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
-  [[[self.startDate topAnchor] constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]] setActive:YES];
-  [[[self.startDate heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33] setActive:YES];
+  [self setStartDate:[[UIDatePicker alloc] init]];
+  [self.startDate setDatePickerMode:UIDatePickerModeDate];
+  [self.startDate setMinimumDate:[[NSDate alloc] init]];
   [self.startDate addTarget:self action:@selector(startDateWasSelected) forControlEvents:UIControlEventValueChanged];
+  [self.view addSubview:self.startDate];
+  [self.startDate setTranslatesAutoresizingMaskIntoConstraints:NO];
+  NSLayoutConstraint *startDateL = [[self.startDate leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]];
+  NSLayoutConstraint *startDateR = [[self.startDate trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]];
+  NSLayoutConstraint *startDateT = [[self.startDate topAnchor] constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]];
+  NSLayoutConstraint *startDateH = [[self.startDate heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33];
 
   // set up end date picker
-  self.endDate = [[UIDatePicker alloc] init];
-  self.endDate.minimumDate = [self addADaytoDate:self.startDate.date];
-  self.endDate.datePickerMode = UIDatePickerModeDate;
+  [self setEndDate:[[UIDatePicker alloc] init]];
+  [self.endDate setMinimumDate:[self addADaytoDate:self.startDate.date]];
+  [self.endDate setDatePickerMode:UIDatePickerModeDate];
   [self.view addSubview:self.endDate];
-  self.endDate.translatesAutoresizingMaskIntoConstraints = NO;
-  [[[self.endDate leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
-  [[[self.endDate trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
-  [[[self.endDate topAnchor] constraintEqualToAnchor:[self.startDate bottomAnchor]] setActive:YES];
-  [[[self.endDate heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33] setActive:YES];
+  [self.endDate setTranslatesAutoresizingMaskIntoConstraints:NO];
+  NSLayoutConstraint *endDateL = [[self.endDate leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]];
+  NSLayoutConstraint *endDateR = [[self.endDate trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]];
+  NSLayoutConstraint *endDateB = [[self.endDate topAnchor] constraintEqualToAnchor:[self.startDate bottomAnchor]];
+  NSLayoutConstraint *endDateH = [[self.endDate heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33];
 
   // set up check availability button
-  self.submitButton = [[UIButton alloc] init];
-  self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
+  [self setSubmitButton:[[UIButton alloc] init]];
+  [self.submitButton setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.submitButton setTitle:@"Check availability" forState:UIControlStateNormal];
   [self.submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-  [self.submitButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-  self.submitButton.backgroundColor = [UIColor whiteColor];
+  [self.submitButton setBackgroundColor:[UIColor whiteColor]];
   [self.submitButton addTarget:self action:@selector(submitButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:self.submitButton];
-  [[[self.submitButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
-  [[[self.submitButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
-  [[[self.submitButton topAnchor] constraintEqualToAnchor:[self.endDate bottomAnchor]] setActive:YES];
-  [[[self.submitButton heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33] setActive:YES];
+  [self.submitButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+  NSLayoutConstraint *submitL = [[self.submitButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]];
+  NSLayoutConstraint *submitR = [[self.submitButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]];
+  NSLayoutConstraint *submitB = [[self.submitButton topAnchor] constraintEqualToAnchor:[self.endDate bottomAnchor]];
+  NSLayoutConstraint *submitH = [[self.submitButton heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33];
+
+  [NSLayoutConstraint activateConstraints:@[startDateL, startDateR, startDateT, startDateH,
+                                            endDateL, endDateR, endDateB, endDateH,
+                                            submitL, submitR, submitB, submitH]];
 }
 
 - (void) startDateWasSelected {
