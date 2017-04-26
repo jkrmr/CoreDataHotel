@@ -12,6 +12,6 @@
 #import "Room+CoreDataClass.h"
 #import "Room+CoreDataProperties.h"
 
-@interface RoomDetailViewController : UIViewController
+@interface RoomDetailViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) Room *room;
 @end
