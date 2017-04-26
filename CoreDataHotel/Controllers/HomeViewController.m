@@ -12,7 +12,6 @@
 @end
 
 @implementation HomeViewController
-
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor whiteColor]];
