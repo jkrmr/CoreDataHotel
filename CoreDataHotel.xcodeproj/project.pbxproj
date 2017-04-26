@@ -25,6 +25,7 @@
 		1BDAB1641EAFC7F3005244BF /* RoomAvailabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDAB1631EAFC7F3005244BF /* RoomAvailabilityViewController.m */; };
 		1BF71D671EB05A38009CCCBC /* RoomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */; };
 		1BF71D6B1EB063FB009CCCBC /* Reservation+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */; };
+		1BF71D6E1EB0661D009CCCBC /* Hotel+ComparisonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6D1EB0661D009CCCBC /* Hotel+ComparisonUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailViewController.m; path = Controllers/RoomDetailViewController.m; sourceTree = "<group>"; };
 		1BF71D691EB063FB009CCCBC /* Reservation+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Reservation+Description.h"; path = "Models/Reservation+Description.h"; sourceTree = "<group>"; };
 		1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Reservation+Description.m"; path = "Models/Reservation+Description.m"; sourceTree = "<group>"; };
+		1BF71D6C1EB0661D009CCCBC /* Hotel+ComparisonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hotel+ComparisonUtils.h"; path = "Models/Hotel+ComparisonUtils.h"; sourceTree = "<group>"; };
+		1BF71D6D1EB0661D009CCCBC /* Hotel+ComparisonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Hotel+ComparisonUtils.m"; path = "Models/Hotel+ComparisonUtils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 				1BCE29271EB05658005EB011 /* Room+ComparisonUtils.m */,
 				1BF71D691EB063FB009CCCBC /* Reservation+Description.h */,
 				1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */,
+				1BF71D6C1EB0661D009CCCBC /* Hotel+ComparisonUtils.h */,
+				1BF71D6D1EB0661D009CCCBC /* Hotel+ComparisonUtils.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				1BF71D671EB05A38009CCCBC /* RoomDetailViewController.m in Sources */,
 				1BCE29281EB05658005EB011 /* Room+ComparisonUtils.m in Sources */,
 				1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */,
+				1BF71D6E1EB0661D009CCCBC /* Hotel+ComparisonUtils.m in Sources */,
 				1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */,
 				1BDAB1641EAFC7F3005244BF /* RoomAvailabilityViewController.m in Sources */,
 			);

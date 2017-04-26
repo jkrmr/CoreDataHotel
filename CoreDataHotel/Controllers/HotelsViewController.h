@@ -11,6 +11,7 @@
 #import "AutoLayout.h"
 #import "Hotel+CoreDataClass.h"
 #import "Hotel+CoreDataProperties.h"
+#import "Room+ComparisonUtils.h"
 #import "RoomsViewController.h"
 
 @interface HotelsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>

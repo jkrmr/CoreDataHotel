@@ -48,7 +48,7 @@
     NSLog(@"HotelsVC: There was a problem fetching hotels list from core data");
   }
 
-  return hotels;
+  return [hotels sortedArrayUsingSelector:@selector(compare:)];
 }
 
 // MARK: TableViewDataSource Methods
@@ -70,7 +70,7 @@
   RoomsViewController *roomsVC = [[RoomsViewController alloc] init];
   Hotel *selectedHotel = self.hotels[indexPath.row];
   roomsVC.hotel = selectedHotel;
-  roomsVC.rooms = [selectedHotel.rooms allObjects];
+  roomsVC.rooms = [[selectedHotel.rooms allObjects] sortedArrayUsingSelector:@selector(compare:)];
   [self.navigationController pushViewController:roomsVC animated:YES];
 }
 @end

@@ -31,24 +31,32 @@
   [[[self.tableView leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
   [[[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
   
+}
+
+- (void) viewWillAppear:(BOOL)animated {
   NSArray *availableRooms = [self availableRooms];
 
-  NSMutableDictionary *hotelsToRooms = [[NSMutableDictionary alloc] init];
+  NSMutableDictionary *hotelNamesToRooms = [[NSMutableDictionary alloc] init];
   for (Room *room in availableRooms) {
-    if (hotelsToRooms[room.hotel.name] == nil) {
-      hotelsToRooms[room.hotel.name] = [NSMutableArray array];
+    if (hotelNamesToRooms[room.hotel.name] == nil) {
+      hotelNamesToRooms[room.hotel.name] = [NSMutableArray array];
     } else {
-      [hotelsToRooms[room.hotel.name] addObject:room];
+      [hotelNamesToRooms[room.hotel.name] addObject:room];
     }
   }
 
+  NSMutableSet *uniqueHotelNames = [[NSMutableSet alloc] init];
+  [uniqueHotelNames addObjectsFromArray:[hotelNamesToRooms allKeys]];
+  NSArray *sortedHotelNames = [[uniqueHotelNames allObjects] sortedArrayUsingSelector:@selector(compare:)];
+  
   NSMutableArray *sortedRooms = [NSMutableArray array];
-  for (NSArray *rooms in [hotelsToRooms allValues]) {
-    [sortedRooms addObject:[rooms sortedArrayUsingSelector:@selector(compare:)]];
+  for (NSString *hotelName in sortedHotelNames) {
+    [sortedRooms addObject:[hotelNamesToRooms[hotelName] sortedArrayUsingSelector:@selector(compare:)]];
   }
 
-  self.hotelNames = [hotelsToRooms allKeys];
+  self.hotelNames = sortedHotelNames;
   self.rooms = sortedRooms;
+  [self.tableView reloadData];
 }
 
 - (NSArray*) availableRooms {
