@@ -22,6 +22,10 @@
 		1BD6E7271EAFD59D00C7A922 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD6E7261EAFD59D00C7A922 /* BookViewController.m */; };
 		1BDAB1611EAFB0E5005244BF /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDAB1601EAFB0E5005244BF /* DatePickerViewController.m */; };
 		1BDAB1641EAFC7F3005244BF /* RoomAvailabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDAB1631EAFC7F3005244BF /* RoomAvailabilityViewController.m */; };
+		1BE371141EB1125100B1C487 /* Room+ComparisonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCE29271EB05658005EB011 /* Room+ComparisonUtils.m */; };
+		1BE371151EB1125A00B1C487 /* Reservation+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */; };
+		1BE371161EB1125A00B1C487 /* Hotel+ComparisonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6D1EB0661D009CCCBC /* Hotel+ComparisonUtils.m */; };
+		1BE371171EB1129300B1C487 /* CoreDataHotel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2381EAE5CC500797571 /* CoreDataHotel.xcdatamodeld */; };
 		1BF71D671EB05A38009CCCBC /* RoomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */; };
 		1BF71D6B1EB063FB009CCCBC /* Reservation+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6A1EB063FB009CCCBC /* Reservation+Description.m */; };
 		1BF71D6E1EB0661D009CCCBC /* Hotel+ComparisonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6D1EB0661D009CCCBC /* Hotel+ComparisonUtils.m */; };
@@ -377,6 +381,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BC3E24A1EAE5CC600797571 /* Room+ComparisonUtilsTests.m in Sources */,
+				1BE371171EB1129300B1C487 /* CoreDataHotel.xcdatamodeld in Sources */,
+				1BE371161EB1125A00B1C487 /* Hotel+ComparisonUtils.m in Sources */,
+				1BE371141EB1125100B1C487 /* Room+ComparisonUtils.m in Sources */,
+				1BE371151EB1125A00B1C487 /* Reservation+Description.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

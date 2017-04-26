@@ -7,6 +7,7 @@
 //
 
 #import "Reservation+CoreDataClass.h"
+#import "Reservation+CoreDataProperties.h"
 
 @interface Reservation (Description)
 - (NSString*) description;
