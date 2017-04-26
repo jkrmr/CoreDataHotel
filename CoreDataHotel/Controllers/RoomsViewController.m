@@ -15,8 +15,7 @@
 @implementation RoomsViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
-  
-  self.view.backgroundColor = [UIColor whiteColor];
+  [self.view setBackgroundColor:[UIColor whiteColor]];
 
   [self setTableView:[[UITableView alloc] init]];
   [self.tableView setDataSource:self];

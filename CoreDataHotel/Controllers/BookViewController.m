@@ -17,7 +17,7 @@
 @implementation BookViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.view.backgroundColor = [UIColor whiteColor];
+  [self.view setBackgroundColor:[UIColor whiteColor]];
 
   // set up first name text field
   UITextField *firstName = [[UITextField alloc] init];

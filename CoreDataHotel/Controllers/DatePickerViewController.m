@@ -18,8 +18,8 @@
 @implementation DatePickerViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
+  [self.view setBackgroundColor:[UIColor whiteColor]];
   self.dateFormatter = [[NSDateFormatter alloc] init];
-  self.view.backgroundColor = [UIColor whiteColor];
 
   // set up start date picker
   self.startDate = [[UIDatePicker alloc] init];
@@ -72,7 +72,6 @@
 }
 
 - (NSDate*) addADaytoDate:(NSDate*) date {
-  // add a day to the start date
   NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
   NSDateComponents *offset = [[NSDateComponents alloc] init];
   [offset setDay:1];
