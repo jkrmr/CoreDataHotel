@@ -20,21 +20,17 @@
 }
 
 - (void) setupLayout {
-  UIButton *browseButton = [self createButtonWithTitle:@"Browse"
-                                              andColor:[UIColor whiteColor]
-                                                action:@selector(browseButtonWasPressed)];
-  [[[browseButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
-  [[[browseButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
-  [[[browseButton topAnchor] constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]] setActive:YES];
-  [[[browseButton heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.3] setActive:YES];
-
-  UIButton *bookButton = [self createButtonWithTitle:@"Book"
-                                            andColor:[UIColor whiteColor]
-                                              action:@selector(bookButtonWasPressed)];
+  UIButton *bookButton = [self createButtonWithTitle:@"Book" andColor:[UIColor whiteColor] action:@selector(bookButtonWasPressed)];
   [[[bookButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
   [[[bookButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
   [[[bookButton bottomAnchor] constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]] setActive:YES];
-  [[[bookButton heightAnchor] constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.3] setActive:YES];
+  [[[bookButton heightAnchor] constraintEqualToConstant:100] setActive:YES];
+  
+  UIButton *browseButton = [self createButtonWithTitle:@"Browse" andColor:[UIColor whiteColor] action:@selector(browseButtonWasPressed)];
+  [[[browseButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]] setActive:YES];
+  [[[browseButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
+  [[[browseButton bottomAnchor] constraintEqualToAnchor:[bookButton topAnchor]] setActive:YES];
+  [[[browseButton heightAnchor] constraintEqualToConstant:100] setActive:YES];
 }
 
 - (void) browseButtonWasPressed {
