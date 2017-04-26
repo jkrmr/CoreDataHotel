@@ -45,17 +45,9 @@
     }
   }
 
-  NSMutableSet *uniqueHotelNames = [[NSMutableSet alloc] init];
-  [uniqueHotelNames addObjectsFromArray:[hotelNamesToRooms allKeys]];
-  NSArray *sortedHotelNames = [[uniqueHotelNames allObjects] sortedArrayUsingSelector:@selector(compare:)];
+  self.hotelNames = [hotelNamesToRooms allKeys];
+  self.rooms = [hotelNamesToRooms allValues];
   
-  NSMutableArray *sortedRooms = [NSMutableArray array];
-  for (NSString *hotelName in sortedHotelNames) {
-    [sortedRooms addObject:[hotelNamesToRooms[hotelName] sortedArrayUsingSelector:@selector(compare:)]];
-  }
-
-  self.hotelNames = sortedHotelNames;
-  self.rooms = sortedRooms;
   [self.tableView reloadData];
 }
 
@@ -66,6 +58,9 @@
   NSPredicate *noReservationOnRequestedInterval =
   [NSPredicate predicateWithFormat:@"SUBQUERY(reservations, $r, $r.startDate < %@ AND $r.endDate > %@).@count == 0", self.requestedEndDate, self.requestedStartDate];
   [req setPredicate:noReservationOnRequestedInterval];
+  NSSortDescriptor *byHotelName = [NSSortDescriptor sortDescriptorWithKey:@"hotel.name" ascending:YES];
+  NSSortDescriptor *byRoomNumber = [NSSortDescriptor sortDescriptorWithKey:@"number" ascending:YES];
+  [req setSortDescriptors:@[byHotelName, byRoomNumber]];
 
   NSError *fetchError;
   NSArray *fetchedRooms = [context executeFetchRequest:req error:&fetchError];
