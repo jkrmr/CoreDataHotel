@@ -69,6 +69,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   BookViewController *bookVC = [[BookViewController alloc] init];
   bookVC.requestedRoom = self.rooms[indexPath.row];
-  [self.navigationController pushViewController:bookVC animated:YES];
+  [self presentViewController:bookVC animated:YES completion:nil];
 }
 @end
