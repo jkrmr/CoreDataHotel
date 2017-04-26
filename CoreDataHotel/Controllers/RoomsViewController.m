@@ -45,6 +45,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
   Room *selectedRoom = self.rooms[indexPath.row];
-  NSLog(@"Selected Room #%i", selectedRoom.number);
+  RoomDetailViewController *roomDetailVC = [[RoomDetailViewController alloc] init];
+  roomDetailVC.room = selectedRoom;
+  [self.navigationController pushViewController:roomDetailVC animated:YES];
 }
 @end

@@ -32,7 +32,7 @@
   [[[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]] setActive:YES];
   
   NSArray *availableRooms = [self availableRooms];
-  
+
   NSMutableDictionary *hotelsToRooms = [[NSMutableDictionary alloc] init];
   for (Room *room in availableRooms) {
     if (hotelsToRooms[room.hotel.name] == nil) {

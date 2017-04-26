@@ -11,6 +11,7 @@
 #import "Hotel+CoreDataProperties.h"
 #import "Room+CoreDataClass.h"
 #import "Room+CoreDataProperties.h"
+#import "RoomDetailViewController.h"
 
 @interface RoomsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) Hotel* hotel;
