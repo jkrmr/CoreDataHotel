@@ -6,9 +6,9 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
 @interface RoomQuery : NSObject
-+ (NSFetchRequest*) availableOnDaysFrom:(NSDate*)fromDate to:(NSDate*)toDate;
++ (NSFetchRequest *)availableOnDaysFrom:(NSDate *)fromDate to:(NSDate *)toDate;
 @end

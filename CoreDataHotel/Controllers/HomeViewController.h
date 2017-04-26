@@ -6,9 +6,9 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "HotelsViewController.h"
 #import "DatePickerViewController.h"
+#import "HotelsViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface HomeViewController : UIViewController
 @end

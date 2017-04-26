@@ -9,7 +9,7 @@
 #import "Reservation+Description.h"
 
 @implementation Reservation (Description)
-- (NSString*) description {
+- (NSString *)description {
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
   [dateFormatter setTimeStyle:NSDateFormatterNoStyle];

@@ -10,5 +10,5 @@
 #import "Reservation+CoreDataProperties.h"
 
 @interface Reservation (Description)
-- (NSString*) description;
+- (NSString *)description;
 @end

@@ -12,5 +12,5 @@
 #import "Room+CoreDataProperties.h"
 
 @interface Room (ComparisonUtils)
-- (NSComparisonResult) compare:(Room*)otherRoom;
+- (NSComparisonResult)compare:(Room *)otherRoom;
 @end
