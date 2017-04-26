@@ -1,5 +1,5 @@
 //
-//  ReservationTest.m
+//  RoomQueryTest.m
 //  CoreDataHotel
 //
 //  Created by Jake Romer on 4/26/17.
@@ -8,13 +8,12 @@
 
 #import <XCTest/XCTest.h>
 #import "XCCoreDataTestCase.h"
-#import "Reservation+CoreDataClass.h"
-#import "Reservation+CoreDataProperties.h"
+#import "RoomQuery.h"
 
-@interface ReservationTest : XCCoreDataTestCase
+@interface RoomQueryTest : XCCoreDataTestCase
 @end
 
-@implementation ReservationTest
+@implementation RoomQueryTest 
 - (void)testOverlappingReservationLogic {
 }
 @end

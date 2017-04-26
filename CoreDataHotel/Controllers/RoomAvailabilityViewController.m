@@ -40,16 +40,11 @@
 - (NSFetchedResultsController*) availableRooms {
   AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
   NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
-  NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:@"Room"];
-  NSPredicate *noReservationOnRequestedInterval =
-  [NSPredicate predicateWithFormat:@"SUBQUERY(reservations, $r, $r.startDate < %@ AND $r.endDate > %@).@count == 0", self.requestedEndDate, self.requestedStartDate];
-  [req setPredicate:noReservationOnRequestedInterval];
-  NSSortDescriptor *byHotelName = [NSSortDescriptor sortDescriptorWithKey:@"hotel.name" ascending:YES];
-  NSSortDescriptor *byRoomNumber = [NSSortDescriptor sortDescriptorWithKey:@"number" ascending:YES];
-  [req setSortDescriptors:@[byHotelName, byRoomNumber]];
 
+  NSFetchRequest *request = [RoomQuery availableOnDaysFrom:self.requestedStartDate
+                                                        to:self.requestedEndDate];
   NSError *fetchError;
-  NSFetchedResultsController *fetchedRooms = [[NSFetchedResultsController alloc] initWithFetchRequest:req
+  NSFetchedResultsController *fetchedRooms = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                                  managedObjectContext:context
                                                                                    sectionNameKeyPath:@"hotel.name"
                                                                                             cacheName:nil];
