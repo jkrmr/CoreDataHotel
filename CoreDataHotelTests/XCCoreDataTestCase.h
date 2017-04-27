@@ -6,9 +6,11 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
 #import <CoreData/CoreData.h>
+#import <XCTest/XCTest.h>
 
 @interface XCCoreDataTestCase : XCTestCase
-@property (strong, nonatomic) NSManagedObjectContext *inMemoryContext;
+@property(strong, nonatomic) NSManagedObjectContext *inMemoryContext;
+@property(strong, nonatomic) NSDateFormatter *dateFormatter;
+- (NSDate *)dateFromString:(NSString *)dateString;
 @end
