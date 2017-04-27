@@ -7,11 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "HomeViewController.h"
-#import "Hotel+CoreDataClass.h"
-#import "Hotel+CoreDataProperties.h"
-#import "Room+CoreDataClass.h"
-#import "Room+CoreDataProperties.h"
 
 @interface AppDelegate ()
 @property(strong, nonatomic) UINavigationController *navController;
@@ -38,44 +33,40 @@
 }
 
 - (void)generateTestData {
-  NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
-  NSError *error;
-  NSInteger count =
-      [self.persistentContainer.viewContext countForFetchRequest:req
-                                                           error:&error];
-  if (error) {
-    NSLog(@"%@", error.localizedDescription);
-  }
+  NSFetchRequest *req;
+  req = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
+
+  NSInteger hotelsCount;
+  hotelsCount =
+      [self.persistentContainer.viewContext countForFetchRequest:req error:nil];
 
   // If hotels have already been persisted, return early.
-  if (count > 0) {
+  if (hotelsCount > 0) {
     return;
   }
 
-  NSString *path =
-      [[NSBundle mainBundle] pathForResource:@"hotels" ofType:@"json"];
-  NSData *jsonData = [NSData dataWithContentsOfFile:path];
+  NSString *jsonPath;
+  jsonPath = [[NSBundle mainBundle] pathForResource:@"hotels" ofType:@"json"];
+
+  NSData *jsonData;
   NSError *jsonError;
-  NSDictionary *dict =
-      [NSJSONSerialization JSONObjectWithData:jsonData
-                                      options:NSJSONReadingMutableContainers
-                                        error:&jsonError];
+  NSDictionary *dict;
+  jsonData = [NSData dataWithContentsOfFile:jsonPath];
+  dict = [NSJSONSerialization JSONObjectWithData:jsonData
+                                         options:NSJSONReadingMutableContainers
+                                           error:&jsonError];
   if (jsonError) {
     NSLog(@"%@", jsonError.localizedDescription);
   }
 
   for (NSDictionary *hotel in dict[@"Hotels"]) {
-    Hotel *newHotel = [NSEntityDescription
-        insertNewObjectForEntityForName:@"Hotel"
-                 inManagedObjectContext:self.persistentContainer.viewContext];
+    Hotel *newHotel = [CoreData.repo buildInstance:[Hotel class]];
     newHotel.name = hotel[@"name"];
     newHotel.location = hotel[@"location"];
     newHotel.stars = [hotel[@"stars"] integerValue];
 
     for (NSDictionary *room in hotel[@"rooms"]) {
-      Room *newRoom = [NSEntityDescription
-          insertNewObjectForEntityForName:@"Room"
-                   inManagedObjectContext:self.persistentContainer.viewContext];
+      Room *newRoom = [CoreData.repo buildInstance:[Room class]];
       newRoom.number = [room[@"number"] integerValue];
       newRoom.beds = [room[@"beds"] integerValue];
       newRoom.rate = [room[@"rate"] integerValue];
@@ -83,12 +74,7 @@
     }
   }
 
-  NSError *saveError;
-  [self.persistentContainer.viewContext save:&saveError];
-
-  if (saveError) {
-    NSLog(@"Error saving to core data");
-  }
+  [CoreData.repo save];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
