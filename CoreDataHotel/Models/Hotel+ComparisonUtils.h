@@ -7,7 +7,8 @@
 //
 
 #import "Hotel+CoreDataClass.h"
+#import "Hotel+CoreDataProperties.h"
 
 @interface Hotel (ComparisonUtils)
-- (NSComparisonResult) compare:(Hotel*)otherHotel;
+- (NSComparisonResult)compare:(Hotel *)otherHotel;
 @end

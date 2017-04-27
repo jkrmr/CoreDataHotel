@@ -9,8 +9,7 @@
 #import "Hotel+ComparisonUtils.h"
 
 @implementation Hotel (ComparisonUtils)
-- (NSComparisonResult) compare:(Hotel*)otherHotel {
+- (NSComparisonResult)compare:(Hotel *)otherHotel {
   return [self.name compare:otherHotel.name];
 }
 @end
-

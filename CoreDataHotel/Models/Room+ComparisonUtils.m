@@ -9,7 +9,8 @@
 #import "Room+ComparisonUtils.h"
 
 @implementation Room (ComparisonUtils)
-- (NSComparisonResult) compare:(Room*)otherRoom {
-  return [[NSNumber numberWithInt:self.number] compare: [NSNumber numberWithInt:otherRoom.number]];
+- (NSComparisonResult)compare:(Room *)otherRoom {
+  return [[NSNumber numberWithInt:self.number]
+      compare:[NSNumber numberWithInt:otherRoom.number]];
 }
 @end

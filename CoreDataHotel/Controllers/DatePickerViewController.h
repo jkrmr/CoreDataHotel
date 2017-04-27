@@ -6,8 +6,8 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "RoomAvailabilityViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface DatePickerViewController : UIViewController
 @end

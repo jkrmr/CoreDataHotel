@@ -6,12 +6,13 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+#import "CoreData.h"
 #import "Hotel+CoreDataClass.h"
 #import "Hotel+CoreDataProperties.h"
 #import "Room+ComparisonUtils.h"
 #import "RoomsViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface HotelsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface HotelsViewController
+    : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @end

@@ -1,5 +1,5 @@
 //
-//  Room+Room_Comparison.h
+//  Reservation+Summary.h
 //  CoreDataHotel
 //
 //  Created by Jake Romer on 4/25/17.
@@ -8,9 +8,11 @@
 
 #import "Hotel+CoreDataClass.h"
 #import "Hotel+CoreDataProperties.h"
+#import "Reservation+CoreDataClass.h"
+#import "Reservation+CoreDataProperties.h"
 #import "Room+CoreDataClass.h"
 #import "Room+CoreDataProperties.h"
 
-@interface Room (ComparisonUtils)
-- (NSComparisonResult)compare:(Room *)otherRoom;
+@interface Reservation (Summary)
+- (NSString *)summary;
 @end
