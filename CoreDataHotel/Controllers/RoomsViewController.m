@@ -48,7 +48,7 @@
                                       forIndexPath:indexPath];
   Room *selectedRoom = self.rooms[indexPath.row];
   cell.textLabel.text =
-      [NSString stringWithFormat:@"Room %i", selectedRoom.number];
+      [NSString stringWithFormat:@"%@", selectedRoom.summary];
   return cell;
 }
 

@@ -15,6 +15,10 @@
   [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
   NSString *start = [dateFormatter stringFromDate:self.startDate];
   NSString *end = [dateFormatter stringFromDate:self.endDate];
-  return [NSString stringWithFormat:@"Booked: %@ to %@", start, end];
+  NSString *template = @"%@ #%@: %@ to %@";
+  Room *room = self.room;
+  NSString *hotelName = room.hotel.name;
+  NSNumber *roomNumber = [NSNumber numberWithInt:room.number];
+  return [NSString stringWithFormat:template, hotelName, roomNumber, start, end];
 }
 @end

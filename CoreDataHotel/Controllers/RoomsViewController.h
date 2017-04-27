@@ -10,6 +10,7 @@
 #import "Hotel+CoreDataProperties.h"
 #import "Room+CoreDataClass.h"
 #import "Room+CoreDataProperties.h"
+#import "Room+Summary.h"
 #import "RoomDetailViewController.h"
 #import <UIKit/UIKit.h>
 

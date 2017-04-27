@@ -44,10 +44,11 @@
   [self.searchBar setDelegate:self];
   [self.searchBar setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.view addSubview:self.searchBar];
+  self.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
   searchT = [[self.searchBar topAnchor] constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]];
   searchL = [[self.searchBar leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]];
   searchR = [[self.searchBar trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]];
-  
+
   [NSLayoutConstraint activateConstraints:@[ tvT, tvB, tvL, tvR, searchT, searchL, searchR ]];
 }
 
