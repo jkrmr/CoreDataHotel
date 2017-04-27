@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B1722D11EB2501A0032BDA3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1722CF1EB2501A0032BDA3 /* Fabric.framework */; };
 		1B1722D21EB2501A0032BDA3 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1722D01EB2501A0032BDA3 /* Answers.framework */; };
+		1B1722D31EB252CE0032BDA3 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1722D01EB2501A0032BDA3 /* Answers.framework */; };
 		1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44322B1EAE908500E6D0EF /* RoomsViewController.m */; };
 		1B4432481EAE9D7700E6D0EF /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B4432471EAE9D7700E6D0EF /* hotels.json */; };
 		1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44324A1EAEA54600E6D0EF /* HomeViewController.m */; };
@@ -133,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B1722D31EB252CE0032BDA3 /* Answers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +635,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = M94KDK654M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CoreDataHotelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jkrmr.CoreDataHotelTests;
@@ -646,6 +652,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = M94KDK654M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CoreDataHotelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jkrmr.CoreDataHotelTests;

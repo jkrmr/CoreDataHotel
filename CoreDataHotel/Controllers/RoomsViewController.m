@@ -50,7 +50,6 @@
                                          forIndexPath:indexPath];
   selectedRoom = self.rooms[indexPath.row];
 
-  NSLog(@"%@", selectedRoom);
   cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedRoom.summary];
   return cell;
 }
