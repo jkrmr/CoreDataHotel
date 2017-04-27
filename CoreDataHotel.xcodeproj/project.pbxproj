@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1722D11EB2501A0032BDA3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1722CF1EB2501A0032BDA3 /* Fabric.framework */; };
+		1B1722D21EB2501A0032BDA3 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1722D01EB2501A0032BDA3 /* Answers.framework */; };
 		1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44322B1EAE908500E6D0EF /* RoomsViewController.m */; };
 		1B4432481EAE9D7700E6D0EF /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B4432471EAE9D7700E6D0EF /* hotels.json */; };
 		1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44324A1EAEA54600E6D0EF /* HomeViewController.m */; };
@@ -62,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B1722CF1EB2501A0032BDA3 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		1B1722D01EB2501A0032BDA3 /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = "<group>"; };
 		1B44322A1EAE908500E6D0EF /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomsViewController.h; path = Controllers/RoomsViewController.h; sourceTree = "<group>"; };
 		1B44322B1EAE908500E6D0EF /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomsViewController.m; path = Controllers/RoomsViewController.m; sourceTree = "<group>"; };
 		1B4432471EAE9D7700E6D0EF /* hotels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hotels.json; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B1722D21EB2501A0032BDA3 /* Answers.framework in Frameworks */,
+				1B1722D11EB2501A0032BDA3 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +153,8 @@
 				1BC3E2481EAE5CC600797571 /* CoreDataHotelTests */,
 				1BC3E2531EAE5CC600797571 /* CoreDataHotelUITests */,
 				1BC3E22A1EAE5CC500797571 /* Products */,
+				1B1722CF1EB2501A0032BDA3 /* Fabric.framework */,
+				1B1722D01EB2501A0032BDA3 /* Answers.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -279,6 +287,7 @@
 				1BC3E2251EAE5CC500797571 /* Sources */,
 				1BC3E2261EAE5CC500797571 /* Frameworks */,
 				1BC3E2271EAE5CC500797571 /* Resources */,
+				1B1722CE1EB24FC60032BDA3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -399,6 +408,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B1722CE1EB24FC60032BDA3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 3ab5331c4af87b5361b04216207e5a66fc67df12 adc9760dd24bd079e48018deeb986ea53c8dcb985221e8e7df8404e82e8bcf7c";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BC3E2251EAE5CC500797571 /* Sources */ = {
@@ -576,6 +601,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M94KDK654M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CoreDataHotel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jkrmr.CoreDataHotel;
@@ -588,6 +617,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M94KDK654M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CoreDataHotel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jkrmr.CoreDataHotel;

@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  [Fabric with:@[[Answers class]]];
   [self setupRootViewController];
   [self generateTestData];
   return YES;

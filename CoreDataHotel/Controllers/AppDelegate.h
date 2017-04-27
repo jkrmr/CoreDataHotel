@@ -12,8 +12,11 @@
 #import "Hotel+CoreDataProperties.h"
 #import "Room+CoreDataClass.h"
 #import "Room+CoreDataProperties.h"
+#import <Answers/Answers.h>
 #import <CoreData/CoreData.h>
+#import <Fabric/Fabric.h>
 #import <UIKit/UIKit.h>
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property(strong, nonatomic) UIWindow *window;
