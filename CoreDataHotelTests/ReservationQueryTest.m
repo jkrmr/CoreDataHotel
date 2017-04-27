@@ -39,4 +39,49 @@
 
   XCTAssertEqual(3, results3.count);
 }
+
+- (void) testReservationsWithGuestDetailsFindsByExactOrPartialMatch {
+  Guest *guest1;
+  guest1 = [self buildInstanceOf:[Guest class]];
+  guest1.firstName = @"Chesty";
+  guest1.lastName = @"Puller";
+  guest1.emailAddress = @"cpuller@usmc.mil";
+
+  Guest *guest2;
+  guest2 = [self buildInstanceOf:[Guest class]];
+  guest2.firstName = @"Dan";
+  guest2.lastName = @"Daly";
+  guest2.emailAddress = @"ddaly@usmc.mil";
+
+  Reservation *reservation1;
+  reservation1 = [self buildInstanceOf:[Reservation class]];
+  reservation1.startDate = [self dateFromString:@"01/01/2000"];
+  reservation1.endDate = [self dateFromString:@"02/02/2000"];
+  reservation1.guests = [NSSet setWithArray:@[guest1]];
+
+  Reservation *reservation2;
+  reservation2 = [self buildInstanceOf:[Reservation class]];
+  reservation2.startDate = [self dateFromString:@"01/01/2001"];
+  reservation2.endDate = [self dateFromString:@"02/02/2002"];
+  reservation2.guests = [NSSet setWithArray:@[guest1, guest2]];
+  [self saveContext];
+
+  NSFetchRequest *requestByFirstName;
+  NSArray *results1;
+  requestByFirstName = [ReservationQuery reservationsWithGuestDetail:@"Chesty"];
+  results1 = [self queryResultsForRequest:requestByFirstName];
+  XCTAssertEqual(2, results1.count);
+
+  NSFetchRequest *requestByLastName;
+  NSArray *results2;
+  requestByLastName = [ReservationQuery reservationsWithGuestDetail:@"Daly"];
+  results2 = [self queryResultsForRequest:requestByLastName];
+  XCTAssertEqual(1, results2.count);
+  
+  NSFetchRequest *requestByEmailStub;
+  NSArray *results3;
+  requestByEmailStub = [ReservationQuery reservationsWithGuestDetail:@"usmc.mil"];
+  results3 = [self queryResultsForRequest:requestByEmailStub];
+  XCTAssertEqual(2, results3.count);
+}
 @end

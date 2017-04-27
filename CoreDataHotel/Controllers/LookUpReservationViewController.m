@@ -65,6 +65,19 @@
   return allReservations;
 }
 
+- (NSArray *)fetchAllReservationsForGuestWithDetail:(NSString*)string {
+  AppDelegate *appDelegate =
+      (AppDelegate *)[[UIApplication sharedApplication] delegate];
+  NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
+  NSError *error;
+  NSFetchRequest *request = [ReservationQuery reservationsWithGuestDetail: string];
+  NSArray *allReservations = [context executeFetchRequest:request error:&error];
+  if (error) {
+    NSLog(@"Error fetching all reservations: %@", error.localizedDescription);
+  }
+  return allReservations;
+}
+
 // MARK: TableViewDataSource methods
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {

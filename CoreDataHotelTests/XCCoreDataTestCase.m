@@ -48,13 +48,17 @@
   return [[self dateFormatter] dateFromString:dateString];
 }
 
+//  return [NSEntityDescription insertNewObjectForEntityForName:className
+//                                       inManagedObjectContext:self.inMemoryContext];
 - (id)buildInstanceOf:(id)type {
-  NSString *className = NSStringFromClass([type class]);
-  NSEntityDescription *resEntity =
-      [NSEntityDescription entityForName:className
-                  inManagedObjectContext:self.inMemoryContext];
+  NSString *className;
+  NSEntityDescription *entity;
+  
+  className = NSStringFromClass([type class]);
+  entity = [NSEntityDescription entityForName:className
+                       inManagedObjectContext:self.inMemoryContext];
 
-  return [[[type class] alloc] initWithEntity:resEntity
+  return [[[type class] alloc] initWithEntity:entity
                insertIntoManagedObjectContext:self.inMemoryContext];
 }
 
