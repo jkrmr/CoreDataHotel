@@ -14,5 +14,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LookUpReservationViewController
-    : UIViewController <UITableViewDataSource, UITableViewDelegate>
+    : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @end

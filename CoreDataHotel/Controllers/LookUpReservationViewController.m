@@ -11,12 +11,15 @@
 @interface LookUpReservationViewController ()
 @property(strong, nonatomic) NSArray *reservations;
 @property(strong, nonatomic) UITableView *tableView;
+@property(strong, nonatomic) UISearchBar *searchBar;
 @end
 
 @implementation LookUpReservationViewController
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor whiteColor]];
+
+  // Set up Table View
   [self setTableView:[[UITableView alloc] init]];
   [self.tableView setDelegate:self];
   [self.tableView setDataSource:self];
@@ -24,15 +27,24 @@
          forCellReuseIdentifier:@"cell"];
   [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.view addSubview:self.tableView];
-  NSLayoutConstraint *tvT = [[self.tableView topAnchor]
-      constraintEqualToAnchor:[self.view topAnchor]];
-  NSLayoutConstraint *tvB = [[self.tableView bottomAnchor]
-      constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]];
-  NSLayoutConstraint *tvL = [[self.tableView leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *tvR = [[self.tableView trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  [NSLayoutConstraint activateConstraints:@[ tvT, tvB, tvL, tvR ]];
+
+  NSLayoutConstraint *tvT, *tvB, *tvL, *tvR;
+  tvT = [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]];
+  tvB = [[self.tableView bottomAnchor] constraintEqualToAnchor:[self.view bottomAnchor]];
+  tvL = [[self.tableView leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]];
+  tvR = [[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]];
+
+  // Set up Search Bar
+  NSLayoutConstraint *searchT, *searchL, *searchR;
+  [self setSearchBar:[[UISearchBar alloc] init]];
+  [self.searchBar setDelegate:self];
+  [self.searchBar setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [self.view addSubview:self.searchBar];
+  searchT = [[self.searchBar topAnchor] constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]];
+  searchL = [[self.searchBar leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]];
+  searchR = [[self.searchBar trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]];
+  
+  [NSLayoutConstraint activateConstraints:@[ tvT, tvB, tvL, tvR, searchT, searchL, searchR ]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -73,5 +85,10 @@
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+// MARK: Search Bar methods
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+  NSLog(@"search button clicked");
 }
 @end
