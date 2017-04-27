@@ -45,7 +45,8 @@
 }
 
 - (NSArray *)hotelsFromCoreData {
-  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
+  NSFetchRequest *request =
+      [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
   NSArray *hotels = [CoreData.repo resultsForQuery:request];
   return [hotels sortedArrayUsingSelector:@selector(compare:)];
 }

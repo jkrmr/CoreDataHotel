@@ -50,7 +50,7 @@
 
 //  return [NSEntityDescription insertNewObjectForEntityForName:className
 //                                       inManagedObjectContext:self.inMemoryContext];
-- (id)buildInstanceOf:(id)type {
+- (id)buildInstance:(id)type {
   NSString *className;
   NSEntityDescription *entity;
 

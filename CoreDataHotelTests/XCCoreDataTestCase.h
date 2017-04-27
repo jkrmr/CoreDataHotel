@@ -15,7 +15,7 @@
 @property(strong, nonatomic) NSDateFormatter *dateFormatter;
 
 - (NSDate *)dateFromString:(NSString *)dateString;
-- (id)buildInstanceOf:(id)type;
+- (id)buildInstance:(id)type;
 - (NSArray *)queryResultsForRequest:(NSFetchRequest *)request;
 - (void)saveContext;
 @end

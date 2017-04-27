@@ -68,10 +68,10 @@
 - (NSArray *)fetchAllReservations {
   NSFetchRequest *request;
   NSArray *allReservations;
-  
+
   request = [ReservationQuery allReservations];
   allReservations = [CoreData.repo resultsForQuery:request];
-  
+
   return allReservations;
 }
 
@@ -95,7 +95,7 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell;
   Reservation *selectedReservation;
-  
+
   cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"
                                               forIndexPath:indexPath];
   selectedReservation = self.reservations[indexPath.row];

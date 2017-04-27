@@ -17,16 +17,16 @@
 @implementation Reservation_SummaryTest
 - (void)testSummaryIncludesBookingDates {
   Hotel *hotel;
-  hotel = [self buildInstanceOf:[Hotel class]];
+  hotel = [self buildInstance:[Hotel class]];
   hotel.name = @"The Avalon";
 
   Room *room;
-  room = [self buildInstanceOf:[Room class]];
+  room = [self buildInstance:[Room class]];
   room.number = 420;
   room.hotel = hotel;
 
   Reservation *reservation;
-  reservation = [self buildInstanceOf:[Reservation class]];
+  reservation = [self buildInstance:[Reservation class]];
   reservation.startDate = [self dateFromString:@"01/01/2001"];
   reservation.endDate = [self dateFromString:@"01/03/2001"];
   reservation.room = room;

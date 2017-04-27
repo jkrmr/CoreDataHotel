@@ -156,12 +156,12 @@
 }
 
 - (void)confirmButtonWasPressed {
-  Guest *newGuest = [CoreData.repo buildInstanceOf:[Guest class]];
+  Guest *newGuest = [CoreData.repo buildInstance:[Guest class]];
   newGuest.firstName = self.firstName.text;
   newGuest.lastName = self.lastName.text;
   newGuest.emailAddress = self.emailAddress.text;
 
-  Reservation *newReservation = [CoreData.repo buildInstanceOf:[Reservation class]];
+  Reservation *newReservation = [CoreData.repo buildInstance:[Reservation class]];
   newReservation.startDate = self.requestedStartDate;
   newReservation.endDate = self.requestedEndDate;
   newReservation.room = self.requestedRoom;

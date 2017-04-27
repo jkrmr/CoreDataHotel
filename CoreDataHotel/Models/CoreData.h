@@ -6,18 +6,16 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 #import "AppDelegate.h"
+#import <CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
 @interface CoreData : NSObject
-+ (instancetype) repo;
-- (id)buildInstanceOf:(id)type;
-- (NSArray*) resultsForQuery:(NSFetchRequest*)request;
-- (NSFetchedResultsController*) resultsControllerForQuery:(NSFetchRequest*)request
-                                       sectionNameKeyPath:(NSString*)keyPath
-                                                cacheName:(NSString*)cacheName;
-- (void) save;
++ (instancetype)repo;
+- (id)buildInstance:(id)type;
+- (NSArray *)resultsForQuery:(NSFetchRequest *)request;
+- (NSFetchedResultsController *)resultsControllerFor:(NSFetchRequest *)request
+                                  sectionNameKeyPath:(NSString *)keyPath
+                                           cacheName:(NSString *)cacheName;
+- (void)save;
 @end
-
-

@@ -23,9 +23,9 @@
   NSDate *startDate1, *endDate1;
   startDate1 = [self dateFromString:@"01/01/2001"];
   endDate1 = [self dateFromString:@"01/03/2001"];
-  room1 = [self buildInstanceOf:[Room class]];
+  room1 = [self buildInstance:[Room class]];
   room1.number = 100;
-  res1 = [self buildInstanceOf:[Reservation class]];
+  res1 = [self buildInstance:[Reservation class]];
   res1.startDate = startDate1;
   res1.endDate = endDate1;
   [room1 setReservations:[NSSet setWithObject:res1]];
@@ -35,9 +35,9 @@
   NSDate *startDate2, *endDate2;
   startDate2 = [self dateFromString:@"02/01/2001"];
   endDate2 = [self dateFromString:@"02/03/2001"];
-  room2 = [self buildInstanceOf:[Room class]];
+  room2 = [self buildInstance:[Room class]];
   room2.number = 900;
-  res2 = [self buildInstanceOf:[Reservation class]];
+  res2 = [self buildInstance:[Reservation class]];
   res2.startDate = startDate2;
   res2.endDate = endDate2;
   [room2 setReservations:[NSSet setWithObject:res2]];

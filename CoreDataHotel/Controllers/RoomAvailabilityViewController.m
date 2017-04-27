@@ -50,11 +50,11 @@
   NSFetchRequest *request;
   request = [RoomQuery availableOnDaysFrom:self.requestedStartDate
                                         to:self.requestedEndDate];
-  
+
   NSFetchedResultsController *fetchedRooms;
-  fetchedRooms = [CoreData.repo resultsControllerForQuery:request
-                                       sectionNameKeyPath:@"hotel.name"
-                                                cacheName:nil];
+  fetchedRooms = [CoreData.repo resultsControllerFor:request
+                                  sectionNameKeyPath:@"hotel.name"
+                                           cacheName:nil];
   return fetchedRooms;
 }
 

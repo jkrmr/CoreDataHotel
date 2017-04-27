@@ -45,7 +45,7 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell;
   Room *selectedRoom;
-  
+
   cell = [tableView dequeueReusableCellWithIdentifier:@"cell"
                                          forIndexPath:indexPath];
   selectedRoom = self.rooms[indexPath.row];
@@ -60,7 +60,7 @@
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   Room *selectedRoom;
   RoomDetailViewController *roomDetailVC;
-  
+
   [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
   selectedRoom = self.rooms[indexPath.row];
   roomDetailVC = [[RoomDetailViewController alloc] init];

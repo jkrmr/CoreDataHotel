@@ -15,8 +15,8 @@
 
 @implementation Hotel_ComparisonUtilsTests
 - (void)testCompareComparesByHotelNameDescending {
-  Hotel *hotel1 = [self buildInstanceOf:[Hotel class]];
-  Hotel *hotel2 = [self buildInstanceOf:[Hotel class]];
+  Hotel *hotel1 = [self buildInstance:[Hotel class]];
+  Hotel *hotel2 = [self buildInstance:[Hotel class]];
   hotel1.name = @"The Azteca";
   hotel2.name = @"The Alamada";
 
@@ -26,8 +26,8 @@
 }
 
 - (void)testCompareComparesByHotelNameSame {
-  Hotel *hotel1 = [self buildInstanceOf:[Hotel class]];
-  Hotel *hotel2 = [self buildInstanceOf:[Hotel class]];
+  Hotel *hotel1 = [self buildInstance:[Hotel class]];
+  Hotel *hotel2 = [self buildInstance:[Hotel class]];
   hotel1.name = @"The Alameda";
   hotel2.name = @"The Alameda";
 
@@ -37,8 +37,8 @@
 }
 
 - (void)testCompareComparesByHotelNameAscending {
-  Hotel *hotel1 = [self buildInstanceOf:[Hotel class]];
-  Hotel *hotel2 = [self buildInstanceOf:[Hotel class]];
+  Hotel *hotel1 = [self buildInstance:[Hotel class]];
+  Hotel *hotel2 = [self buildInstance:[Hotel class]];
   hotel1.name = @"the Alameda";
   hotel2.name = @"the Zoloft";
 
