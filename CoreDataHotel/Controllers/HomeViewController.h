@@ -8,6 +8,7 @@
 
 #import "DatePickerViewController.h"
 #import "HotelsViewController.h"
+#import "LookUpReservationViewController.h"
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UIViewController

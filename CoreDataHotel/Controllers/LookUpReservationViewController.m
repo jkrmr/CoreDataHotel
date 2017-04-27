@@ -22,9 +22,10 @@
   [self.tableView setDataSource:self];
   [self.tableView registerClass:[UITableViewCell class]
          forCellReuseIdentifier:@"cell"];
+  [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.view addSubview:self.tableView];
   NSLayoutConstraint *tvT = [[self.tableView topAnchor]
-      constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]];
+      constraintEqualToAnchor:[self.view topAnchor]];
   NSLayoutConstraint *tvB = [[self.tableView bottomAnchor]
       constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]];
   NSLayoutConstraint *tvL = [[self.tableView leadingAnchor]
@@ -71,6 +72,6 @@
 // MARK: TableViewDelegate methods
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"selected a row");
+  [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end
