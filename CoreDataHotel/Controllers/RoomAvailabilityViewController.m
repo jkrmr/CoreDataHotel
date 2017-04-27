@@ -29,8 +29,9 @@
   [self.tableView setDataSource:self];
   [self.view addSubview:self.tableView];
   [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSLayoutConstraint *tvT = [[self.tableView topAnchor]
-                             constraintEqualToAnchor:[self.view topAnchor] constant:25];
+  NSLayoutConstraint *tvT =
+      [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]
+                                                 constant:25];
   NSLayoutConstraint *tvB = [[self.tableView bottomAnchor]
       constraintEqualToAnchor:[self.view bottomAnchor]];
   NSLayoutConstraint *tvL = [[self.tableView leadingAnchor]

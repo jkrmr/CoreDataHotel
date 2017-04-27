@@ -47,8 +47,7 @@
       [tableView dequeueReusableCellWithIdentifier:@"cell"
                                       forIndexPath:indexPath];
   Room *selectedRoom = self.rooms[indexPath.row];
-  cell.textLabel.text =
-      [NSString stringWithFormat:@"%@", selectedRoom.summary];
+  cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedRoom.summary];
   return cell;
 }
 

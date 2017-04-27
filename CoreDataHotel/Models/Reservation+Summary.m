@@ -19,6 +19,7 @@
   Room *room = self.room;
   NSString *hotelName = room.hotel.name;
   NSNumber *roomNumber = [NSNumber numberWithInt:room.number];
-  return [NSString stringWithFormat:template, hotelName, roomNumber, start, end];
+  return
+      [NSString stringWithFormat:template, hotelName, roomNumber, start, end];
 }
 @end

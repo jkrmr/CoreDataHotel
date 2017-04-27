@@ -169,8 +169,8 @@
   newReservation.startDate = self.requestedStartDate;
   newReservation.endDate = self.requestedEndDate;
   newReservation.room = self.requestedRoom;
-  [newReservation setGuests:[NSSet setWithArray:@[newGuest]]];
-  
+  [newReservation setGuests:[NSSet setWithArray:@[ newGuest ]]];
+
   [appDelegate saveContext];
 
   [self.navigationController popToRootViewControllerAnimated:YES];

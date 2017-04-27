@@ -15,5 +15,5 @@
 
 @interface ReservationQuery : NSObject
 + (NSFetchRequest *)allReservations;
-+ (NSFetchRequest *)reservationsWithGuestDetail:(NSString*)string;
++ (NSFetchRequest *)reservationsWithGuestDetail:(NSString *)string;
 @end

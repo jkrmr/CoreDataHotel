@@ -9,8 +9,9 @@
 #import "Room+Summary.h"
 
 @implementation Room (Summary)
--(NSString*)summary {
+- (NSString *)summary {
   NSString *template = @"Room %@ (%@ beds, $%@/nt)";
-  return [NSString stringWithFormat: template, self.number, self.beds, self.rate];
+  return
+      [NSString stringWithFormat:template, self.number, self.beds, self.rate];
 }
 @end

@@ -57,7 +57,7 @@
       constraintEqualToAnchor:[bookButton topAnchor]];
   NSLayoutConstraint *browseH =
       [[browseButton heightAnchor] constraintEqualToConstant:100];
-  
+
   UIButton *lookupButton = [[UIButton alloc] init];
   lookupButton.translatesAutoresizingMaskIntoConstraints = NO;
   [lookupButton setTitle:@"See all bookings" forState:UIControlStateNormal];
@@ -79,8 +79,8 @@
       [[lookupButton heightAnchor] constraintEqualToConstant:100];
 
   [NSLayoutConstraint activateConstraints:@[
-    bookL, bookT, bookB, bookH, browseL, browseT, browseB, browseH,
-    lookupL, lookupT, lookupB, lookupH
+    bookL, bookT, bookB, bookH, browseL, browseT, browseB, browseH, lookupL,
+    lookupT, lookupB, lookupH
   ]];
 }
 
@@ -96,8 +96,8 @@
 }
 
 - (void)lookupButtonWasPressed {
-  LookUpReservationViewController *lookupVC = [[LookUpReservationViewController alloc] init];
+  LookUpReservationViewController *lookupVC =
+      [[LookUpReservationViewController alloc] init];
   [[self navigationController] pushViewController:lookupVC animated:YES];
 }
 @end
-

@@ -12,26 +12,27 @@
 + (NSFetchRequest *)allReservations {
   NSFetchRequest *request;
   NSPredicate *allPredicate;
-  
+
   request = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
   allPredicate = [NSPredicate predicateWithValue:YES];
   request.predicate = allPredicate;
-  
+
   return request;
 }
 
-+ (NSFetchRequest *)reservationsWithGuestDetail:(NSString*)string {
++ (NSFetchRequest *)reservationsWithGuestDetail:(NSString *)string {
   NSFetchRequest *request;
   NSPredicate *anyGuestNamePredicate;
   NSString *queryString;
-  
+
   request = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
-  
+
   queryString = @"SUBQUERY(guests, $g, "
                 @"$g.firstName CONTAINS[cd] %@ OR "
                 @"$g.lastName CONTAINS[cd] %@ OR "
                 @"$g.emailAddress CONTAINS[cd] %@).@count > 0";
-  anyGuestNamePredicate = [NSPredicate predicateWithFormat:queryString, string, string, string];
+  anyGuestNamePredicate =
+      [NSPredicate predicateWithFormat:queryString, string, string, string];
   request.predicate = anyGuestNamePredicate;
 
   return request;

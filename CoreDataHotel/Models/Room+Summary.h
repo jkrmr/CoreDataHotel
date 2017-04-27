@@ -10,5 +10,5 @@
 #import "Room+CoreDataProperties.h"
 
 @interface Room (Summary)
-- (NSString*)summary;
+- (NSString *)summary;
 @end

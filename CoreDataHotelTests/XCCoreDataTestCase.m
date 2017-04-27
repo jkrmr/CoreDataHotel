@@ -53,7 +53,7 @@
 - (id)buildInstanceOf:(id)type {
   NSString *className;
   NSEntityDescription *entity;
-  
+
   className = NSStringFromClass([type class]);
   entity = [NSEntityDescription entityForName:className
                        inManagedObjectContext:self.inMemoryContext];
