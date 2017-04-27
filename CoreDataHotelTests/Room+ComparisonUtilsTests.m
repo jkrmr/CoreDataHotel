@@ -15,8 +15,8 @@
 
 @implementation Room_ComparisonUtilsTests
 - (void)testCompareComparesByRoomNumberAscending {
-  Room *room1 = [[Room alloc] initWithContext:[self inMemoryContext]];
-  Room *room2 = [[Room alloc] initWithContext:[self inMemoryContext]];
+  Room *room1 = [self buildInstanceOf:[Room class]];
+  Room *room2 = [self buildInstanceOf:[Room class]];
   room1.number = 8;
   room2.number = 50;
 
@@ -26,8 +26,8 @@
 }
 
 - (void)testCompareComparesByRoomNumberSame {
-  Room *room1 = [[Room alloc] initWithContext:[self inMemoryContext]];
-  Room *room2 = [[Room alloc] initWithContext:[self inMemoryContext]];
+  Room *room1 = [self buildInstanceOf:[Room class]];
+  Room *room2 = [self buildInstanceOf:[Room class]];
   room1.number = 50;
   room2.number = 50;
 
@@ -37,8 +37,8 @@
 }
 
 - (void)testCompareComparesByRoomNumberDescending {
-  Room *room1 = [[Room alloc] initWithContext:[self inMemoryContext]];
-  Room *room2 = [[Room alloc] initWithContext:[self inMemoryContext]];
+  Room *room1 = [self buildInstanceOf:[Room class]];
+  Room *room2 = [self buildInstanceOf:[Room class]];
   room1.number = 400;
   room2.number = 40;
 

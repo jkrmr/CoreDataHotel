@@ -9,7 +9,11 @@
 #import "ReservationQuery.h"
 
 @implementation ReservationQuery
-+ (NSFetchRequest *) allReservations {
-  return [[NSFetchRequest alloc] init];
++ (NSFetchRequest *)allReservations {
+  NSFetchRequest *request =
+      [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
+  NSPredicate *allPredicate = [NSPredicate predicateWithValue:YES];
+  request.predicate = allPredicate;
+  return request;
 }
 @end

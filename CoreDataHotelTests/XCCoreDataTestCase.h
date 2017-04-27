@@ -10,7 +10,12 @@
 #import <XCTest/XCTest.h>
 
 @interface XCCoreDataTestCase : XCTestCase
+
 @property(strong, nonatomic) NSManagedObjectContext *inMemoryContext;
 @property(strong, nonatomic) NSDateFormatter *dateFormatter;
+
 - (NSDate *)dateFromString:(NSString *)dateString;
+- (id) buildInstanceOf:(id)type;
+- (NSArray *) queryResultsForRequest:(NSFetchRequest*)request;
+- (void) saveContext;
 @end

@@ -16,8 +16,7 @@
 
 @implementation Reservation_DescriptionTest
 - (void)testDescriptionIncludesBookingDates {
-  Reservation *res =
-      [[Reservation alloc] initWithContext:[self inMemoryContext]];
+  Reservation *res = [self buildInstanceOf:[Reservation class]];
   res.startDate = [self dateFromString:@"01/01/2001"];
   res.endDate = [self dateFromString:@"01/03/2001"];
 

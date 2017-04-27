@@ -48,4 +48,34 @@
   return [[self dateFormatter] dateFromString:dateString];
 }
 
+- (id) buildInstanceOf:(id)type {
+  NSString *className = NSStringFromClass([type class]);
+  NSEntityDescription *resEntity = [NSEntityDescription entityForName:className
+                                               inManagedObjectContext:self.inMemoryContext];
+  
+  return [[[type class] alloc] initWithEntity:resEntity
+               insertIntoManagedObjectContext:self.inMemoryContext];
+}
+
+- (NSArray*)queryResultsForRequest:(NSFetchRequest*)request {
+  NSArray *results;
+  NSError *error;
+
+  results = [self.inMemoryContext executeFetchRequest:request error:&error];
+
+  if (error) {
+    NSLog(@"Error fetching from Core Data: %@", error.localizedDescription);
+  }
+
+  return results;
+}
+
+- (void) saveContext {
+  NSError *error;
+  [self.inMemoryContext save:&error];
+ 
+  if (error) {
+    NSLog(@"Error saving to Core Data: %@", error.localizedDescription);
+  }
+}
 @end
