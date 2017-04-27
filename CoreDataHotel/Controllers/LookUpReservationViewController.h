@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "Reservation+CoreDataClass.h"
 #import "Reservation+CoreDataProperties.h"
-#import "Reservation+Description.h"
+#import "Reservation+Summary.h"
 #import "ReservationQuery.h"
 #import <UIKit/UIKit.h>
 

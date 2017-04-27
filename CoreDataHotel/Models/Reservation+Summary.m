@@ -1,15 +1,15 @@
 //
-//  Reservation+Description.m
+//  Reservation+Summary.m
 //  CoreDataHotel
 //
 //  Created by Jake Romer on 4/25/17.
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import "Reservation+Description.h"
+#import "Reservation+Summary.h"
 
-@implementation Reservation (Description)
-- (NSString *)description {
+@implementation Reservation (Summary)
+- (NSString *)summary {
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
   [dateFormatter setTimeStyle:NSDateFormatterNoStyle];

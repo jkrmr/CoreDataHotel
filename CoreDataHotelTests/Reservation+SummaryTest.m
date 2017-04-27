@@ -1,5 +1,5 @@
 //
-//  Reservation+DescriptionTest.m
+//  Reservation+SummaryTest.m
 //  CoreDataHotel
 //
 //  Created by Jake Romer on 4/26/17.
@@ -7,15 +7,15 @@
 //
 
 #import "Reservation+CoreDataClass.h"
-#import "Reservation+Description.h"
+#import "Reservation+Summary.h"
 #import "XCCoreDataTestCase.h"
 #import <XCTest/XCTest.h>
 
-@interface Reservation_DescriptionTest : XCCoreDataTestCase
+@interface Reservation_SummaryTest : XCCoreDataTestCase
 @end
 
-@implementation Reservation_DescriptionTest
-- (void)testDescriptionIncludesBookingDates {
+@implementation Reservation_SummaryTest
+- (void)testSummaryIncludesBookingDates {
   Reservation *res = [self buildInstanceOf:[Reservation class]];
   res.startDate = [self dateFromString:@"01/01/2001"];
   res.endDate = [self dateFromString:@"01/03/2001"];

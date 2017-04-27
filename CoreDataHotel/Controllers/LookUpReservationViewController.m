@@ -90,7 +90,7 @@
       [self.tableView dequeueReusableCellWithIdentifier:@"cell"
                                            forIndexPath:indexPath];
   Reservation *selectedReservation = self.reservations[indexPath.row];
-  cell.textLabel.text = selectedReservation.description;
+  cell.textLabel.text = selectedReservation.summary;
   return cell;
 }
 

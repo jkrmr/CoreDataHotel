@@ -1,5 +1,5 @@
 //
-//  Reservation+Description.h
+//  Reservation+Summary.h
 //  CoreDataHotel
 //
 //  Created by Jake Romer on 4/25/17.
@@ -9,6 +9,6 @@
 #import "Reservation+CoreDataClass.h"
 #import "Reservation+CoreDataProperties.h"
 
-@interface Reservation (Description)
-- (NSString *)description;
+@interface Reservation (Summary)
+- (NSString *)summary;
 @end
