@@ -28,6 +28,10 @@
   firstName.borderStyle = UITextBorderStyleRoundedRect;
   firstName.text = @"";
   firstName.placeholder = @"First name";
+  firstName.autocorrectionType = UITextAutocorrectionTypeNo;
+  firstName.autocapitalizationType = UITextAutocapitalizationTypeWords;
+  firstName.returnKeyType = UIReturnKeyDone;
+  firstName.delegate = self;
   [self.view addSubview:firstName];
   NSLayoutConstraint *fnB = [[firstName topAnchor]
       constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]
@@ -50,6 +54,10 @@
   lastName.borderStyle = UITextBorderStyleRoundedRect;
   lastName.text = @"";
   lastName.placeholder = @"Last name";
+  lastName.autocorrectionType = UITextAutocorrectionTypeNo;
+  lastName.autocapitalizationType = UITextAutocapitalizationTypeWords;
+  lastName.returnKeyType = UIReturnKeyDone;
+  lastName.delegate = self;
   [self.view addSubview:lastName];
   NSLayoutConstraint *lnT =
       [[lastName topAnchor] constraintEqualToAnchor:[firstName bottomAnchor]
@@ -72,6 +80,11 @@
   email.borderStyle = UITextBorderStyleRoundedRect;
   email.text = @"";
   email.placeholder = @"Email address";
+  email.autocorrectionType = UITextAutocorrectionTypeNo;
+  email.autocapitalizationType = UITextAutocapitalizationTypeNone;
+  email.keyboardType = UIKeyboardTypeEmailAddress;
+  email.returnKeyType = UIReturnKeyDone;
+  email.delegate = self;
   [self.view addSubview:email];
   NSLayoutConstraint *emT =
       [[email topAnchor] constraintEqualToAnchor:[lastName bottomAnchor]
@@ -161,5 +174,10 @@
   [appDelegate saveContext];
 
   [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [textField resignFirstResponder];
+  return YES;
 }
 @end

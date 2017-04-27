@@ -15,7 +15,7 @@
 #import "Room+CoreDataProperties.h"
 #import <UIKit/UIKit.h>
 
-@interface BookViewController : UIViewController
+@interface BookViewController : UIViewController<UITextFieldDelegate>
 @property(strong, nonatomic) Room *requestedRoom;
 @property(strong, nonatomic) NSDate *requestedStartDate;
 @property(strong, nonatomic) NSDate *requestedEndDate;
