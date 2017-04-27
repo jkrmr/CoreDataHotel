@@ -6,9 +6,9 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import "XCCoreDataTestCase.h"
 #import "ReservationQuery.h"
+#import "XCCoreDataTestCase.h"
+#import <XCTest/XCTest.h>
 
 @interface ReservationQueryTest : XCCoreDataTestCase
 @end
@@ -18,7 +18,7 @@
   NSArray *results0, *results1;
   results0 = [self queryResultsForRequest:[ReservationQuery allReservations]];
   XCTAssertEqual(0, results0.count);
-  (void)[self buildInstanceOf: [Reservation class]];
+  (void)[self buildInstanceOf:[Reservation class]];
   [self saveContext];
 
   results1 = [self queryResultsForRequest:[ReservationQuery allReservations]];
@@ -29,9 +29,9 @@
 - (void)testAllReservationsReturnsMultipleReservations {
   NSArray *results0, *results3;
   results0 = [self queryResultsForRequest:[ReservationQuery allReservations]];
-  (void)[self buildInstanceOf: [Reservation class]];
-  (void)[self buildInstanceOf: [Reservation class]];
-  (void)[self buildInstanceOf: [Reservation class]];
+  (void)[self buildInstanceOf:[Reservation class]];
+  (void)[self buildInstanceOf:[Reservation class]];
+  (void)[self buildInstanceOf:[Reservation class]];
   XCTAssertEqual(0, results0.count);
   [self saveContext];
 

@@ -6,11 +6,11 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 #import "Reservation+CoreDataClass.h"
 #import "Reservation+CoreDataProperties.h"
+#import <CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
 @interface ReservationQuery : NSObject
-+ (NSFetchRequest *) allReservations;
++ (NSFetchRequest *)allReservations;
 @end

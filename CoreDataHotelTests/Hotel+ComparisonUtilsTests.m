@@ -6,9 +6,9 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import "XCCoreDataTestCase.h"
 #import "Hotel+ComparisonUtils.h"
+#import "XCCoreDataTestCase.h"
+#import <XCTest/XCTest.h>
 
 @interface Hotel_ComparisonUtilsTests : XCCoreDataTestCase
 @end

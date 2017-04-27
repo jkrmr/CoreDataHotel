@@ -6,12 +6,13 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Reservation+CoreDataClass.h"
 #import "Reservation+CoreDataProperties.h"
 #import "Reservation+Description.h"
 #import "ReservationQuery.h"
+#import <UIKit/UIKit.h>
 
-@interface LookUpReservationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface LookUpReservationViewController
+    : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @end
