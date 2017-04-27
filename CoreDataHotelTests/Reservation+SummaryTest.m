@@ -16,12 +16,23 @@
 
 @implementation Reservation_SummaryTest
 - (void)testSummaryIncludesBookingDates {
-  Reservation *res = [self buildInstanceOf:[Reservation class]];
-  res.startDate = [self dateFromString:@"01/01/2001"];
-  res.endDate = [self dateFromString:@"01/03/2001"];
+  Hotel *hotel;
+  hotel = [self buildInstanceOf:[Hotel class]];
+  hotel.name = @"The Avalon";
 
-  NSString *expected = @"Booked: Jan 1, 2001 to Jan 3, 2001";
-  NSString *actual = [res description];
+  Room *room;
+  room = [self buildInstanceOf:[Room class]];
+  room.number = 420;
+  room.hotel = hotel;
+
+  Reservation *reservation;
+  reservation = [self buildInstanceOf:[Reservation class]];
+  reservation.startDate = [self dateFromString:@"01/01/2001"];
+  reservation.endDate = [self dateFromString:@"01/03/2001"];
+  reservation.room = room;
+
+  NSString *expected = @"The Avalon #420: Jan 1, 2001 to Jan 3, 2001";
+  NSString *actual = [reservation summary];
 
   XCTAssertEqualObjects(expected, actual);
 }
