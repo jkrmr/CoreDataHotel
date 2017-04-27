@@ -132,6 +132,10 @@
     fnB, fnL, fnT, fnH, lnT, lnL, lnR, lnH, emT, emL,
     emR, emH, cbL, cbR, cbB, cbH, caL, caR, caB, caH
   ]];
+
+  self.firstName = firstName;
+  self.lastName = lastName;
+  self.emailAddress = email;
 }
 
 - (void)cancelButtonWasPressed {
@@ -152,8 +156,8 @@
   newReservation.startDate = self.requestedStartDate;
   newReservation.endDate = self.requestedEndDate;
   newReservation.room = self.requestedRoom;
-  [newReservation.guests setByAddingObject:newGuest];
-
+  [newReservation setGuests:[NSSet setWithArray:@[newGuest]]];
+  
   [appDelegate saveContext];
 
   [self dismissViewControllerAnimated:YES completion:nil];
