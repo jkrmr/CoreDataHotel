@@ -110,6 +110,6 @@
   bookVC.requestedRoom = [self.rooms objectAtIndexPath:indexPath];
   bookVC.requestedStartDate = self.requestedStartDate;
   bookVC.requestedEndDate = self.requestedEndDate;
-  [self presentViewController:bookVC animated:YES completion:nil];
+  [self.navigationController pushViewController:bookVC animated:YES];
 }
 @end

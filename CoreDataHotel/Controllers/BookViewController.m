@@ -152,7 +152,7 @@
 }
 
 - (void)cancelButtonWasPressed {
-  [self dismissViewControllerAnimated:YES completion:nil];
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)confirmButtonWasPressed {
@@ -173,7 +173,7 @@
   
   [appDelegate saveContext];
 
-  [self dismissViewControllerAnimated:YES completion:nil];
+  [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
