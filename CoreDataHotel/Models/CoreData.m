@@ -63,9 +63,9 @@
                insertIntoManagedObjectContext:self.context];
 }
 
-- (NSFetchedResultsController *) resultsControllerFor:(NSFetchRequest *)request
-                                   sectionNameKeyPath:(NSString *)keyPath
-                                            cacheName:(NSString *)cacheName {
+- (NSFetchedResultsController *)resultsControllerFor:(NSFetchRequest *)request
+                                  sectionNameKeyPath:(NSString *)keyPath
+                                           cacheName:(NSString *)cacheName {
   NSFetchedResultsController *resultsController;
   NSError *error;
 

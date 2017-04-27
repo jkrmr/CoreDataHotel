@@ -161,7 +161,8 @@
   newGuest.lastName = self.lastName.text;
   newGuest.emailAddress = self.emailAddress.text;
 
-  Reservation *newReservation = [CoreData.repo buildInstance:[Reservation class]];
+  Reservation *newReservation =
+      [CoreData.repo buildInstance:[Reservation class]];
   newReservation.startDate = self.requestedStartDate;
   newReservation.endDate = self.requestedEndDate;
   newReservation.room = self.requestedRoom;
