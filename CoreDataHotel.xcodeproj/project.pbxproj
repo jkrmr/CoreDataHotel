@@ -37,6 +37,8 @@
 		1BE371331EB18C8300B1C487 /* ReservationQueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE371321EB18C8300B1C487 /* ReservationQueryTest.m */; };
 		1BE371371EB1DFF400B1C487 /* Room+Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE371361EB1DFF400B1C487 /* Room+Summary.m */; };
 		1BE371381EB1DFF400B1C487 /* Room+Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE371361EB1DFF400B1C487 /* Room+Summary.m */; };
+		1BE3713B1EB237DF00B1C487 /* CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE3713A1EB237DF00B1C487 /* CoreData.m */; };
+		1BE3713C1EB237DF00B1C487 /* CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE3713A1EB237DF00B1C487 /* CoreData.m */; };
 		1BF71D671EB05A38009CCCBC /* RoomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */; };
 		1BF71D6B1EB063FB009CCCBC /* Reservation+Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6A1EB063FB009CCCBC /* Reservation+Summary.m */; };
 		1BF71D6E1EB0661D009CCCBC /* Hotel+ComparisonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF71D6D1EB0661D009CCCBC /* Hotel+ComparisonUtils.m */; };
@@ -103,6 +105,8 @@
 		1BE371321EB18C8300B1C487 /* ReservationQueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationQueryTest.m; sourceTree = "<group>"; };
 		1BE371351EB1DFF400B1C487 /* Room+Summary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Room+Summary.h"; path = "Models/Room+Summary.h"; sourceTree = "<group>"; };
 		1BE371361EB1DFF400B1C487 /* Room+Summary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Room+Summary.m"; path = "Models/Room+Summary.m"; sourceTree = "<group>"; };
+		1BE371391EB237DF00B1C487 /* CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreData.h; path = Models/CoreData.h; sourceTree = "<group>"; };
+		1BE3713A1EB237DF00B1C487 /* CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreData.m; path = Models/CoreData.m; sourceTree = "<group>"; };
 		1BF71D651EB05A38009CCCBC /* RoomDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomDetailViewController.h; path = Controllers/RoomDetailViewController.h; sourceTree = "<group>"; };
 		1BF71D661EB05A38009CCCBC /* RoomDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailViewController.m; path = Controllers/RoomDetailViewController.m; sourceTree = "<group>"; };
 		1BF71D691EB063FB009CCCBC /* Reservation+Summary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Reservation+Summary.h"; path = "Models/Reservation+Summary.h"; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 				1BE371261EB14AF800B1C487 /* RoomQuery.m */,
 				1BE3712F1EB18ADE00B1C487 /* ReservationQuery.h */,
 				1BE371301EB18ADE00B1C487 /* ReservationQuery.m */,
+				1BE371391EB237DF00B1C487 /* CoreData.h */,
+				1BE3713A1EB237DF00B1C487 /* CoreData.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -411,6 +417,7 @@
 				1BF71D671EB05A38009CCCBC /* RoomDetailViewController.m in Sources */,
 				1BCE29281EB05658005EB011 /* Room+ComparisonUtils.m in Sources */,
 				1BE371371EB1DFF400B1C487 /* Room+Summary.m in Sources */,
+				1BE3713B1EB237DF00B1C487 /* CoreData.m in Sources */,
 				1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */,
 				1BF71D6E1EB0661D009CCCBC /* Hotel+ComparisonUtils.m in Sources */,
 				1BE3712B1EB14E2000B1C487 /* RoomQuery.m in Sources */,
@@ -429,6 +436,7 @@
 				1BE371171EB1129300B1C487 /* CoreDataHotel.xcdatamodeld in Sources */,
 				1BE3712A1EB14E1F00B1C487 /* RoomQuery.m in Sources */,
 				1BE371201EB124BF00B1C487 /* RoomQueryTest.m in Sources */,
+				1BE3713C1EB237DF00B1C487 /* CoreData.m in Sources */,
 				1BE371161EB1125A00B1C487 /* Hotel+ComparisonUtils.m in Sources */,
 				1BE371381EB1DFF400B1C487 /* Room+Summary.m in Sources */,
 				1BE371141EB1125100B1C487 /* Room+ComparisonUtils.m in Sources */,

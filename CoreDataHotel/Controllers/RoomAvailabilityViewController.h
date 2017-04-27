@@ -6,8 +6,8 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import "BookViewController.h"
+#import "CoreData.h"
 #import "Hotel+CoreDataClass.h"
 #import "Hotel+CoreDataProperties.h"
 #import "Room+ComparisonUtils.h"

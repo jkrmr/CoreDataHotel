@@ -10,8 +10,14 @@
 
 @implementation Room (Summary)
 - (NSString *)summary {
-  NSString *template = @"Room %@ (%@ beds, $%@/nt)";
-  return
-      [NSString stringWithFormat:template, self.number, self.beds, self.rate];
+  NSNumber *number, *beds, *rate;
+  NSString *template;
+
+  number = [NSNumber numberWithInt:self.number];
+  beds = [NSNumber numberWithInt:self.beds];
+  rate = [NSNumber numberWithDouble:self.rate];
+  template = @"Room %@ (%@ beds, $%@/nt)";
+
+  return [NSString stringWithFormat:template, number, beds, rate];
 }
 @end

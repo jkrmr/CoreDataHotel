@@ -45,18 +45,8 @@
 }
 
 - (NSArray *)hotelsFromCoreData {
-  AppDelegate *appDelegate =
-      (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
-  NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
-
-  NSError *fetchError;
-  NSArray *hotels = [context executeFetchRequest:req error:&fetchError];
-
-  if (fetchError) {
-    NSLog(@"HotelsVC: There was a problem fetching hotels list from core data");
-  }
-
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
+  NSArray *hotels = [CoreData.repo resultsForQuery:request];
   return [hotels sortedArrayUsingSelector:@selector(compare:)];
 }
 

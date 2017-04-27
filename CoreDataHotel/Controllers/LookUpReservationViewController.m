@@ -66,39 +66,21 @@
 }
 
 - (NSArray *)fetchAllReservations {
-  AppDelegate *appDelegate;
-  NSManagedObjectContext *context;
-  NSError *error;
   NSFetchRequest *request;
   NSArray *allReservations;
-
-  appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  context = appDelegate.persistentContainer.viewContext;
+  
   request = [ReservationQuery allReservations];
-  allReservations = [context executeFetchRequest:request error:&error];
-
-  if (error) {
-    NSLog(@"Error fetching all reservations: %@", error.localizedDescription);
-  }
-
+  allReservations = [CoreData.repo resultsForQuery:request];
+  
   return allReservations;
 }
 
-- (NSArray *)fetchAllReservationsForGuestWithDetail:(NSString *)string {
-  AppDelegate *appDelegate;
-  NSManagedObjectContext *context;
-  NSError *error;
+- (NSArray *)fetchReservationsWithGuestDetail:(NSString *)string {
   NSFetchRequest *request;
   NSArray *guestReservations;
 
-  appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  context = appDelegate.persistentContainer.viewContext;
   request = [ReservationQuery reservationsWithGuestDetail:string];
-  guestReservations = [context executeFetchRequest:request error:&error];
-
-  if (error) {
-    NSLog(@"Error fetching all reservations: %@", error.localizedDescription);
-  }
+  guestReservations = [CoreData.repo resultsForQuery:request];
 
   return guestReservations;
 }
@@ -111,10 +93,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell =
-      [self.tableView dequeueReusableCellWithIdentifier:@"cell"
-                                           forIndexPath:indexPath];
-  Reservation *selectedReservation = self.reservations[indexPath.row];
+  UITableViewCell *cell;
+  Reservation *selectedReservation;
+  
+  cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"
+                                              forIndexPath:indexPath];
+  selectedReservation = self.reservations[indexPath.row];
   cell.textLabel.text = selectedReservation.summary;
   return cell;
 }
@@ -139,7 +123,7 @@
   [self setInSearchMode:YES];
 
   self.filteredReservations =
-      [self fetchAllReservationsForGuestWithDetail:searchText];
+      [self fetchReservationsWithGuestDetail:searchText];
   [self.tableView reloadData];
 
   [self.searchBar resignFirstResponder];
@@ -154,7 +138,7 @@
   } else {
     [self setInSearchMode:YES];
     self.filteredReservations =
-        [self fetchAllReservationsForGuestWithDetail:searchText];
+        [self fetchReservationsWithGuestDetail:searchText];
     [self.tableView reloadData];
   }
 }

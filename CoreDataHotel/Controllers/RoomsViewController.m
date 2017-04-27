@@ -43,10 +43,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell =
-      [tableView dequeueReusableCellWithIdentifier:@"cell"
-                                      forIndexPath:indexPath];
-  Room *selectedRoom = self.rooms[indexPath.row];
+  UITableViewCell *cell;
+  Room *selectedRoom;
+  
+  cell = [tableView dequeueReusableCellWithIdentifier:@"cell"
+                                         forIndexPath:indexPath];
+  selectedRoom = self.rooms[indexPath.row];
+
+  NSLog(@"%@", selectedRoom);
   cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedRoom.summary];
   return cell;
 }
@@ -54,10 +58,12 @@
 // MARK: TableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  Room *selectedRoom;
+  RoomDetailViewController *roomDetailVC;
+  
   [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-  Room *selectedRoom = self.rooms[indexPath.row];
-  RoomDetailViewController *roomDetailVC =
-      [[RoomDetailViewController alloc] init];
+  selectedRoom = self.rooms[indexPath.row];
+  roomDetailVC = [[RoomDetailViewController alloc] init];
   roomDetailVC.room = selectedRoom;
   [self.navigationController pushViewController:roomDetailVC animated:YES];
 }

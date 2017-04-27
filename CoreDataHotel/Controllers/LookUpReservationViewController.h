@@ -6,7 +6,7 @@
 //  Copyright © 2017 Jake Romer. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "CoreData.h"
 #import "Reservation+CoreDataClass.h"
 #import "Reservation+CoreDataProperties.h"
 #import "Reservation+Summary.h"

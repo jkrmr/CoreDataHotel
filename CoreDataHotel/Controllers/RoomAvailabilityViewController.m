@@ -47,32 +47,22 @@
 }
 
 - (NSFetchedResultsController *)availableRooms {
-  AppDelegate *appDelegate =
-      (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
-
-  NSFetchRequest *request =
-      [RoomQuery availableOnDaysFrom:self.requestedStartDate
-                                  to:self.requestedEndDate];
-  NSError *fetchError;
-  NSFetchedResultsController *fetchedRooms =
-      [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                          managedObjectContext:context
-                                            sectionNameKeyPath:@"hotel.name"
-                                                     cacheName:nil];
-  [fetchedRooms performFetch:&fetchError];
-  if (fetchError) {
-    NSLog(@"RoomAvailabilityVC: There was a problem fetching from core data");
-  }
-
+  NSFetchRequest *request;
+  request = [RoomQuery availableOnDaysFrom:self.requestedStartDate
+                                        to:self.requestedEndDate];
+  
+  NSFetchedResultsController *fetchedRooms;
+  fetchedRooms = [CoreData.repo resultsControllerForQuery:request
+                                       sectionNameKeyPath:@"hotel.name"
+                                                cacheName:nil];
   return fetchedRooms;
 }
 
 // MARK: UITableViewDataSource methods
 - (NSString *)tableView:(UITableView *)tableView
     titleForHeaderInSection:(NSInteger)section {
-  id<NSFetchedResultsSectionInfo> sectionInfo =
-      [self.rooms.sections objectAtIndex:section];
+  id<NSFetchedResultsSectionInfo> sectionInfo;
+  sectionInfo = [self.rooms.sections objectAtIndex:section];
   return sectionInfo.name;
 }
 
@@ -87,19 +77,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {
-  id<NSFetchedResultsSectionInfo> sectionInfo =
-      [self.rooms.sections objectAtIndex:section];
+  id<NSFetchedResultsSectionInfo> sectionInfo;
+  sectionInfo = [self.rooms.sections objectAtIndex:section];
   return sectionInfo.numberOfObjects;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell =
-      [self.tableView dequeueReusableCellWithIdentifier:@"cell"
-                                           forIndexPath:indexPath];
-  Room *selectedRoom = [self.rooms objectAtIndexPath:indexPath];
-  cell.textLabel.text =
-      [NSString stringWithFormat:@"Room %i", selectedRoom.number];
+  UITableViewCell *cell;
+  cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"
+                                              forIndexPath:indexPath];
+  Room *selectedRoom;
+  selectedRoom = [self.rooms objectAtIndexPath:indexPath];
+
+  NSString *roomNumber;
+  roomNumber = [NSString stringWithFormat:@"Room %i", selectedRoom.number];
+  cell.textLabel.text = roomNumber;
   return cell;
 }
 

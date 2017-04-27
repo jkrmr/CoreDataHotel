@@ -156,22 +156,18 @@
 }
 
 - (void)confirmButtonWasPressed {
-  AppDelegate *appDelegate =
-      (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
-
-  Guest *newGuest = [[Guest alloc] initWithContext:context];
+  Guest *newGuest = [CoreData.repo buildInstanceOf:[Guest class]];
   newGuest.firstName = self.firstName.text;
   newGuest.lastName = self.lastName.text;
   newGuest.emailAddress = self.emailAddress.text;
 
-  Reservation *newReservation = [[Reservation alloc] initWithContext:context];
+  Reservation *newReservation = [CoreData.repo buildInstanceOf:[Reservation class]];
   newReservation.startDate = self.requestedStartDate;
   newReservation.endDate = self.requestedEndDate;
   newReservation.room = self.requestedRoom;
   [newReservation setGuests:[NSSet setWithArray:@[ newGuest ]]];
 
-  [appDelegate saveContext];
+  [CoreData.repo save];
 
   [self.navigationController popToRootViewControllerAnimated:YES];
 }
