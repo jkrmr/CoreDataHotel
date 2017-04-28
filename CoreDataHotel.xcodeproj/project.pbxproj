@@ -20,6 +20,8 @@
 		1B912B651EB398050097ACA2 /* Hotel+Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B912B641EB398050097ACA2 /* Hotel+Summary.m */; };
 		1B912B661EB398050097ACA2 /* Hotel+Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B912B641EB398050097ACA2 /* Hotel+Summary.m */; };
 		1B912B681EB399390097ACA2 /* Hotel+SummaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B912B671EB399390097ACA2 /* Hotel+SummaryTest.m */; };
+		1B912B6A1EB39AA70097ACA2 /* MappingModel1.0-2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1B912B691EB39AA70097ACA2 /* MappingModel1.0-2.0.xcmappingmodel */; };
+		1B912B6B1EB39AA70097ACA2 /* MappingModel1.0-2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1B912B691EB39AA70097ACA2 /* MappingModel1.0-2.0.xcmappingmodel */; };
 		1BC3E22E1EAE5CC500797571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E22D1EAE5CC500797571 /* main.m */; };
 		1BC3E2311EAE5CC500797571 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2301EAE5CC500797571 /* AppDelegate.m */; };
 		1BC3E2341EAE5CC500797571 /* HotelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3E2331EAE5CC500797571 /* HotelsViewController.m */; };
@@ -87,6 +89,7 @@
 		1B912B631EB398050097ACA2 /* Hotel+Summary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hotel+Summary.h"; path = "Models/Hotel+Summary.h"; sourceTree = "<group>"; };
 		1B912B641EB398050097ACA2 /* Hotel+Summary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Hotel+Summary.m"; path = "Models/Hotel+Summary.m"; sourceTree = "<group>"; };
 		1B912B671EB399390097ACA2 /* Hotel+SummaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Hotel+SummaryTest.m"; sourceTree = "<group>"; };
+		1B912B691EB39AA70097ACA2 /* MappingModel1.0-2.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "MappingModel1.0-2.0.xcmappingmodel"; sourceTree = "<group>"; };
 		1BC3E2291EAE5CC500797571 /* CoreDataHotel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataHotel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC3E22D1EAE5CC500797571 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1BC3E22F1EAE5CC500797571 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Controllers/AppDelegate.h; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 				1BC3E23D1EAE5CC500797571 /* LaunchScreen.storyboard */,
 				1BC3E2401EAE5CC500797571 /* Info.plist */,
 				1BC3E2381EAE5CC500797571 /* CoreDataHotel.xcdatamodeld */,
+				1B912B691EB39AA70097ACA2 /* MappingModel1.0-2.0.xcmappingmodel */,
 			);
 			path = CoreDataHotel;
 			sourceTree = "<group>";
@@ -467,6 +471,7 @@
 				1BC3E2341EAE5CC500797571 /* HotelsViewController.m in Sources */,
 				1BC3E23A1EAE5CC500797571 /* CoreDataHotel.xcdatamodeld in Sources */,
 				1BC3E2311EAE5CC500797571 /* AppDelegate.m in Sources */,
+				1B912B6A1EB39AA70097ACA2 /* MappingModel1.0-2.0.xcmappingmodel in Sources */,
 				1BE371311EB18ADE00B1C487 /* ReservationQuery.m in Sources */,
 				1BC3E22E1EAE5CC500797571 /* main.m in Sources */,
 				1BE3712E1EB1860D00B1C487 /* LookUpReservationViewController.m in Sources */,
@@ -507,6 +512,7 @@
 				1BE371151EB1125A00B1C487 /* Reservation+Summary.m in Sources */,
 				1BE3711A1EB119F900B1C487 /* XCCoreDataTestCase.m in Sources */,
 				1B912B661EB398050097ACA2 /* Hotel+Summary.m in Sources */,
+				1B912B6B1EB39AA70097ACA2 /* MappingModel1.0-2.0.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,6 +776,7 @@
 		1BC3E2381EAE5CC500797571 /* CoreDataHotel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				1B912B621EB397740097ACA2 /* CoreDataHotel-2.0.xcdatamodel */,
 				1BC3E2391EAE5CC500797571 /* CoreDataHotel.xcdatamodel */,
 			);
 			currentVersion = 1BC3E2391EAE5CC500797571 /* CoreDataHotel.xcdatamodel */;
