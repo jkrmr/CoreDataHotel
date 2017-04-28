@@ -30,15 +30,6 @@
            forControlEvents:UIControlEventValueChanged];
   [self.view addSubview:self.startDate];
   [self.startDate setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSLayoutConstraint *startDateL = [[self.startDate leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *startDateR = [[self.startDate trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  NSLayoutConstraint *startDateT = [[self.startDate topAnchor]
-      constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]];
-  NSLayoutConstraint *startDateH = [[self.startDate heightAnchor]
-      constraintEqualToAnchor:[self.view heightAnchor]
-                   multiplier:0.33];
 
   // set up end date picker
   [self setEndDate:[[UIDatePicker alloc] init]];
@@ -46,15 +37,6 @@
   [self.endDate setDatePickerMode:UIDatePickerModeDate];
   [self.view addSubview:self.endDate];
   [self.endDate setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSLayoutConstraint *endDateL = [[self.endDate leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *endDateR = [[self.endDate trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  NSLayoutConstraint *endDateB = [[self.endDate topAnchor]
-      constraintEqualToAnchor:[self.startDate bottomAnchor]];
-  NSLayoutConstraint *endDateH = [[self.endDate heightAnchor]
-      constraintEqualToAnchor:[self.view heightAnchor]
-                   multiplier:0.33];
 
   // set up check availability button
   [self setSubmitButton:[[UIButton alloc] init]];
@@ -69,19 +51,32 @@
               forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:self.submitButton];
   [self.submitButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSLayoutConstraint *submitL = [[self.submitButton leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *submitR = [[self.submitButton trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  NSLayoutConstraint *submitB = [[self.submitButton topAnchor]
-      constraintEqualToAnchor:[self.endDate bottomAnchor]];
-  NSLayoutConstraint *submitH = [[self.submitButton heightAnchor]
-      constraintEqualToAnchor:[self.view heightAnchor]
-                   multiplier:0.33];
 
   [NSLayoutConstraint activateConstraints:@[
-    startDateL, startDateR, startDateT, startDateH, endDateL, endDateR,
-    endDateB, endDateH, submitL, submitR, submitB, submitH
+    [[self.startDate leadingAnchor]
+           constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.startDate trailingAnchor]
+           constraintEqualToAnchor:[self.view trailingAnchor]],
+    [[self.startDate topAnchor]
+           constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]],
+    [[self.startDate heightAnchor]
+           constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33],
+    [[self.endDate leadingAnchor]
+           constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.endDate trailingAnchor]
+           constraintEqualToAnchor:[self.view trailingAnchor]],
+    [[self.endDate topAnchor]
+           constraintEqualToAnchor:[self.startDate bottomAnchor]],
+    [[self.endDate heightAnchor]
+           constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33],
+    [[self.submitButton leadingAnchor]
+           constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.submitButton trailingAnchor]
+           constraintEqualToAnchor:[self.view trailingAnchor]],
+    [[self.submitButton topAnchor]
+           constraintEqualToAnchor:[self.endDate bottomAnchor]],
+    [[self.submitButton heightAnchor]
+       constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33]
   ]];
 }
 
@@ -99,18 +94,20 @@
 }
 
 - (NSDate *)addADaytoDate:(NSDate *)date {
-  NSCalendar *gregorian = [[NSCalendar alloc]
-      initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-  NSDateComponents *offset = [[NSDateComponents alloc] init];
-  [offset setDay:1];
-  NSDate *newDate =
-      [gregorian dateByAddingComponents:offset toDate:date options:0];
-  return newDate;
+  NSCalendar *gregorianCal;
+  gregorianCal = [[NSCalendar alloc]
+                  initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+  
+  NSDateComponents *addADay;
+  addADay = [[NSDateComponents alloc] init];
+  [addADay setDay:1];
+  
+  return [gregorianCal dateByAddingComponents:addADay toDate:date options:0];
 }
 
 - (void)submitButtonWasPressed {
-  RoomAvailabilityViewController *roomAvailabilityVC =
-      [[RoomAvailabilityViewController alloc] init];
+  RoomAvailabilityViewController *roomAvailabilityVC;
+  roomAvailabilityVC = [[RoomAvailabilityViewController alloc] init];
   roomAvailabilityVC.requestedStartDate = self.startDate.date;
   roomAvailabilityVC.requestedEndDate = self.endDate.date;
   [self.navigationController pushViewController:roomAvailabilityVC

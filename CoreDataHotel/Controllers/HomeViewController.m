@@ -29,14 +29,6 @@
                  action:@selector(bookButtonWasPressed)
        forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:bookButton];
-  NSLayoutConstraint *bookL = [[bookButton leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *bookT = [[bookButton trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  NSLayoutConstraint *bookB = [[bookButton bottomAnchor]
-      constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]];
-  NSLayoutConstraint *bookH =
-      [[bookButton heightAnchor] constraintEqualToConstant:100];
 
   UIButton *browseButton = [[UIButton alloc] init];
   browseButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -49,14 +41,6 @@
                    action:@selector(browseButtonWasPressed)
          forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:browseButton];
-  NSLayoutConstraint *browseL = [[browseButton leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *browseT = [[browseButton trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  NSLayoutConstraint *browseB = [[browseButton bottomAnchor]
-      constraintEqualToAnchor:[bookButton topAnchor]];
-  NSLayoutConstraint *browseH =
-      [[browseButton heightAnchor] constraintEqualToConstant:100];
 
   UIButton *lookupButton = [[UIButton alloc] init];
   lookupButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -69,18 +53,20 @@
                    action:@selector(lookupButtonWasPressed)
          forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:lookupButton];
-  NSLayoutConstraint *lookupL = [[lookupButton leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *lookupT = [[lookupButton trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  NSLayoutConstraint *lookupB = [[lookupButton bottomAnchor]
-      constraintEqualToAnchor:[browseButton topAnchor]];
-  NSLayoutConstraint *lookupH =
-      [[lookupButton heightAnchor] constraintEqualToConstant:100];
 
   [NSLayoutConstraint activateConstraints:@[
-    bookL, bookT, bookB, bookH, browseL, browseT, browseB, browseH, lookupL,
-    lookupT, lookupB, lookupH
+    [[bookButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[bookButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]],
+    [[bookButton bottomAnchor] constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]],
+    [[bookButton heightAnchor] constraintEqualToConstant:100],
+    [[browseButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[browseButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]],
+    [[browseButton bottomAnchor] constraintEqualToAnchor:[bookButton topAnchor]],
+    [[browseButton heightAnchor] constraintEqualToConstant:100],
+    [[lookupButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[lookupButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]],
+    [[lookupButton bottomAnchor] constraintEqualToAnchor:[browseButton topAnchor]],
+    [[lookupButton heightAnchor] constraintEqualToConstant:100]
   ]];
 }
 

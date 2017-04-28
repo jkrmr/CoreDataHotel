@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor whiteColor]];
-
   self.reservations = [self.room.reservations allObjects];
 
   [self setTableView:[[UITableView alloc] init]];
@@ -27,15 +26,17 @@
   [self.tableView setDelegate:self];
   [self.view addSubview:self.tableView];
   [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSLayoutConstraint *tvT = [[self.tableView topAnchor]
-      constraintEqualToAnchor:[self.view topAnchor]];
-  NSLayoutConstraint *tvB = [[self.tableView bottomAnchor]
-      constraintEqualToAnchor:[self.view bottomAnchor]];
-  NSLayoutConstraint *tvL = [[self.tableView leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *tvR = [[self.tableView trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  [NSLayoutConstraint activateConstraints:@[ tvT, tvB, tvL, tvR ]];
+  
+  [NSLayoutConstraint activateConstraints:@[
+    [[self.tableView topAnchor]
+       constraintEqualToAnchor:[self.view topAnchor]],
+    [[self.tableView bottomAnchor]
+       constraintEqualToAnchor:[self.view bottomAnchor]],
+    [[self.tableView leadingAnchor]
+       constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.tableView trailingAnchor]
+       constraintEqualToAnchor:[self.view trailingAnchor]]
+  ]];
 }
 
 // MARK: UITableViewDataSource Methods
@@ -46,10 +47,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell =
-      [tableView dequeueReusableCellWithIdentifier:@"cell"
-                                      forIndexPath:indexPath];
-  Reservation *selectedReservation = self.reservations[indexPath.row];
+  UITableViewCell *cell;
+  Reservation *selectedReservation;
+  cell = [tableView dequeueReusableCellWithIdentifier:@"cell"
+                                         forIndexPath:indexPath];
+  selectedReservation = self.reservations[indexPath.row];
   cell.textLabel.text = selectedReservation.description;
   return cell;
 }

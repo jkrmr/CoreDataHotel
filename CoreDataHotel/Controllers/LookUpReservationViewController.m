@@ -32,32 +32,29 @@
   [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.view addSubview:self.tableView];
 
-  NSLayoutConstraint *tvT, *tvB, *tvL, *tvR;
-  tvT = [[self.tableView topAnchor]
-      constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]];
-  tvB = [[self.tableView bottomAnchor]
-      constraintEqualToAnchor:[self.view bottomAnchor]];
-  tvL = [[self.tableView leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  tvR = [[self.tableView trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-
   // Set up Search Bar
-  NSLayoutConstraint *searchT, *searchL, *searchR;
   [self setSearchBar:[[UISearchBar alloc] init]];
   [self.searchBar setDelegate:self];
   [self.searchBar setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.view addSubview:self.searchBar];
   self.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
-  searchT = [[self.searchBar topAnchor]
-      constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]];
-  searchL = [[self.searchBar leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  searchR = [[self.searchBar trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
 
-  [NSLayoutConstraint
-      activateConstraints:@[ tvT, tvB, tvL, tvR, searchT, searchL, searchR ]];
+  [NSLayoutConstraint activateConstraints:@[
+    [[self.tableView topAnchor]
+        constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]],
+    [[self.tableView bottomAnchor]
+        constraintEqualToAnchor:[self.view bottomAnchor]],
+    [[self.tableView leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.tableView trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]],
+     [[self.searchBar topAnchor]
+        constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]],
+     [[self.searchBar leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+     [[self.searchBar trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]]
+  ]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,22 +63,14 @@
 }
 
 - (NSArray *)fetchAllReservations {
-  NSFetchRequest *request;
-  NSArray *allReservations;
-
-  request = [ReservationQuery allReservations];
-  allReservations = [CoreData.repo resultsForQuery:request];
-
+  NSFetchRequest *request = [ReservationQuery allReservations];
+  NSArray *allReservations = [CoreData.repo resultsForQuery:request];
   return allReservations;
 }
 
 - (NSArray *)fetchReservationsWithGuestDetail:(NSString *)string {
-  NSFetchRequest *request;
-  NSArray *guestReservations;
-
-  request = [ReservationQuery reservationsWithGuestDetail:string];
-  guestReservations = [CoreData.repo resultsForQuery:request];
-
+  NSFetchRequest *req = [ReservationQuery reservationsWithGuestDetail:string];
+  NSArray *guestReservations = [CoreData.repo resultsForQuery:req];
   return guestReservations;
 }
 

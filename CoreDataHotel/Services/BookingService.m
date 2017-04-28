@@ -12,15 +12,15 @@
 + (void)createReservationWithStartDate:(NSDate *)startDate
                                endDate:(NSDate *)endDate
                                forRoom:(Room *)room
-                                guests:(NSArray *)guestsData {
-
+                             guestList:(NSArray *)guestsAttrs {
+  
   NSMutableArray *guests = [NSMutableArray array];
-  for (NSDictionary *guestData in guestsData) {
+  for (NSDictionary *guestAttrs in guestsAttrs) {
     Guest *newGuest;
     newGuest = [CoreData.repo buildInstance:[Guest class]];
-    newGuest.firstName = guestData[@"firstName"];
-    newGuest.lastName = guestData[@"lastName"];
-    newGuest.emailAddress = guestData[@"emailAddress"];
+    newGuest.firstName = guestAttrs[@"firstName"];
+    newGuest.lastName = guestAttrs[@"lastName"];
+    newGuest.emailAddress = guestAttrs[@"emailAddress"];
     [guests addObject:newGuest];
   }
 

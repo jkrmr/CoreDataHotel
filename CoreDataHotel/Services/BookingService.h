@@ -19,5 +19,5 @@
 + (void)createReservationWithStartDate:(NSDate *)startDate
                                endDate:(NSDate *)endDate
                                forRoom:(Room *)room
-                                guests:(NSArray *)guests;
+                             guestList:(NSArray *)guestAttrs;
 @end
