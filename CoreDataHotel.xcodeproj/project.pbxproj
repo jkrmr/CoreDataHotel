@@ -779,7 +779,7 @@
 				1B912B621EB397740097ACA2 /* CoreDataHotel-2.0.xcdatamodel */,
 				1BC3E2391EAE5CC500797571 /* CoreDataHotel.xcdatamodel */,
 			);
-			currentVersion = 1BC3E2391EAE5CC500797571 /* CoreDataHotel.xcdatamodel */;
+			currentVersion = 1B912B621EB397740097ACA2 /* CoreDataHotel-2.0.xcdatamodel */;
 			path = CoreDataHotel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
