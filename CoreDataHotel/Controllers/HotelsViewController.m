@@ -61,7 +61,7 @@
   cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"
                                               forIndexPath:indexPath];
   selectedHotel = self.hotels[indexPath.row];
-  cell.textLabel.text = selectedHotel.name;
+  cell.textLabel.text = selectedHotel.summary;
   return cell;
 }
 
