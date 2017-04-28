@@ -20,85 +20,46 @@
   [self.view setBackgroundColor:[UIColor whiteColor]];
 
   // set up first name text field
-  UITextField *firstName = [[UITextField alloc] init];
-  firstName.translatesAutoresizingMaskIntoConstraints = NO;
-  firstName.textColor = [UIColor blackColor];
-  firstName.font = [UIFont fontWithName:@"SFUIDisplay-Regular" size:25];
-  firstName.backgroundColor = [UIColor whiteColor];
-  firstName.borderStyle = UITextBorderStyleRoundedRect;
-  firstName.text = @"";
-  firstName.placeholder = @"First name";
-  firstName.autocorrectionType = UITextAutocorrectionTypeNo;
-  firstName.autocapitalizationType = UITextAutocapitalizationTypeWords;
-  firstName.returnKeyType = UIReturnKeyDone;
-  firstName.delegate = self;
-  [self.view addSubview:firstName];
-  self.firstName = firstName;
+  self.firstName = [UIBuilder buildTextField];
+  self.firstName.placeholder = @"First name";
+  self.firstName.delegate = self;
+  [self.view addSubview:self.firstName];
 
   // set up last name text field
-  UITextField *lastName = [[UITextField alloc] init];
-  lastName.translatesAutoresizingMaskIntoConstraints = NO;
-  lastName.textColor = [UIColor blackColor];
-  lastName.font = [UIFont fontWithName:@"SFUIDisplay-Regular" size:25];
-  lastName.backgroundColor = [UIColor whiteColor];
-  lastName.borderStyle = UITextBorderStyleRoundedRect;
-  lastName.text = @"";
-  lastName.placeholder = @"Last name";
-  lastName.autocorrectionType = UITextAutocorrectionTypeNo;
-  lastName.autocapitalizationType = UITextAutocapitalizationTypeWords;
-  lastName.returnKeyType = UIReturnKeyDone;
-  lastName.delegate = self;
-  [self.view addSubview:lastName];
-  self.lastName = lastName;
+  self.lastName = [UIBuilder buildTextField];
+  self.lastName.placeholder = @"Last name";
+  self.lastName.delegate = self;
+  [self.view addSubview:self.lastName];
 
   // set up email text field
-  UITextField *email = [[UITextField alloc] init];
-  email.translatesAutoresizingMaskIntoConstraints = NO;
-  email.textColor = [UIColor blackColor];
-  email.font = [UIFont fontWithName:@"SFUIDisplay-Regular" size:25];
-  email.backgroundColor = [UIColor whiteColor];
-  email.borderStyle = UITextBorderStyleRoundedRect;
-  email.text = @"";
-  email.placeholder = @"Email address";
-  email.autocorrectionType = UITextAutocorrectionTypeNo;
-  email.autocapitalizationType = UITextAutocapitalizationTypeNone;
-  email.keyboardType = UIKeyboardTypeEmailAddress;
-  email.returnKeyType = UIReturnKeyDone;
-  email.delegate = self;
-  [self.view addSubview:email];
-  self.emailAddress = email;
+  self.emailAddress = [UIBuilder buildTextField];
+  self.emailAddress.placeholder = @"Email address";
+  self.emailAddress.autocapitalizationType = UITextAutocapitalizationTypeNone;
+  self.emailAddress.keyboardType = UIKeyboardTypeEmailAddress;
+  self.emailAddress.delegate = self;
+  [self.view addSubview:self.emailAddress];
 
-  UIButton *confirmButton = [[UIButton alloc] init];
-  confirmButton.translatesAutoresizingMaskIntoConstraints = NO;
-  [confirmButton setTitle:@"Confirm" forState:UIControlStateNormal];
-  [confirmButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  [confirmButton setBackgroundColor:[UIColor colorWithRed:0.2 green:0.56 blue:0.2 alpha:1.0]];
+  UIButton *confirmButton = [UIBuilder buildButtonWithTitle:@"Confirm"];
   [confirmButton addTarget:self action:@selector(confirmButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:confirmButton];
 
-  UIButton *cancelButton = [[UIButton alloc] init];
-  cancelButton.translatesAutoresizingMaskIntoConstraints = NO;
-  [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-  [cancelButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  [cancelButton setBackgroundColor:[UIColor redColor]];
+  UIButton *cancelButton = [UIBuilder buildButtonWithTitle:@"Cancel"];
   [cancelButton addTarget:self action:@selector(cancelButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:cancelButton];
 
   [NSLayoutConstraint activateConstraints:@[
-    [[firstName topAnchor] constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor] constant:10],
-    [[firstName leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor] constant:10],
-    [[firstName trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor] constant:-10],
-    [[firstName heightAnchor] constraintEqualToConstant:40],
-    [[lastName topAnchor] constraintEqualToAnchor:[firstName bottomAnchor] constant:10],
-    [[lastName leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor] constant:10],
-    [[lastName trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor] constant:-10],
-    [[lastName heightAnchor] constraintEqualToConstant:40],
-    [[email topAnchor] constraintEqualToAnchor:[lastName bottomAnchor] constant:10],
-    [[email leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor] constant:10],
-    [[email trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor] constant:-10],
-    [[email heightAnchor] constraintEqualToConstant:40],
+    [[self.firstName topAnchor] constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor] constant:10],
+    [[self.firstName leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor] constant:10],
+    [[self.firstName trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor] constant:-10],
+    [[self.firstName heightAnchor] constraintEqualToConstant:40],
+    [[self.lastName topAnchor] constraintEqualToAnchor:[self.firstName bottomAnchor] constant:10],
+    [[self.lastName leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor] constant:10],
+    [[self.lastName trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor] constant:-10],
+    [[self.lastName heightAnchor] constraintEqualToConstant:40],
+    [[self.emailAddress topAnchor] constraintEqualToAnchor:[self.lastName bottomAnchor] constant:10],
+    [[self.emailAddress leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor] constant:10],
+    [[self.emailAddress trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor] constant:-10],
+    [[self.emailAddress heightAnchor] constraintEqualToConstant:40],
     [[confirmButton bottomAnchor] constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]],
     [[confirmButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],
     [[confirmButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]],

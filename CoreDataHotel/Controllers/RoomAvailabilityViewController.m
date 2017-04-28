@@ -18,13 +18,10 @@
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor whiteColor]];
 
-  [self setTableView:[[UITableView alloc] init]];
-  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-  [self.tableView setDelegate:self];
-  [self.tableView setDataSource:self];
+  self.tableView = [UIBuilder buildTableView];
+  self.tableView.delegate = self;
+  self.tableView.dataSource = self;
   [self.view addSubview:self.tableView];
-  [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
   
   [NSLayoutConstraint activateConstraints:@[
     [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]],

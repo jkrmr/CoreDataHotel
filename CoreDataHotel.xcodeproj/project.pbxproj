@@ -12,6 +12,8 @@
 		1B1722D31EB252CE0032BDA3 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1722D01EB2501A0032BDA3 /* Answers.framework */; };
 		1B1722D71EB2F1370032BDA3 /* BookingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1722D61EB2F1370032BDA3 /* BookingService.m */; };
 		1B1722D81EB2F1370032BDA3 /* BookingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1722D61EB2F1370032BDA3 /* BookingService.m */; };
+		1B1722DB1EB300EF0032BDA3 /* UIBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1722DA1EB300EF0032BDA3 /* UIBuilder.m */; };
+		1B1722DC1EB300EF0032BDA3 /* UIBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1722DA1EB300EF0032BDA3 /* UIBuilder.m */; };
 		1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44322B1EAE908500E6D0EF /* RoomsViewController.m */; };
 		1B4432481EAE9D7700E6D0EF /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B4432471EAE9D7700E6D0EF /* hotels.json */; };
 		1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44324A1EAEA54600E6D0EF /* HomeViewController.m */; };
@@ -71,6 +73,8 @@
 		1B1722D01EB2501A0032BDA3 /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = "<group>"; };
 		1B1722D51EB2F1370032BDA3 /* BookingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingService.h; path = Services/BookingService.h; sourceTree = "<group>"; };
 		1B1722D61EB2F1370032BDA3 /* BookingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingService.m; path = Services/BookingService.m; sourceTree = "<group>"; };
+		1B1722D91EB300EF0032BDA3 /* UIBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIBuilder.h; path = Views/UIBuilder.h; sourceTree = "<group>"; };
+		1B1722DA1EB300EF0032BDA3 /* UIBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIBuilder.m; path = Views/UIBuilder.m; sourceTree = "<group>"; };
 		1B44322A1EAE908500E6D0EF /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomsViewController.h; path = Controllers/RoomsViewController.h; sourceTree = "<group>"; };
 		1B44322B1EAE908500E6D0EF /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomsViewController.m; path = Controllers/RoomsViewController.m; sourceTree = "<group>"; };
 		1B4432471EAE9D7700E6D0EF /* hotels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hotels.json; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 		1BC3E2631EAE621800797571 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1B1722D91EB300EF0032BDA3 /* UIBuilder.h */,
+				1B1722DA1EB300EF0032BDA3 /* UIBuilder.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */,
 				1BF71D6E1EB0661D009CCCBC /* Hotel+ComparisonUtils.m in Sources */,
 				1B1722D71EB2F1370032BDA3 /* BookingService.m in Sources */,
+				1B1722DB1EB300EF0032BDA3 /* UIBuilder.m in Sources */,
 				1BE3712B1EB14E2000B1C487 /* RoomQuery.m in Sources */,
 				1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */,
 				1BDAB1641EAFC7F3005244BF /* RoomAvailabilityViewController.m in Sources */,
@@ -483,6 +490,7 @@
 				1BE371161EB1125A00B1C487 /* Hotel+ComparisonUtils.m in Sources */,
 				1BE371381EB1DFF400B1C487 /* Room+Summary.m in Sources */,
 				1BE371141EB1125100B1C487 /* Room+ComparisonUtils.m in Sources */,
+				1B1722DC1EB300EF0032BDA3 /* UIBuilder.m in Sources */,
 				1BE3711C1EB11BE300B1C487 /* Hotel+ComparisonUtilsTests.m in Sources */,
 				1BE371151EB1125A00B1C487 /* Reservation+Summary.m in Sources */,
 				1BE3711A1EB119F900B1C487 /* XCCoreDataTestCase.m in Sources */,

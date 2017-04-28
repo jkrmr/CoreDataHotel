@@ -19,13 +19,10 @@
   [self.view setBackgroundColor:[UIColor whiteColor]];
   self.reservations = [self.room.reservations allObjects];
 
-  [self setTableView:[[UITableView alloc] init]];
-  [self.tableView registerClass:[UITableViewCell class]
-         forCellReuseIdentifier:@"cell"];
-  [self.tableView setDataSource:self];
-  [self.tableView setDelegate:self];
+  self.tableView = [UIBuilder buildTableView];
+  self.tableView.dataSource = self;
+  self.tableView.delegate = self;
   [self.view addSubview:self.tableView];
-  [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
   
   [NSLayoutConstraint activateConstraints:@[
     [[self.tableView topAnchor]

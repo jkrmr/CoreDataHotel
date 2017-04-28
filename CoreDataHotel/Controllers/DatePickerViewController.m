@@ -39,18 +39,11 @@
   [self.endDate setTranslatesAutoresizingMaskIntoConstraints:NO];
 
   // set up check availability button
-  [self setSubmitButton:[[UIButton alloc] init]];
-  [self.submitButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [self.submitButton setTitle:@"Check availability"
-                     forState:UIControlStateNormal];
-  [self.submitButton setTitleColor:[UIColor blackColor]
-                          forState:UIControlStateNormal];
-  [self.submitButton setBackgroundColor:[UIColor whiteColor]];
+  self.submitButton = [UIBuilder buildButtonWithTitle:@"Check availability"];
   [self.submitButton addTarget:self
                         action:@selector(submitButtonWasPressed)
               forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:self.submitButton];
-  [self.submitButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 
   [NSLayoutConstraint activateConstraints:@[
     [[self.startDate leadingAnchor]

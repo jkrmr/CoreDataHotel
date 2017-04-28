@@ -19,40 +19,23 @@
 }
 
 - (void)setupLayout {
-  UIButton *bookButton = [[UIButton alloc] init];
-  bookButton.translatesAutoresizingMaskIntoConstraints = NO;
-  [bookButton setTitle:@"Book a room" forState:UIControlStateNormal];
-  [bookButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-  [bookButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [bookButton setBackgroundColor:[UIColor whiteColor]];
+  UIButton *bookButton = [UIBuilder buildButtonWithTitle:@"Book a room"];
+  [self.view addSubview:bookButton];
   [bookButton addTarget:self
                  action:@selector(bookButtonWasPressed)
        forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:bookButton];
 
-  UIButton *browseButton = [[UIButton alloc] init];
-  browseButton.translatesAutoresizingMaskIntoConstraints = NO;
-  [browseButton setTitle:@"Browse hotels" forState:UIControlStateNormal];
-  [browseButton setTitleColor:[UIColor blackColor]
-                     forState:UIControlStateNormal];
-  [browseButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [browseButton setBackgroundColor:[UIColor whiteColor]];
+  UIButton *browseButton = [UIBuilder buildButtonWithTitle:@"Browse hotels"];
+  [self.view addSubview:browseButton];
   [browseButton addTarget:self
                    action:@selector(browseButtonWasPressed)
          forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:browseButton];
 
-  UIButton *lookupButton = [[UIButton alloc] init];
-  lookupButton.translatesAutoresizingMaskIntoConstraints = NO;
-  [lookupButton setTitle:@"See all bookings" forState:UIControlStateNormal];
-  [lookupButton setTitleColor:[UIColor blackColor]
-                     forState:UIControlStateNormal];
-  [lookupButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [lookupButton setBackgroundColor:[UIColor whiteColor]];
+  UIButton *lookupButton = [UIBuilder buildButtonWithTitle:@"See all bookings"];
+  [self.view addSubview:lookupButton];
   [lookupButton addTarget:self
                    action:@selector(lookupButtonWasPressed)
          forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:lookupButton];
 
   [NSLayoutConstraint activateConstraints:@[
     [[bookButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],

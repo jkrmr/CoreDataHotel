@@ -23,21 +23,17 @@
   [self.view setBackgroundColor:[UIColor whiteColor]];
   [self setInSearchMode:NO];
 
-  // Set up Table View
-  [self setTableView:[[UITableView alloc] init]];
-  [self.tableView setDelegate:self];
-  [self.tableView setDataSource:self];
-  [self.tableView registerClass:[UITableViewCell class]
-         forCellReuseIdentifier:@"cell"];
-  [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+  self.tableView = [UIBuilder buildTableView];
+  self.tableView.delegate = self;
+  self.tableView.dataSource = self;
   [self.view addSubview:self.tableView];
 
   // Set up Search Bar
   [self setSearchBar:[[UISearchBar alloc] init]];
-  [self.searchBar setDelegate:self];
-  [self.searchBar setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [self.view addSubview:self.searchBar];
   self.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
+  [self.searchBar setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [self.searchBar setDelegate:self];
+  [self.view addSubview:self.searchBar];
 
   [NSLayoutConstraint activateConstraints:@[
     [[self.tableView topAnchor]
