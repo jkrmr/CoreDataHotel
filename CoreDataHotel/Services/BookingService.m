@@ -13,7 +13,7 @@
                                endDate:(NSDate *)endDate
                                forRoom:(Room *)room
                              guestList:(NSArray *)guestsAttrs {
-  
+
   NSMutableArray *guests = [NSMutableArray array];
   for (NSDictionary *guestAttrs in guestsAttrs) {
     Guest *newGuest;

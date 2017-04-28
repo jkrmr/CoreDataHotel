@@ -21,10 +21,9 @@
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
   [self.view addSubview:self.tableView];
-  
+
   [NSLayoutConstraint activateConstraints:@[
-    [[self.tableView topAnchor]
-        constraintEqualToAnchor:[self.view topAnchor]],
+    [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]],
     [[self.tableView bottomAnchor]
         constraintEqualToAnchor:[self.view bottomAnchor]],
     [[self.tableView leadingAnchor]

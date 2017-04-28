@@ -44,11 +44,11 @@
         constraintEqualToAnchor:[self.view leadingAnchor]],
     [[self.tableView trailingAnchor]
         constraintEqualToAnchor:[self.view trailingAnchor]],
-     [[self.searchBar topAnchor]
+    [[self.searchBar topAnchor]
         constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]],
-     [[self.searchBar leadingAnchor]
+    [[self.searchBar leadingAnchor]
         constraintEqualToAnchor:[self.view leadingAnchor]],
-     [[self.searchBar trailingAnchor]
+    [[self.searchBar trailingAnchor]
         constraintEqualToAnchor:[self.view trailingAnchor]]
   ]];
 }

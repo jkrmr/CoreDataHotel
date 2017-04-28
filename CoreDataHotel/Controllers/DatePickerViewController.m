@@ -47,29 +47,32 @@
 
   [NSLayoutConstraint activateConstraints:@[
     [[self.startDate leadingAnchor]
-           constraintEqualToAnchor:[self.view leadingAnchor]],
+        constraintEqualToAnchor:[self.view leadingAnchor]],
     [[self.startDate trailingAnchor]
-           constraintEqualToAnchor:[self.view trailingAnchor]],
+        constraintEqualToAnchor:[self.view trailingAnchor]],
     [[self.startDate topAnchor]
-           constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]],
+        constraintEqualToAnchor:[self.topLayoutGuide bottomAnchor]],
     [[self.startDate heightAnchor]
-           constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33],
+        constraintEqualToAnchor:[self.view heightAnchor]
+                     multiplier:0.33],
     [[self.endDate leadingAnchor]
-           constraintEqualToAnchor:[self.view leadingAnchor]],
+        constraintEqualToAnchor:[self.view leadingAnchor]],
     [[self.endDate trailingAnchor]
-           constraintEqualToAnchor:[self.view trailingAnchor]],
+        constraintEqualToAnchor:[self.view trailingAnchor]],
     [[self.endDate topAnchor]
-           constraintEqualToAnchor:[self.startDate bottomAnchor]],
+        constraintEqualToAnchor:[self.startDate bottomAnchor]],
     [[self.endDate heightAnchor]
-           constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33],
+        constraintEqualToAnchor:[self.view heightAnchor]
+                     multiplier:0.33],
     [[self.submitButton leadingAnchor]
-           constraintEqualToAnchor:[self.view leadingAnchor]],
+        constraintEqualToAnchor:[self.view leadingAnchor]],
     [[self.submitButton trailingAnchor]
-           constraintEqualToAnchor:[self.view trailingAnchor]],
+        constraintEqualToAnchor:[self.view trailingAnchor]],
     [[self.submitButton topAnchor]
-           constraintEqualToAnchor:[self.endDate bottomAnchor]],
+        constraintEqualToAnchor:[self.endDate bottomAnchor]],
     [[self.submitButton heightAnchor]
-       constraintEqualToAnchor:[self.view heightAnchor] multiplier:0.33]
+        constraintEqualToAnchor:[self.view heightAnchor]
+                     multiplier:0.33]
   ]];
 }
 
@@ -89,12 +92,12 @@
 - (NSDate *)addADaytoDate:(NSDate *)date {
   NSCalendar *gregorianCal;
   gregorianCal = [[NSCalendar alloc]
-                  initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-  
+      initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+
   NSDateComponents *addADay;
   addADay = [[NSDateComponents alloc] init];
   [addADay setDay:1];
-  
+
   return [gregorianCal dateByAddingComponents:addADay toDate:date options:0];
 }
 

@@ -22,12 +22,15 @@
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
   [self.view addSubview:self.tableView];
-  
+
   [NSLayoutConstraint activateConstraints:@[
     [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]],
-    [[self.tableView bottomAnchor] constraintEqualToAnchor:[self.view bottomAnchor]],
-    [[self.tableView leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],
-    [[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]]
+    [[self.tableView bottomAnchor]
+        constraintEqualToAnchor:[self.view bottomAnchor]],
+    [[self.tableView leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.tableView trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]]
   ]];
 }
 
@@ -40,10 +43,10 @@
   NSDate *startDate, *endDate;
   startDate = self.requestedStartDate;
   endDate = self.requestedEndDate;
-  
+
   NSFetchRequest *request;
   request = [RoomQuery availableOnDaysFrom:startDate to:endDate];
-  
+
   NSFetchedResultsController *fetchedRooms;
   fetchedRooms = [CoreData.repo resultsControllerFor:request
                                   sectionNameKeyPath:@"hotel.name"

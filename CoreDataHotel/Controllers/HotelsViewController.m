@@ -22,12 +22,15 @@
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   [self.view addSubview:self.tableView];
-  
+
   [NSLayoutConstraint activateConstraints:@[
     [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]],
-    [[self.tableView bottomAnchor] constraintEqualToAnchor:[self.view bottomAnchor]],
-    [[self.tableView leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],
-    [[self.tableView trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]]
+    [[self.tableView bottomAnchor]
+        constraintEqualToAnchor:[self.view bottomAnchor]],
+    [[self.tableView leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.tableView trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]]
   ]];
 }
 
@@ -69,7 +72,7 @@
   RoomsViewController *roomsVC = [[RoomsViewController alloc] init];
   Hotel *selectedHotel = self.hotels[indexPath.row];
   NSArray *hotelRooms = [selectedHotel.rooms allObjects];
-  
+
   roomsVC.hotel = selectedHotel;
   roomsVC.rooms = [hotelRooms sortedArrayUsingSelector:@selector(compare:)];
   [self.navigationController pushViewController:roomsVC animated:YES];

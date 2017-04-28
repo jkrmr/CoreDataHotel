@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIBuilder : NSObject
-+ (UITableView*) buildTableView;
-+ (UIButton*) buildButtonWithTitle:(NSString*)title;
-+ (UITextField*) buildTextField;
++ (UITableView *)buildTableView;
++ (UIButton *)buildButtonWithTitle:(NSString *)title;
++ (UITextField *)buildTextField;
 @end

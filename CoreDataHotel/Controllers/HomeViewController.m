@@ -38,17 +38,26 @@
          forControlEvents:UIControlEventTouchUpInside];
 
   [NSLayoutConstraint activateConstraints:@[
-    [[bookButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],
-    [[bookButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]],
-    [[bookButton bottomAnchor] constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]],
+    [[bookButton leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[bookButton trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]],
+    [[bookButton bottomAnchor]
+        constraintEqualToAnchor:[self.bottomLayoutGuide topAnchor]],
     [[bookButton heightAnchor] constraintEqualToConstant:100],
-    [[browseButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],
-    [[browseButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]],
-    [[browseButton bottomAnchor] constraintEqualToAnchor:[bookButton topAnchor]],
+    [[browseButton leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[browseButton trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]],
+    [[browseButton bottomAnchor]
+        constraintEqualToAnchor:[bookButton topAnchor]],
     [[browseButton heightAnchor] constraintEqualToConstant:100],
-    [[lookupButton leadingAnchor] constraintEqualToAnchor:[self.view leadingAnchor]],
-    [[lookupButton trailingAnchor] constraintEqualToAnchor:[self.view trailingAnchor]],
-    [[lookupButton bottomAnchor] constraintEqualToAnchor:[browseButton topAnchor]],
+    [[lookupButton leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[lookupButton trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]],
+    [[lookupButton bottomAnchor]
+        constraintEqualToAnchor:[browseButton topAnchor]],
     [[lookupButton heightAnchor] constraintEqualToConstant:100]
   ]];
 }

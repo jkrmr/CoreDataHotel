@@ -9,16 +9,17 @@
 #import "UIBuilder.h"
 
 @implementation UIBuilder
-+ (UITableView*) buildTableView {
++ (UITableView *)buildTableView {
   UITableView *tableView;
   tableView = [[UITableView alloc] init];
   tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-  [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+  [tableView registerClass:[UITableViewCell class]
+      forCellReuseIdentifier:@"cell"];
   [tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
   return tableView;
 }
 
-+ (UIButton*) buildButtonWithTitle:(NSString*)title {
++ (UIButton *)buildButtonWithTitle:(NSString *)title {
   UIButton *button;
   button = [[UIButton alloc] init];
   button.translatesAutoresizingMaskIntoConstraints = NO;
@@ -29,7 +30,7 @@
   return button;
 }
 
-+ (UITextField*) buildTextField {
++ (UITextField *)buildTextField {
   UITextField *textField;
   textField = [[UITextField alloc] init];
   textField.translatesAutoresizingMaskIntoConstraints = NO;

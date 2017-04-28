@@ -23,16 +23,15 @@
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   [self.view addSubview:self.tableView];
-  
+
   [NSLayoutConstraint activateConstraints:@[
-    [[self.tableView topAnchor]
-       constraintEqualToAnchor:[self.view topAnchor]],
+    [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]],
     [[self.tableView bottomAnchor]
-       constraintEqualToAnchor:[self.view bottomAnchor]],
+        constraintEqualToAnchor:[self.view bottomAnchor]],
     [[self.tableView leadingAnchor]
-       constraintEqualToAnchor:[self.view leadingAnchor]],
+        constraintEqualToAnchor:[self.view leadingAnchor]],
     [[self.tableView trailingAnchor]
-       constraintEqualToAnchor:[self.view trailingAnchor]]
+        constraintEqualToAnchor:[self.view trailingAnchor]]
   ]];
 }
 
