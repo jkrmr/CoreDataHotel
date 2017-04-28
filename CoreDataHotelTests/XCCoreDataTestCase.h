@@ -18,4 +18,5 @@
 - (id)buildInstance:(id)type;
 - (NSArray *)queryResultsForRequest:(NSFetchRequest *)request;
 - (void)saveContext;
+
 @end
