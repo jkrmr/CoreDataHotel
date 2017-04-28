@@ -31,8 +31,10 @@
                 @"$g.firstName CONTAINS[cd] %@ OR "
                 @"$g.lastName CONTAINS[cd] %@ OR "
                 @"$g.emailAddress CONTAINS[cd] %@).@count > 0";
+
   anyGuestNamePredicate =
       [NSPredicate predicateWithFormat:queryString, string, string, string];
+
   request.predicate = anyGuestNamePredicate;
 
   return request;

@@ -10,7 +10,11 @@
 
 @implementation Room (ComparisonUtils)
 - (NSComparisonResult)compare:(Room *)otherRoom {
-  return [[NSNumber numberWithInt:self.number]
-      compare:[NSNumber numberWithInt:otherRoom.number]];
+  NSNumber *roomNum, *otherRoomNum;
+
+  roomNum = [NSNumber numberWithInt:self.number];
+  otherRoomNum = [NSNumber numberWithInt:otherRoom.number];
+
+  return [roomNum compare:otherRoomNum];
 }
 @end

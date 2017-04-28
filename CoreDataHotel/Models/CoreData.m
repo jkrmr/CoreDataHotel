@@ -35,8 +35,8 @@
 }
 
 - (NSArray *)resultsForQuery:(NSFetchRequest *)request {
-  NSError *error;
   NSArray *results;
+  NSError *error;
 
   results = [self.context executeFetchRequest:request error:&error];
 
@@ -66,20 +66,21 @@
 - (NSFetchedResultsController *)resultsControllerFor:(NSFetchRequest *)request
                                   sectionNameKeyPath:(NSString *)keyPath
                                            cacheName:(NSString *)cacheName {
-  NSFetchedResultsController *resultsController;
+  NSFetchedResultsController *results;
+  NSManagedObjectContext *ctx;
   NSError *error;
 
-  resultsController =
-      [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                          managedObjectContext:self.context
-                                            sectionNameKeyPath:keyPath
-                                                     cacheName:cacheName];
-  [resultsController performFetch:&error];
+  ctx = self.context;
+  results = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                managedObjectContext:ctx
+                                                  sectionNameKeyPath:keyPath
+                                                           cacheName:cacheName];
+  [results performFetch:&error];
 
   if (error) {
     NSLog(@"Core Data Fetch Error: %@", error.localizedDescription);
   }
 
-  return resultsController;
+  return results;
 }
 @end

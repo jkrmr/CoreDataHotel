@@ -13,13 +13,14 @@
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
   [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+
   NSString *start = [dateFormatter stringFromDate:self.startDate];
   NSString *end = [dateFormatter stringFromDate:self.endDate];
-  NSString *template = @"%@ #%@: %@ to %@";
   Room *room = self.room;
   NSString *hotelName = room.hotel.name;
-  NSNumber *roomNumber = [NSNumber numberWithInt:room.number];
-  return
-      [NSString stringWithFormat:template, hotelName, roomNumber, start, end];
+  NSNumber *roomNum = [NSNumber numberWithInt:room.number];
+
+  NSString *template = @"%@ #%@: %@ to %@";
+  return [NSString stringWithFormat:template, hotelName, roomNum, start, end];
 }
 @end
