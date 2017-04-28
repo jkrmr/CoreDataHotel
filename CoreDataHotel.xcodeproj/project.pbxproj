@@ -10,6 +10,8 @@
 		1B1722D11EB2501A0032BDA3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1722CF1EB2501A0032BDA3 /* Fabric.framework */; };
 		1B1722D21EB2501A0032BDA3 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1722D01EB2501A0032BDA3 /* Answers.framework */; };
 		1B1722D31EB252CE0032BDA3 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1722D01EB2501A0032BDA3 /* Answers.framework */; };
+		1B1722D71EB2F1370032BDA3 /* BookingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1722D61EB2F1370032BDA3 /* BookingService.m */; };
+		1B1722D81EB2F1370032BDA3 /* BookingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1722D61EB2F1370032BDA3 /* BookingService.m */; };
 		1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44322B1EAE908500E6D0EF /* RoomsViewController.m */; };
 		1B4432481EAE9D7700E6D0EF /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B4432471EAE9D7700E6D0EF /* hotels.json */; };
 		1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B44324A1EAEA54600E6D0EF /* HomeViewController.m */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		1B1722CF1EB2501A0032BDA3 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		1B1722D01EB2501A0032BDA3 /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = "<group>"; };
+		1B1722D51EB2F1370032BDA3 /* BookingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingService.h; path = Services/BookingService.h; sourceTree = "<group>"; };
+		1B1722D61EB2F1370032BDA3 /* BookingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingService.m; path = Services/BookingService.m; sourceTree = "<group>"; };
 		1B44322A1EAE908500E6D0EF /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomsViewController.h; path = Controllers/RoomsViewController.h; sourceTree = "<group>"; };
 		1B44322B1EAE908500E6D0EF /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomsViewController.m; path = Controllers/RoomsViewController.m; sourceTree = "<group>"; };
 		1B4432471EAE9D7700E6D0EF /* hotels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hotels.json; sourceTree = "<group>"; };
@@ -148,6 +152,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B1722D41EB2F0EB0032BDA3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1B1722D51EB2F1370032BDA3 /* BookingService.h */,
+				1B1722D61EB2F1370032BDA3 /* BookingService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		1BC3E2201EAE5CC500797571 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +188,7 @@
 			children = (
 				1BC3E2621EAE621200797571 /* Models */,
 				1BC3E2631EAE621800797571 /* Views */,
+				1B1722D41EB2F0EB0032BDA3 /* Services */,
 				1BC3E2641EAE621F00797571 /* Controllers */,
 				1BC3E2651EAE622E00797571 /* Extensions */,
 				1BC3E22C1EAE5CC500797571 /* Supporting Files */,
@@ -447,6 +461,7 @@
 				1BE3713B1EB237DF00B1C487 /* CoreData.m in Sources */,
 				1B44324B1EAEA54600E6D0EF /* HomeViewController.m in Sources */,
 				1BF71D6E1EB0661D009CCCBC /* Hotel+ComparisonUtils.m in Sources */,
+				1B1722D71EB2F1370032BDA3 /* BookingService.m in Sources */,
 				1BE3712B1EB14E2000B1C487 /* RoomQuery.m in Sources */,
 				1B44322C1EAE908500E6D0EF /* RoomsViewController.m in Sources */,
 				1BDAB1641EAFC7F3005244BF /* RoomAvailabilityViewController.m in Sources */,
@@ -462,6 +477,7 @@
 				1BE3711E1EB11ECA00B1C487 /* Reservation+SummaryTest.m in Sources */,
 				1BE371171EB1129300B1C487 /* CoreDataHotel.xcdatamodeld in Sources */,
 				1BE3712A1EB14E1F00B1C487 /* RoomQuery.m in Sources */,
+				1B1722D81EB2F1370032BDA3 /* BookingService.m in Sources */,
 				1BE371201EB124BF00B1C487 /* RoomQueryTest.m in Sources */,
 				1BE3713C1EB237DF00B1C487 /* CoreData.m in Sources */,
 				1BE371161EB1125A00B1C487 /* Hotel+ComparisonUtils.m in Sources */,

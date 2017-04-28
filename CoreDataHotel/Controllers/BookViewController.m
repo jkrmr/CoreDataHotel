@@ -156,19 +156,16 @@
 }
 
 - (void)confirmButtonWasPressed {
-  Guest *newGuest = [CoreData.repo buildInstance:[Guest class]];
-  newGuest.firstName = self.firstName.text;
-  newGuest.lastName = self.lastName.text;
-  newGuest.emailAddress = self.emailAddress.text;
+  NSArray *guestsData = @[ @{
+    @"firstName" : self.firstName.text,
+    @"lastName" : self.lastName.text,
+    @"emailAddress" : self.emailAddress.text
+  } ];
 
-  Reservation *newReservation =
-      [CoreData.repo buildInstance:[Reservation class]];
-  newReservation.startDate = self.requestedStartDate;
-  newReservation.endDate = self.requestedEndDate;
-  newReservation.room = self.requestedRoom;
-  [newReservation setGuests:[NSSet setWithArray:@[ newGuest ]]];
-
-  [CoreData.repo save];
+  [BookingService createReservationWithStartDate:self.requestedStartDate
+                                         endDate:self.requestedEndDate
+                                         forRoom:self.requestedRoom
+                                          guests:guestsData];
 
   [self.navigationController popToRootViewControllerAnimated:YES];
 }

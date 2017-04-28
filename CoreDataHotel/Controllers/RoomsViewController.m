@@ -25,8 +25,7 @@
   [self.view addSubview:self.tableView];
   [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
   [NSLayoutConstraint activateConstraints:@[
-    [[self.tableView topAnchor]
-        constraintEqualToAnchor:[self.view topAnchor]],
+    [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]],
     [[self.tableView bottomAnchor]
         constraintEqualToAnchor:[self.view bottomAnchor]],
     [[self.tableView leadingAnchor]
