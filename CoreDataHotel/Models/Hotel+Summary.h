@@ -9,5 +9,5 @@
 #import "Hotel+CoreDataClass.h"
 
 @interface Hotel (Summary)
-- (NSString*) summary;
+- (NSString *)summary;
 @end

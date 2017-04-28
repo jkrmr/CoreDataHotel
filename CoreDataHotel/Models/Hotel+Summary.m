@@ -9,9 +9,9 @@
 #import "Hotel+Summary.h"
 
 @implementation Hotel (Summary)
-- (NSString*) summary {
+- (NSString *)summary {
   NSNumber *rating;
-  rating = [NSNumber numberWithInt:self.stars];
+  rating = [NSNumber numberWithInt:self.rating];
 
   return [NSString stringWithFormat:@"%@ (rating: %@)", self.name, rating];
 }

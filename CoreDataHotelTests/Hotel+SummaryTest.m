@@ -18,7 +18,7 @@
   Hotel *hotel;
   hotel = [self buildInstance:[Hotel class]];
   hotel.name = @"The Avalon";
-  hotel.stars = 4;
+  hotel.rating = 4;
 
   NSString *expected = @"The Avalon (rating: 4)";
   NSString *actual = [hotel summary];
