@@ -11,6 +11,7 @@
 #import "Reservation+CoreDataProperties.h"
 #import "Reservation+Summary.h"
 #import "ReservationQuery.h"
+#import "UIBuilder.h"
 #import <UIKit/UIKit.h>
 
 @interface LookUpReservationViewController

@@ -10,6 +10,7 @@
 #import "Reservation+CoreDataProperties.h"
 #import "Room+CoreDataClass.h"
 #import "Room+CoreDataProperties.h"
+#import "UIBuilder.h"
 #import <UIKit/UIKit.h>
 
 @interface RoomDetailViewController

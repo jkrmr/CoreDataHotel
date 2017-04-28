@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  [Fabric with:@[ [Answers class] ]];
   [self setupRootViewController];
   [self generateTestData];
   return YES;
@@ -63,7 +64,7 @@
     Hotel *newHotel = [CoreData.repo buildInstance:[Hotel class]];
     newHotel.name = hotel[@"name"];
     newHotel.location = hotel[@"location"];
-    newHotel.stars = [hotel[@"stars"] integerValue];
+    newHotel.rating = [hotel[@"stars"] integerValue];
 
     for (NSDictionary *room in hotel[@"rooms"]) {
       Room *newRoom = [CoreData.repo buildInstance:[Room class]];

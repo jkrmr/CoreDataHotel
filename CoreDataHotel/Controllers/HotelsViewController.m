@@ -18,22 +18,20 @@
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor whiteColor]];
 
-  [self setTableView:[[UITableView alloc] init]];
-  [self.tableView registerClass:[UITableViewCell class]
-         forCellReuseIdentifier:@"cell"];
-  [self.tableView setDataSource:self];
-  [self.tableView setDelegate:self];
+  self.tableView = [UIBuilder buildTableView];
+  self.tableView.dataSource = self;
+  self.tableView.delegate = self;
   [self.view addSubview:self.tableView];
-  [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSLayoutConstraint *tvT = [[self.tableView topAnchor]
-      constraintEqualToAnchor:[self.view topAnchor]];
-  NSLayoutConstraint *tvB = [[self.tableView bottomAnchor]
-      constraintEqualToAnchor:[self.view bottomAnchor]];
-  NSLayoutConstraint *tvL = [[self.tableView leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *tvR = [[self.tableView trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  [NSLayoutConstraint activateConstraints:@[ tvT, tvB, tvL, tvR ]];
+
+  [NSLayoutConstraint activateConstraints:@[
+    [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]],
+    [[self.tableView bottomAnchor]
+        constraintEqualToAnchor:[self.view bottomAnchor]],
+    [[self.tableView leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.tableView trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]]
+  ]];
 }
 
 // MARK: Core Data fetching
@@ -45,9 +43,8 @@
 }
 
 - (NSArray *)hotelsFromCoreData {
-  NSFetchRequest *request =
-      [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
-  NSArray *hotels = [CoreData.repo resultsForQuery:request];
+  NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
+  NSArray *hotels = [CoreData.repo resultsForQuery:req];
   return [hotels sortedArrayUsingSelector:@selector(compare:)];
 }
 
@@ -59,12 +56,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  UITableViewCell *cell =
-      [self.tableView dequeueReusableCellWithIdentifier:@"cell"
-                                           forIndexPath:indexPath];
-
-  Hotel *selectedHotel = self.hotels[indexPath.row];
-  cell.textLabel.text = selectedHotel.name;
+  UITableViewCell *cell;
+  Hotel *selectedHotel;
+  cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"
+                                              forIndexPath:indexPath];
+  selectedHotel = self.hotels[indexPath.row];
+  cell.textLabel.text = selectedHotel.summary;
   return cell;
 }
 
@@ -74,9 +71,10 @@
   [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
   RoomsViewController *roomsVC = [[RoomsViewController alloc] init];
   Hotel *selectedHotel = self.hotels[indexPath.row];
+  NSArray *hotelRooms = [selectedHotel.rooms allObjects];
+
   roomsVC.hotel = selectedHotel;
-  roomsVC.rooms = [[selectedHotel.rooms allObjects]
-      sortedArrayUsingSelector:@selector(compare:)];
+  roomsVC.rooms = [hotelRooms sortedArrayUsingSelector:@selector(compare:)];
   [self.navigationController pushViewController:roomsVC animated:YES];
 }
 @end

@@ -12,6 +12,7 @@
 #import "Room+CoreDataProperties.h"
 #import "Room+Summary.h"
 #import "RoomDetailViewController.h"
+#import "UIBuilder.h"
 #import <UIKit/UIKit.h>
 
 @interface RoomsViewController

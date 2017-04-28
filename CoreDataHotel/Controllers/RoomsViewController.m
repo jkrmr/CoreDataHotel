@@ -17,22 +17,20 @@
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor whiteColor]];
 
-  [self setTableView:[[UITableView alloc] init]];
-  [self.tableView setDataSource:self];
-  [self.tableView setDelegate:self];
-  [self.tableView registerClass:[UITableViewCell class]
-         forCellReuseIdentifier:@"cell"];
+  self.tableView = [UIBuilder buildTableView];
+  self.tableView.delegate = self;
+  self.tableView.dataSource = self;
   [self.view addSubview:self.tableView];
-  [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSLayoutConstraint *tvT = [[self.tableView topAnchor]
-      constraintEqualToAnchor:[self.view topAnchor]];
-  NSLayoutConstraint *tvB = [[self.tableView bottomAnchor]
-      constraintEqualToAnchor:[self.view bottomAnchor]];
-  NSLayoutConstraint *tvL = [[self.tableView leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *tvR = [[self.tableView trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  [NSLayoutConstraint activateConstraints:@[ tvT, tvB, tvL, tvR ]];
+
+  [NSLayoutConstraint activateConstraints:@[
+    [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]],
+    [[self.tableView bottomAnchor]
+        constraintEqualToAnchor:[self.view bottomAnchor]],
+    [[self.tableView leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.tableView trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]],
+  ]];
 }
 
 // MARK: TableViewDataSource Methods
@@ -44,13 +42,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell;
-  Room *selectedRoom;
-
   cell = [tableView dequeueReusableCellWithIdentifier:@"cell"
                                          forIndexPath:indexPath];
+  Room *selectedRoom;
   selectedRoom = self.rooms[indexPath.row];
 
-  NSLog(@"%@", selectedRoom);
   cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedRoom.summary];
   return cell;
 }

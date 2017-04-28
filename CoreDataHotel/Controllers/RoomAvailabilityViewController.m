@@ -18,27 +18,20 @@
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor whiteColor]];
 
-  [self
-      setTableView:[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
-                                                style:UITableViewStyleGrouped]];
-  [self.tableView
-      setSeparatorStyle:UITableViewCellSeparatorStyleSingleLineEtched];
-  [self.tableView registerClass:[UITableViewCell class]
-         forCellReuseIdentifier:@"cell"];
-  [self.tableView setDelegate:self];
-  [self.tableView setDataSource:self];
+  self.tableView = [UIBuilder buildTableView];
+  self.tableView.delegate = self;
+  self.tableView.dataSource = self;
   [self.view addSubview:self.tableView];
-  [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSLayoutConstraint *tvT =
-      [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]
-                                                 constant:25];
-  NSLayoutConstraint *tvB = [[self.tableView bottomAnchor]
-      constraintEqualToAnchor:[self.view bottomAnchor]];
-  NSLayoutConstraint *tvL = [[self.tableView leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *tvR = [[self.tableView trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  [NSLayoutConstraint activateConstraints:@[ tvT, tvB, tvL, tvR ]];
+
+  [NSLayoutConstraint activateConstraints:@[
+    [[self.tableView topAnchor] constraintEqualToAnchor:[self.view topAnchor]],
+    [[self.tableView bottomAnchor]
+        constraintEqualToAnchor:[self.view bottomAnchor]],
+    [[self.tableView leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.tableView trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]]
+  ]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,9 +40,12 @@
 }
 
 - (NSFetchedResultsController *)availableRooms {
+  NSDate *startDate, *endDate;
+  startDate = self.requestedStartDate;
+  endDate = self.requestedEndDate;
+
   NSFetchRequest *request;
-  request = [RoomQuery availableOnDaysFrom:self.requestedStartDate
-                                        to:self.requestedEndDate];
+  request = [RoomQuery availableOnDaysFrom:startDate to:endDate];
 
   NSFetchedResultsController *fetchedRooms;
   fetchedRooms = [CoreData.repo resultsControllerFor:request
@@ -64,11 +60,6 @@
   id<NSFetchedResultsSectionInfo> sectionInfo;
   sectionInfo = [self.rooms.sections objectAtIndex:section];
   return sectionInfo.name;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView
-    heightForHeaderInSection:(NSInteger)section {
-  return 10;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

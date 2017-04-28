@@ -18,11 +18,30 @@
   [[[XCUIApplication alloc] init] launch];
 }
 
-- (void)tearDown {
-  [super tearDown];
-}
+- (void)testUserCanBookAReservation {
+  XCUIApplication *app = [[XCUIApplication alloc] init];
+  [app.buttons[@"Book a room"] tap];
+  [app.buttons[@"Check availability"] tap];
 
-- (void)testExample {
+  XCUIElementQuery *tablesQuery = app.tables;
+  [[tablesQuery.cells elementBoundByIndex:1] tap];
+
+  XCUIElement *firstNameTextField = app.textFields[@"First name"];
+  XCUIElement *lastNameTextField = app.textFields[@"Last name"];
+  XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
+
+  [firstNameTextField tap];
+  [firstNameTextField typeText:@"Chesty"];
+  [lastNameTextField tap];
+  [lastNameTextField typeText:@"Puller"];
+  [emailAddressTextField tap];
+  [emailAddressTextField typeText:@"cpuller@usmc.mil"];
+
+  [app.buttons[@"Confirm"] tap];
+
+  [app.buttons[@"See all bookings"] tap];
+
+  XCTAssertTrue([[tablesQuery.cells elementBoundByIndex:0] exists]);
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "CoreData.h"
 #import "Hotel+CoreDataClass.h"
 #import "Hotel+CoreDataProperties.h"
+#import "Hotel+Summary.h"
 #import "Room+ComparisonUtils.h"
 #import "RoomsViewController.h"
 #import <UIKit/UIKit.h>
