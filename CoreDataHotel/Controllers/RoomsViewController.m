@@ -24,15 +24,16 @@
          forCellReuseIdentifier:@"cell"];
   [self.view addSubview:self.tableView];
   [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-  NSLayoutConstraint *tvT = [[self.tableView topAnchor]
-      constraintEqualToAnchor:[self.view topAnchor]];
-  NSLayoutConstraint *tvB = [[self.tableView bottomAnchor]
-      constraintEqualToAnchor:[self.view bottomAnchor]];
-  NSLayoutConstraint *tvL = [[self.tableView leadingAnchor]
-      constraintEqualToAnchor:[self.view leadingAnchor]];
-  NSLayoutConstraint *tvR = [[self.tableView trailingAnchor]
-      constraintEqualToAnchor:[self.view trailingAnchor]];
-  [NSLayoutConstraint activateConstraints:@[ tvT, tvB, tvL, tvR ]];
+  [NSLayoutConstraint activateConstraints:@[
+    [[self.tableView topAnchor]
+        constraintEqualToAnchor:[self.view topAnchor]],
+    [[self.tableView bottomAnchor]
+        constraintEqualToAnchor:[self.view bottomAnchor]],
+    [[self.tableView leadingAnchor]
+        constraintEqualToAnchor:[self.view leadingAnchor]],
+    [[self.tableView trailingAnchor]
+        constraintEqualToAnchor:[self.view trailingAnchor]],
+  ]];
 }
 
 // MARK: TableViewDataSource Methods
@@ -44,10 +45,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell;
-  Room *selectedRoom;
-
   cell = [tableView dequeueReusableCellWithIdentifier:@"cell"
                                          forIndexPath:indexPath];
+  Room *selectedRoom;
   selectedRoom = self.rooms[indexPath.row];
 
   cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedRoom.summary];
