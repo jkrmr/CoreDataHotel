@@ -37,7 +37,12 @@
   [emailAddressTextField tap];
   [emailAddressTextField typeText:@"cpuller@usmc.mil"];
 
-  [app.buttons[@"Confirm"] tap];
+  if ([app.buttons[@"Confirm"] isHittable]) {
+    [app.buttons[@"Confirm"] tap];
+  } else {
+    [app.keyboards.buttons[@"Done"] tap];
+    [app.buttons[@"Confirm"] tap];
+  }
 
   [app.buttons[@"See all bookings"] tap];
 
